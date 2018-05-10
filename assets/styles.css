@@ -6,13 +6,12 @@
 html,
 .root {
   font-size: 18px;
-  line-height: 23px;
 }
 
 body {
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 1rem;
-  line-height: 1.2777778rem;
+  line-height: normal;
   margin: auto;
   color: #333;
 }
@@ -119,15 +118,15 @@ sub {
 }
 
 center {
-  max-width: 992px;
-  padding: 0 32px;
+  max-width: 1200px;
+  padding: 0 50px;
   margin: 0 auto;
   text-align: initial;
 }
 
 section {
   position: relative;
-  padding: 32px 0;
+  padding: 50px 0;
   margin-bottom: 0px;
   display: block;
 }
@@ -151,8 +150,9 @@ section {
 
 span.and {
   transform: scale(1.6);
+  font-family: Arial;
   opacity: .24;
-  margin: 0 calc(-76px / 2.4);
+  margin: 0 calc(-76px / 2.6);
   display: inline-block;
   z-index: -1;
 }
@@ -177,4 +177,12 @@ ul.links {
 ul.links>li {
   margin-left: 16px;
   display: inline-block;
+}
+
+section#about {
+  background-color: rgba(0,0,0,0.08);
+}
+
+#header h1 {
+  font-size: 4rem;
 }
