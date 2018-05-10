@@ -117,3 +117,64 @@ sup {
 sub {
   bottom: -0.25em;
 }
+
+center {
+  max-width: 992px;
+  padding: 0 32px;
+  margin: 0 auto;
+  text-align: initial;
+}
+
+section {
+  position: relative;
+  padding: 32px 0;
+  margin-bottom: 0px;
+  display: block;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 300px;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-vertical-center {
+  margin: auto 0;
+}
+
+span.and {
+  transform: scale(1.6);
+  opacity: .24;
+  margin: 0 calc(-76px / 2.4);
+  display: inline-block;
+  z-index: -1;
+}
+
+.signature {
+  background-image: url(IagoBruno.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 32px;
+  height: 40px;
+  width: 136px;
+}
+
+ul.links {
+  display: block;
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+ul.links>li {
+  margin-left: 16px;
+  display: inline-block;
+}
