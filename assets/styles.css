@@ -132,6 +132,7 @@ section {
 }
 
 .header-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -141,11 +142,13 @@ section {
 .header-top {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
 }
 
 .header-vertical-center {
+  position: relative;
   margin: auto 0;
+  top: -10px;
 }
 
 span.and {
@@ -162,16 +165,16 @@ span.and {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  margin-right: 32px;
-  height: 40px;
-  width: 136px;
+  margin-right: 24px;
+  height: 46px;
+  width: 156px;
 }
 
 ul.links {
   display: block;
   list-style: none;
   padding: 0px;
-  margin: 0px;
+  margin: 4px 0 0;
 }
 
 ul.links>li {
@@ -180,9 +183,14 @@ ul.links>li {
 }
 
 section#about {
-  background-color: rgba(0,0,0,0.08);
+  background-color: rgba(0, 0, 0, 0.08);
 }
 
-#header h1 {
-  font-size: 4rem;
+h1.header-title {
+  font-size: 3.7rem;
+  margin-bottom: 12px;
+}
+
+.header-description {
+  opacity: .7;
 }
