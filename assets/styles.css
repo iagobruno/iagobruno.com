@@ -160,6 +160,20 @@ span.and {
   z-index: -1;
 }
 
+.header-photo-container {
+  position: absolute;
+  right: -30px;
+  bottom: -50px;
+  z-index: 10;
+}
+
+.header-photo {
+  position: relative;
+  height: 380px;
+  display: block;
+  z-index: 0;
+}
+
 .signature {
   background-image: url(IagoBruno.png);
   background-position: center;
