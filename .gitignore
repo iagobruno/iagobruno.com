@@ -57,3 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
+assets/language_redirect.txt
+prototype.png
+assets/tecbolt.xcf
