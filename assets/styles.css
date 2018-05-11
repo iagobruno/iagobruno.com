@@ -3,16 +3,12 @@
   box-sizing: border-box;
 }
 
-html,
-.root {
-  font-size: 18px;
-}
-
 body {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1rem;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 18px;
   line-height: normal;
-  margin: auto;
+  margin: 0px;
+  overflow-y: scroll;
   color: #333;
 }
 
@@ -25,96 +21,8 @@ a:hover {
   text-decoration: underline;
 }
 
-h1,
-.h1 {
-  font-size: 4.2222222rem;
-  line-height: 5.1111111rem;
-  margin-top: 1.2777778rem;
-  margin-bottom: 2.5555556rem;
-}
-
-h2,
-.h2 {
-  font-size: 2.6111111rem;
-  line-height: 3.8333333rem;
-  margin-top: 1.2777778rem;
-  margin-bottom: 1.2777778rem;
-}
-
-h3,
-.h3 {
-  font-size: 1.6111111rem;
-  line-height: 2.5555556rem;
-  margin-top: 1.2777778rem;
-  margin-bottom: 0rem;
-}
-
-h4,
-.h4 {
-  font-size: 1rem;
-  line-height: 1.2777778rem;
-  margin-top: 1.2777778rem;
-  margin-bottom: 0rem;
-}
-
-h5,
-.h5 {
-  font-size: 1rem;
-  line-height: 1.2777778rem;
-  margin-top: 1.2777778rem;
-  margin-bottom: 0rem;
-}
-
-p,
-ul,
-ol,
-pre,
-table,
-blockquote {
-  margin-top: 0rem;
-  margin-bottom: 1.2777778rem;
-}
-
-ul ul,
-ol ol,
-ul ol,
-ol ul {
-  margin-top: 0rem;
-  margin-bottom: 0rem;
-}
-
-
-/* Let's make sure all's aligned */
-
-hr,
-.hr {
-  border: 1px solid;
-  margin: -1px 0;
-}
-
-a,
-b,
-i,
-strong,
-em,
-small,
-code {
-  line-height: 0;
-}
-
-sub,
-sup {
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sup {
-  top: -0.5em;
-}
-
-sub {
-  bottom: -0.25em;
+p {
+  margin-top: 0;
 }
 
 center {
@@ -148,20 +56,22 @@ section {
 .header-vertical-center {
   position: relative;
   margin: auto 0;
-  top: -10px;
+  top: -6px;
 }
 
 span.and {
   transform: scale(1.6);
   font-family: Arial;
   opacity: .24;
-  margin: 0 calc(-76px / 2.6);
+  margin: 0 calc(-73px / 2.6);
   display: inline-block;
   z-index: -1;
 }
 
 .header-photo-container {
   position: absolute;
+  max-height: 432px;
+  height: 90%;
   right: -30px;
   bottom: -50px;
   z-index: 10;
@@ -169,7 +79,7 @@ span.and {
 
 .header-photo {
   position: relative;
-  height: 380px;
+  height: 100%;
   display: block;
   z-index: 0;
 }
@@ -198,13 +108,15 @@ ul.links>li {
 
 section#about {
   background-color: rgba(0, 0, 0, 0.08);
+  line-height: 1.6;
 }
 
 h1.header-title {
-  font-size: 3.7rem;
-  margin-bottom: 12px;
+  font-size: 64px;
+  margin: 0 0 18px;
 }
 
 .header-description {
   opacity: .7;
+  margin-top: 18px;
 }

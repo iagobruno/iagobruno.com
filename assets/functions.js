@@ -7,5 +7,7 @@ window.onresize = setHeaderHeight = function () {
     maxHeight = 540,
     height = Math.min(Math.max(minHeight, (window.innerHeight - headerPadding)), maxHeight);
 
-  document.getElementsByClassName('header-container')[0].style.height = height + 'px';
+  var Hvalue = (window.innerWidth < 640) ? '' : height + 'px';
+
+  document.getElementsByClassName('header-container')[0].style.height = Hvalue;
 };
