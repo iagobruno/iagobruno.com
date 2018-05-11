@@ -111,6 +111,10 @@ section#about {
   line-height: 1.6;
 }
 
+section#about p:last-child {
+  margin-bottom: 0;
+}
+
 h1.header-title {
   font-size: 64px;
   margin: 0 0 18px;
@@ -119,4 +123,119 @@ h1.header-title {
 .header-description {
   opacity: .7;
   margin-top: 18px;
+}
+
+h2.section-title {
+  font-size: 28px;
+  font-weight: 400;
+  margin: -6px 0 20px;
+}
+
+ul.list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.list>li {
+  display: inline-block;
+}
+
+.list.cols-3>li {
+  width: calc((100% / 3) - 16px);
+}
+
+.list a {
+  display: block;
+  color: #333;
+}
+
+.list a:hover {
+  color: #007aff;
+  text-decoration: none;
+}
+
+img.list-thumb {
+  background-color: rgba(0, 0, 0, 0.06);
+  border-radius: 5px;
+  margin-bottom: 16px;
+  height: 180px;
+  width: 100%;
+}
+
+.list-title {
+  font-size: 20px;
+}
+
+.list-title span {
+  font-size: 16px;
+  display: inline-block;
+  margin-left: 6px;
+  opacity: .7;
+}
+
+section#skills>center {
+  text-align: center;
+}
+
+section#skills {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 18px;
+}
+
+section#skills h2.section-title {
+  font-size: 34px;
+  margin: 0px;
+}
+
+.center-middle {
+  position: relative;
+  margin: 56px auto 80px;
+  width: 188px;
+}
+
+.skill-item {
+  position: absolute;
+  opacity: 0.96;
+  top: 0px;
+  left: 0px;
+}
+
+section#footer {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+section#footer center {
+  text-align: center;
+}
+
+h1.footer-title {
+  font-size: 40px;
+  margin: -12px 0 16px;
+}
+
+#footer ul.links>li:first-child {
+  margin-left: 0;
+}
+
+a.code-note {
+  display: block;
+  opacity: .6;
+  text-decoration: none !important;
+  padding: 0 4px 4px;
+  margin-top: 46px;
+  font-size: 16px;
+  color: #333;
+}
+
+a.code-note>* {
+  vertical-align: middle;
+  display: inline-block;
+}
+
+a.code-note>svg {
+  margin-top: 2px;
 }
