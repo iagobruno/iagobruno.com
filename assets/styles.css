@@ -177,8 +177,8 @@ ul.list {
 img.list-thumb {
   background-color: rgba(0, 0, 0, 0.06);
   border-radius: 5px;
-  margin-bottom: 16px;
-  height: 180px;
+  margin-bottom: 8px;
+  height: 194px;
   width: 100%;
 }
 
@@ -236,13 +236,13 @@ h1.footer-title {
 #footer ul.links>li:first-child {
   margin-left: 0;
 }
-
+#footer ul.links {
+  margin-bottom: 40px;
+}
 a.code-note {
-  display: block;
   opacity: .6;
   text-decoration: none !important;
   padding: 0 4px 4px;
-  margin-top: 46px;
   font-size: 16px;
   color: #333;
 }
@@ -255,4 +255,5 @@ a.code-note>* {
 a.code-note>svg {
   margin-top: 2px;
 }
+
 
