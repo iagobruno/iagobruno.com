@@ -287,4 +287,139 @@ a.code-note>svg {
 }
 
 
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
 
+@media (min-width: 640px) and (max-width: 767px) {
+  .header-vertical-center {
+    max-width: 320px;
+  }
+  h1.header-title {
+    font-size: 54px;
+  }
+  .header-photo-container {
+    height: 86%;
+  }
+}
+
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (max-width: 640px) {
+  body {
+    font-size: 16px;
+  }
+  section {
+    padding: 30px 0;
+  }
+  center {
+    padding: 0 24px;
+  }
+  .header-vertical-center {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .header-photo-container {
+    position: relative;
+    max-height: inherit;
+    height: inherit;
+    right: 0px;
+    bottom: 0;
+  }
+  img.header-photo {
+    max-width: 260px;
+    width: 84%;
+    height: inherit;
+    margin: 0 auto;
+  }
+  section#header {
+    padding-bottom: 0px;
+  }
+  section#about {
+    line-height: 1.46;
+  }
+  h1.header-title {
+    font-size: 26px;
+    white-space: nowrap;
+    line-height: normal;
+    margin-bottom: 12px;
+  }
+  section#header ul.links {
+    display: none;
+  }
+  .signature {
+    margin: 0 auto;
+    height: 40px;
+    width: 136px;
+  }
+  a.header-call-to-action {
+    display: none;
+  }
+  .header-container {
+    height: inherit !important;
+  }
+  p.header-description {
+    margin-top: 12px;
+  }
+  span.and {
+    margin: 0 calc(-30px / 2.6);
+  }
+  section#about center {
+    flex-direction: column;
+  }
+  .code-sample-container {
+    position: relative;
+    min-width: 100%;
+    margin: -50px 0 24px;
+    z-index: 12;
+  }
+  ul.list {
+    flex-direction: column;
+  }
+  .list>li {
+    width: 100% !important;
+  }
+  img.list-thumb {
+    height: inherit;
+  }
+  section#works {
+    padding-bottom: 6px;
+  }
+  section#works h2.section-title {
+    margin-bottom: 16px;
+  }
+  section#footer ul.links>li {
+    margin-bottom: 6px;
+  }
+  h1.footer-title {
+    margin-bottom: 6px;
+  }
+  #footer ul.links {
+    margin-bottom: 15px;
+  }
+  a.code-note {
+    font-size: 15px;
+  }
+  section#about p:first-child {
+    margin-bottom: 6px;
+  }
+  .list-title {
+    font-size: 18px;
+  }
+  .skill-item {
+    padding: 6px 0;
+    width: 100%;
+  }
+  .skill-table {
+    flex-direction: column;
+  }
+  .skill-label {
+    padding: 4px 12px 5px;
+    font-size: 15px;
+  }
+}
