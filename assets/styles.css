@@ -226,7 +226,7 @@ section#skills h2.section-title {
 }
 
 .skill-label {
-  background-color: #aaa;
+  background-color: #9e9e9e;
   border-radius: 20px;
   padding: 4px 16px 5px;
   margin-right: 16px;
@@ -243,7 +243,7 @@ section#skills h2.section-title {
 }
 
 .skill-level-bar span {
-  background-color: #aaa;
+  background-color: #9e9e9e;
   display: block;
   height: 100%;
 }
