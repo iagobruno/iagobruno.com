@@ -197,6 +197,7 @@ ul.list {
   transition: transform 180ms ease;
   position: absolute;
   content: '';
+  z-index: -1;
   top: 0px;
   left: 0px;
   bottom: 0px;
