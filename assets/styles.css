@@ -184,25 +184,28 @@ ul.list {
   color: #333;
 }
 
-.list a:focus, .list a:hover {
+.list a:focus,
+.list a:hover {
   color: #007aff;
   text-decoration: none;
 }
 
 .list a::after {
-    background: transparent;
-    border-radius: 5px;
-    transform: scale(1);
-    transition: transform 180ms ease;
-    position: absolute;
-    content: '';
-    top: 0px;
-    left: 0px;
-    bottom: 0px;
-    right: 0px;
+  background: transparent;
+  border-radius: 5px;
+  transform: scale(1);
+  transition: transform 180ms ease;
+  position: absolute;
+  content: '';
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
 }
-.list a:focus::after, .list a:hover::after {
-  background: rgba(0,0,0,.08);
+
+.list a:focus::after,
+.list a:hover::after {
+  background: rgba(0, 0, 0, .06);
   transform: scale(1.07);
 }
 
