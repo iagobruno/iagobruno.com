@@ -14,3 +14,4 @@ Meu portifólio para apresentação do meu trabalho, habilidades e projetos real
 - [x] Fazer uma versão compacta para celular.
 - [ ] Automatizar alguns processos com o NodeJS (usar um gerador de templates).
 - [ ] Habilitar a internacionalização da página (caso necessário futuramente).
+- [ ] Usar o [Hexo](https://hexo.io/) caso eu queira fazer um blog pessoal.
