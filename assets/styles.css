@@ -150,6 +150,10 @@ h1.header-title {
   margin: 0 0 18px;
 }
 
+#works {
+  padding-bottom: 26px;
+}
+
 .header-description {
   opacity: .7;
   margin-top: 18px;
@@ -171,6 +175,7 @@ ul.list {
 }
 
 .list>li {
+  transition: transform 800ms cubic-bezier(0.04, 0.64, 0.21, 0.99);
   display: inline-block;
   margin-bottom: 24px;
 }
@@ -277,6 +282,7 @@ img.list-thumb {
 
 .skill-level-bar span {
   background-color: #9e9e9e;
+  transition: width 600ms cubic-bezier(0.17, 0.96, 0.45, 0.99);
   display: block;
   height: 100%;
 }
@@ -321,10 +327,20 @@ a.code-note>svg {
 
 
 /* 
-  ##Device = Low Resolution Tablets, Mobiles (Landscape)
-  ##Screen = B/w 481px to 767px
+  ##Device = Desktops
+  ##Screen = 767px to higher resolution desktops
 */
+@media (min-width: 767px) {
+  #works {
+    padding-bottom: 30px;
+  }
+}
 
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 640px to 767px
+*/
 @media (min-width: 640px) and (max-width: 767px) {
   .header-vertical-center {
     max-width: 320px;
@@ -342,7 +358,6 @@ a.code-note>svg {
   ##Device = Most of the Smartphones Mobiles (Portrait)
   ##Screen = B/w 320px to 479px
 */
-
 @media (max-width: 640px) {
   body {
     font-size: 18px;
