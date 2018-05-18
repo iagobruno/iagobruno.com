@@ -32,7 +32,9 @@ center {
   text-align: initial;
 }
 
-section {
+header,
+section,
+footer {
   position: relative;
   padding: 50px 0;
   margin-bottom: 0px;
@@ -105,12 +107,12 @@ ul.links>li {
   display: inline-block;
 }
 
-section#about {
+#about {
   background-color: rgba(0, 0, 0, 0.08);
   line-height: 1.6;
 }
 
-section#about p:last-child {
+#about p:last-child {
   margin-bottom: 0;
 }
 
@@ -138,7 +140,7 @@ img.code-sample.hide {
   opacity: 0;
 }
 
-section#about center {
+#about center {
   display: flex;
   align-items: center;
 }
@@ -229,11 +231,11 @@ img.list-thumb {
   opacity: .7;
 }
 
-section#skills {
+#skills {
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-section#skills h2.section-title {
+#skills h2.section-title {
   margin-bottom: 6px;
 }
 
@@ -275,11 +277,11 @@ section#skills h2.section-title {
   height: 100%;
 }
 
-section#footer {
+#footer {
   background-color: rgba(0, 0, 0, 0.08);
 }
 
-section#footer center {
+#footer center {
   text-align: center;
 }
 
@@ -341,7 +343,9 @@ a.code-note>svg {
   body {
     font-size: 18px;
   }
-  section {
+  header,
+  section,
+  footer {
     padding: 30px 0;
   }
   center {
@@ -364,10 +368,10 @@ a.code-note>svg {
     height: inherit;
     margin: 0 auto;
   }
-  section#header {
+  #header {
     padding-bottom: 0px;
   }
-  section#about {
+  #about {
     line-height: 1.46;
   }
   h1.header-title {
@@ -376,7 +380,7 @@ a.code-note>svg {
     line-height: normal;
     margin-bottom: 12px;
   }
-  section#header ul.links {
+  #header ul.links {
     display: none;
   }
   .signature {
@@ -394,11 +398,11 @@ a.code-note>svg {
     margin-top: 12px;
   }
   span.and {
-    margin: -9px calc(-34px / 2);
+    margin: -9px calc(-34px / 1.8);
     width: 34px;
     height: 38px;
   }
-  section#about center {
+  #about center {
     flex-direction: column;
   }
   .code-sample-container {
@@ -416,13 +420,13 @@ a.code-note>svg {
   img.list-thumb {
     height: inherit;
   }
-  section#works {
+  #works {
     padding-bottom: 6px;
   }
-  section#works h2.section-title {
+  #works h2.section-title {
     margin-bottom: 16px;
   }
-  section#footer ul.links>li {
+  #footer ul.links>li {
     margin-bottom: 6px;
   }
   h1.footer-title {
@@ -434,7 +438,7 @@ a.code-note>svg {
   a.code-note {
     font-size: 15px;
   }
-  section#about p:first-child {
+  #about p:first-child {
     margin-bottom: 6px;
   }
   .skill-item {
