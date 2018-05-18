@@ -83,14 +83,13 @@ window.addEventListener('scroll', function checkSkillsIsVisible() {
   var docViewTop = window.pageYOffset || document.documentElement.scrollTop;
   var docViewBottom = docViewTop + window.innerHeight;
 
-  var skills = document.getElementById('skills'),
-    halfOfHeight = (skills.offsetHeight / 2);
+  var skills = document.getElementById('skills');
 
   var elemTop = skills.offsetTop;
-  var elemBottom = elemTop + halfOfHeight;
+  var elemBottom = elemTop + skills.offsetHeight;
 
   // Checar se o elemento está parcialmente visível na tela
-  if ((elemBottom <= docViewBottom) && ((elemTop + halfOfHeight) >= docViewTop)) {
+  if ((docViewBottom <= elemBottom + 300) && (docViewTop >= elemTop - 300)) {
     showSkillsLevels();
     window.removeEventListener('scroll', checkSkillsIsVisible);
   }
@@ -129,17 +128,16 @@ window.addEventListener('scroll', function checkWorksIsVisible() {
   var docViewTop = window.pageYOffset || document.documentElement.scrollTop;
   var docViewBottom = docViewTop + window.innerHeight;
 
-  var workBlock = document.getElementById('works'),
-    halfOfHeight = workBlock.offsetHeight / 2;
+  var workBlock = document.getElementById('works');
 
   var elemTop = workBlock.offsetTop;
   var elemBottom = elemTop + workBlock.offsetHeight;
 
   var check = (isMobile)
   // No celular, checar se o scroll está mostrando parcialmente ou todo o elemento
-  ? (docViewTop >= elemTop + halfOfHeight)
+  ? (docViewTop >= elemTop - 360)
   // No pc, checar se o element está parcialmente visível
-  : (elemBottom - halfOfHeight <= docViewBottom);
+  : (elemBottom - 240 <= docViewBottom);
 
   if (check) {
     showWorks();
@@ -148,8 +146,22 @@ window.addEventListener('scroll', function checkWorksIsVisible() {
   };
 });
 
+function bindEvents() {
+
+  document.querySelector('a[href="#work-tecbolt"]')
+  .addEventListener('click', function(event) {
+    event.preventDefault();
+
+    // Mover o scroll até a sessão #works
+    location.hash = '#works';
+
+    // Dar foco ao link do tecbolt
+    document.getElementById('work-tecbolt').focus();
+  });
+}
 
 document.addEventListener("DOMContentLoaded", function() {
   hideSkillsLevels();
   hideWorks();
+  bindEvents();
 });

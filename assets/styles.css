@@ -228,7 +228,7 @@ img.list-thumb {
   background-color: rgba(0, 0, 0, 0.06);
   border-radius: 5px;
   margin-bottom: 8px;
-  height: 194px;
+  height: inherit;
   width: 100%;
 }
 
@@ -464,9 +464,6 @@ a.code-note>svg {
   }
   .list>li {
     width: 100%;
-  }
-  img.list-thumb {
-    height: inherit;
   }
   #works {
     padding-bottom: 6px;
