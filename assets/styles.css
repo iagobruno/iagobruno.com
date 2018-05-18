@@ -89,6 +89,11 @@ span.and {
   z-index: 0;
 }
 
+.header-photo-container.notebook {
+  height: 80%;
+  right: -100px;
+}
+
 .signature {
   margin-right: 24px;
   display: block;
@@ -331,6 +336,9 @@ a.code-note>svg {
   ##Screen = 767px to higher resolution desktops
 */
 @media (min-width: 767px) {
+  body {
+    overflow-x: hidden;
+  }
   #works {
     padding-bottom: 30px;
   }
@@ -342,6 +350,9 @@ a.code-note>svg {
   ##Screen = B/w 640px to 767px
 */
 @media (min-width: 640px) and (max-width: 767px) {
+  body {
+    overflow-x: hidden;
+  }
   .header-vertical-center {
     max-width: 320px;
   }
@@ -377,8 +388,8 @@ a.code-note>svg {
   .header-photo-container {
     position: relative;
     max-height: inherit;
-    height: inherit;
-    right: 0px;
+    height: inherit !important;
+    right: 0px !important;
     bottom: 0;
   }
   img.header-photo {
@@ -386,6 +397,10 @@ a.code-note>svg {
     width: 84%;
     height: inherit;
     margin: 0 auto;
+  }
+  .header-photo-container.notebook img.header-photo {
+    width: 100%;
+    max-width: 100%;
   }
   #header {
     padding-bottom: 0px;
