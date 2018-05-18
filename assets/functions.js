@@ -164,7 +164,7 @@ function linkClick(event) {
   // Enviar evento para o Google Analytics
   gtag('event', 'click', {
     'event_category': 'links',
-    'event_label': 'Clique em "' + url + '"'
+    'event_label': 'Cliques em "' + url + '"'
   });
 }
 
