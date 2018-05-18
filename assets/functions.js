@@ -146,10 +146,11 @@ window.addEventListener('scroll', function checkWorksIsVisible() {
   };
 });
 
-function bindEvents() {
-
-  document.querySelector('a[href="#work-tecbolt"]')
-  .addEventListener('click', function(event) {
+function linkClick(event) {
+  let link = this;
+  
+  // Checar se é um link específico da sessão "Sobre"
+  if (link.getAttribute('href') === '#work-tecbolt') {
     event.preventDefault();
 
     // Mover o scroll até a sessão #works
@@ -157,11 +158,20 @@ function bindEvents() {
 
     // Dar foco ao link do tecbolt
     document.getElementById('work-tecbolt').focus();
+  }
+
+  // Enviar evento para o Google Analytics
+  gtag('event', 'click', {
+    'event_category': 'link',
+    'event_label': 'Clique em um link',
+    'value': link.href
   });
 }
 
 document.addEventListener("DOMContentLoaded", function() {
   hideSkillsLevels();
   hideWorks();
-  bindEvents();
+
+  // Delegar um evento global para todos os links da página
+  Delegate(document).on('click', 'a', linkClick);
 });
