@@ -147,10 +147,11 @@ window.addEventListener('scroll', function checkWorksIsVisible() {
 });
 
 function linkClick(event) {
-  let link = this;
+  let link = this,
+    url = link.getAttribute('href');
   
   // Checar se é um link específico da sessão "Sobre"
-  if (link.getAttribute('href') === '#work-tecbolt') {
+  if (url === '#work-tecbolt') {
     event.preventDefault();
 
     // Mover o scroll até a sessão #works
@@ -163,8 +164,7 @@ function linkClick(event) {
   // Enviar evento para o Google Analytics
   gtag('event', 'click', {
     'event_category': 'links',
-    'event_label': 'Clique em um link',
-    'value': link.href
+    'event_label': 'Clique em "' + url + '"'
   });
 }
 
