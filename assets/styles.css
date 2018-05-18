@@ -9,6 +9,7 @@ body {
   line-height: normal;
   margin: 0px;
   overflow-y: scroll;
+  overflow-x: hidden;
   color: #333;
 }
 
@@ -75,6 +76,7 @@ span.and {
 
 .header-photo-container {
   position: absolute;
+  pointer-events: none;
   max-height: 432px;
   height: 90%;
   right: -30px;
@@ -183,10 +185,6 @@ ul.list {
   transition: transform 800ms cubic-bezier(0.04, 0.64, 0.21, 0.99);
   display: inline-block;
   margin-bottom: 24px;
-}
-
-.list.cols-3>li {
-  width: calc((100% / 3) - 16px);
 }
 
 .list a {
@@ -333,23 +331,26 @@ a.code-note>svg {
 
 /* 
   ##Device = Desktops
-  ##Screen = 767px to higher resolution desktops
+  ##Screen = 860px to higher resolution desktops
 */
-@media (min-width: 767px) {
+@media (min-width: 860px) {
   body {
     overflow-x: hidden;
   }
   #works {
     padding-bottom: 30px;
   }
+  .list>li {
+    width: calc((100% / 3) - 16px);
+  }
 }
 
 
 /* 
   ##Device = Low Resolution Tablets, Mobiles (Landscape)
-  ##Screen = B/w 640px to 767px
+  ##Screen = B/w 640px to 859px
 */
-@media (min-width: 640px) and (max-width: 767px) {
+@media (min-width: 640px) and (max-width: 859px) {
   body {
     overflow-x: hidden;
   }
@@ -362,6 +363,19 @@ a.code-note>svg {
   .header-photo-container {
     height: 86%;
   }
+  .code-sample-container {
+    position: relative;
+    min-width: 100%;
+    margin: -70px 0 24px;
+    z-index: 12;
+  }
+  #about center {
+    flex-direction: column;
+    width: 86%;
+  }
+  .list>li {
+    width: calc((100% / 2) - 16px);
+  }
 }
 
 
@@ -369,7 +383,7 @@ a.code-note>svg {
   ##Device = Most of the Smartphones Mobiles (Portrait)
   ##Screen = B/w 320px to 479px
 */
-@media (max-width: 640px) {
+@media (max-width: 639px) {
   body {
     font-size: 18px;
   }
@@ -449,7 +463,7 @@ a.code-note>svg {
     flex-direction: column;
   }
   .list>li {
-    width: 100% !important;
+    width: 100%;
   }
   img.list-thumb {
     height: inherit;
