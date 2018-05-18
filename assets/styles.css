@@ -212,6 +212,10 @@ ul.list {
   transform: scale(1.07);
 }
 
+.list a:focus::after {
+  border: 1px solid #007aff;
+}
+
 img.list-thumb {
   background-color: rgba(0, 0, 0, 0.06);
   border-radius: 5px;
