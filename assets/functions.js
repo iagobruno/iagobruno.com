@@ -162,7 +162,7 @@ function linkClick(event) {
 
   // Enviar evento para o Google Analytics
   gtag('event', 'click', {
-    'event_category': 'link',
+    'event_category': 'links',
     'event_label': 'Clique em um link',
     'value': link.href
   });
