@@ -33,7 +33,7 @@ function nextSlide() {
   }, fadeDuration);
 }
 
-window.onload = function() {
+function initSlides() {
   slides = document.getElementsByClassName('code-sample');
   current_slide = slides[0];
 
@@ -169,6 +169,7 @@ function linkClick(event) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
+  initSlides();
   hideSkillsLevels();
   hideWorks();
 
