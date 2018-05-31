@@ -15,7 +15,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #007aff;
+  color: #0037ff;
 }
 
 a:hover {
@@ -196,7 +196,7 @@ ul.list {
 
 .list a:focus,
 .list a:hover {
-  color: #007aff;
+  color: #0037ff;
   text-decoration: none;
 }
 
@@ -221,7 +221,7 @@ ul.list {
 }
 
 .list a:focus::after {
-  border: 1px solid #007aff;
+  border: 1px solid #0037ff;
 }
 
 img.list-thumb {
