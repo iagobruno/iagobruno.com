@@ -169,6 +169,7 @@ function linkClick(event) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
+  setHeaderHeight();
   initSlides();
   hideSkillsLevels();
   hideWorks();
