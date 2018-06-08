@@ -139,6 +139,49 @@ ScrollReveal.reveal('#works', revealDefault({
 
 var creativeCols = document.querySelectorAll('#creative-process .list > li');
 
+function animeCreativeCols() {
+  let i = 0;
+
+  // Aplicar ou remover uma sombra no elemento
+  function applyShadow(element, method) {    
+    let value = (method === 'remove') ? 'none' : '0 12px 30px rgba(0,0,0,.3)';
+
+    element.style.boxShadow = value;
+  }
+
+
+  // Fazer um loop nos elementos com um delay de diferença entre cada um
+  var timer = setInterval(function() {
+    // Aplicar simmbra no elemento
+    applyShadow( creativeCols[i] );
+
+    // Remover a sombra do elemento após a transição terminar (300 milissegundos)
+    setTimeout( applyShadow.bind( null, creativeCols[i], 'remove' ), 500 );
+
+    // Parar o timer quando chegar no último elemento
+    if (i >= creativeCols.length - 1) clearInterval(timer);
+
+    i++;
+
+  }, 500);
+
+  // Após a nimação, aplicar uma sombra no elemento do meio
+  setTimeout(function () {
+    creativeCols[1].style.transitionDuration = '1200ms';
+    applyShadow( creativeCols[1] );
+
+  }, ((500) * 4));
+}
+
+if (!isMobile) {
+  /* Iniciar uma animação legal quando o elemento #creative-process ficar vsível */
+  creativeCols[1].style.boxShadow = 'none';
+  ScrollReveal.reveal('#creative-process', revealDefault({
+    viewFactor: 0.6,
+    beforeReveal: animeCreativeCols,
+    afterReveal: function (domEl) { domEl.setAttribute('style', '') },
+  }));
+}
 
 
 function linkClick(event) {

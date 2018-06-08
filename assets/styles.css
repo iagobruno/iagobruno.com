@@ -181,9 +181,8 @@ ul.list {
   margin: 0px;
 }
 
-.list>li {
+#works .list>li {
   transition: transform 800ms cubic-bezier(0.04, 0.64, 0.21, 0.99);
-  display: inline-block;
   margin-bottom: 24px;
 }
 
@@ -352,6 +351,7 @@ div.list-icon {
 }
 
 #creative-process .list>li {
+  transition: box-shadow 500ms ease;
   padding: 10px 0;
   margin-bottom: 0;
 }
@@ -391,7 +391,6 @@ div.list-icon {
     padding: 22px 30px;
   }
   #creative-process .list>li:nth-child(2) {
-    background: #FFF;
     box-shadow: 0 12px 30px rgba(0,0,0,.3);
     border-radius: 5px;
     padding: 22px 24px;
@@ -432,6 +431,9 @@ div.list-icon {
   #creative-process .list>li {
     width: calc(100% / 3);
     padding: 0 16px;
+  }
+  #creative-process ul.list.cols-3 {
+    margin: 0 -16px;
   }
 }
 
