@@ -244,7 +244,7 @@ img.list-thumb {
 }
 
 #skills {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding-bottom: 20px;
 }
 
 #skills h2.section-title {
@@ -325,6 +325,43 @@ a.code-note>svg {
   margin-top: 2px;
 }
 
+h1.header-title {
+  margin-left: -3px;
+}
+
+p.list-description {
+  margin-top: 6px;
+  /* margin-bottom: 0; */
+  font-size: 16px;
+  line-height: 1.5;
+  color: #777;
+}
+
+section#creative-process {
+  padding-bottom: 0px;
+}
+
+div.list-icon {
+  background-image: url(images/creative-process-icons-sprite.png);
+  background-repeat: no-repeat;
+  background-size: auto 49px;
+  display: block;
+  margin-bottom: 16px;
+  width: 50px;
+  height: 50px;
+}
+
+#creative-process .list>li {
+  padding: 10px 0;
+  margin-bottom: 0;
+}
+
+#creative-process h2.section-title {
+  text-align: center;
+  margin-bottom: 22px;
+  font-size: 32px;
+}
+
 
 /* 
   ##Device = Desktops
@@ -338,7 +375,26 @@ a.code-note>svg {
     padding-bottom: 30px;
   }
   .list>li {
-    width: calc((100% / 3) - 16px);
+    width: calc(100% / 3);
+    padding: 0 16px;
+  }
+  #works ul.list.cols-3 {
+    margin: 0 -16px;
+  }
+  section#creative-process {
+    padding-bottom: 20px;
+  }
+  #creative-process ul.list.cols-3 {
+    margin: 0 -30px;
+  }
+  #creative-process .list>li {
+    padding: 22px 30px;
+  }
+  #creative-process .list>li:nth-child(2) {
+    background: #FFF;
+    box-shadow: 0 12px 30px rgba(0,0,0,.3);
+    border-radius: 5px;
+    padding: 22px 24px;
   }
 }
 
@@ -372,6 +428,10 @@ a.code-note>svg {
   }
   .list>li {
     width: calc((100% / 2) - 16px);
+  }
+  #creative-process .list>li {
+    width: calc(100% / 3);
+    padding: 0 16px;
   }
 }
 
@@ -492,5 +552,10 @@ a.code-note>svg {
   }
   .skill-label {
     padding: 4px 12px 5px;
+  }
+  #creative-process h2.section-title {
+    text-align: start;
+    margin-bottom: 8px;
+    font-size: 28px;
   }
 }
