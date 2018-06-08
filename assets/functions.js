@@ -1,4 +1,18 @@
-var isMobile = window.innerWidth < 640;
+var isMobile = window.innerWidth < 859;
+
+window.ScrollReveal = ScrollReveal();
+
+var revealDefault = function (obj) {
+  return Object.assign({
+    useDelay: 'once',
+    viewFactor: 0.2,
+    duration: 0,
+    distance: '0px',
+    opacity: 1,
+    scale: 1
+  }, obj);
+};
+
 
 // Mudar a altura do cabeçalho ao carregar a página e quando a janela for redimensionada.
 window.onresize = setHeaderHeight = function() {
@@ -78,22 +92,14 @@ function showSkillsLevels() {
   }, 40);
 }
 
-window.addEventListener('scroll', function checkSkillsIsVisible() {
+/* Mostrar os níveis das habilidades quando o elemento #skills ficar visível */
+ScrollReveal.reveal('#skills', revealDefault({
+  viewFactor: 0.6,
+  beforeReveal: showSkillsLevels,
+  afterReveal: function (domEl) { domEl.setAttribute('style', '') },
+}));
 
-  var docViewTop = window.pageYOffset || document.documentElement.scrollTop;
-  var docViewBottom = docViewTop + window.innerHeight;
 
-  var skills = document.getElementById('skills');
-
-  var elemTop = skills.offsetTop;
-  var elemBottom = elemTop + skills.offsetHeight;
-
-  // Checar se o elemento está parcialmente visível na tela
-  if ((docViewBottom <= elemBottom + 300) && (docViewTop >= elemTop - 300)) {
-    showSkillsLevels();
-    window.removeEventListener('scroll', checkSkillsIsVisible);
-  }
-});
 
 
 /* Animar os itens na sessão #work */
@@ -106,7 +112,7 @@ function hideWorks() {
 
 function showWorks() {
   var works = document.querySelectorAll('#works .list > li');
-  var i = 0;
+  let i = 0;
 
   // Fazer um loop nos elementos com um delay de diferença entre cada um
   var timer = setInterval(function() {
@@ -122,29 +128,18 @@ function showWorks() {
   }, 100);
 }
 
-// Checar se a sessão #works está visível
-window.addEventListener('scroll', function checkWorksIsVisible() {
+/* Mostrar a lista de trabalhos quando o elemento #works ficar visível */
+ScrollReveal.reveal('#works', revealDefault({
+  viewFactor: 0.4,
+  beforeReveal: showWorks,
+  afterReveal: function (domEl) { domEl.setAttribute('style', '') },
+}));
 
-  var docViewTop = window.pageYOffset || document.documentElement.scrollTop;
-  var docViewBottom = docViewTop + window.innerHeight;
 
-  var workBlock = document.getElementById('works');
 
-  var elemTop = workBlock.offsetTop;
-  var elemBottom = elemTop + workBlock.offsetHeight;
+var creativeCols = document.querySelectorAll('#creative-process .list > li');
 
-  var check = (isMobile)
-  // No celular, checar se o scroll está mostrando parcialmente ou todo o elemento
-  ? (docViewTop >= elemTop - 360)
-  // No pc, checar se o element está parcialmente visível
-  : (elemBottom - 240 <= docViewBottom);
 
-  if (check) {
-    showWorks();
-    
-    window.removeEventListener('scroll', checkWorksIsVisible);
-  };
-});
 
 function linkClick(event) {
   let link = this,
