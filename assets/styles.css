@@ -290,6 +290,18 @@ img.list-thumb {
   height: 100%;
 }
 
+.other-skills > .skill-label {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  opacity: 1;
+}
+
+.other-skills {
+  padding-top: 8px;
+  width: 100%;
+}
+
 #footer {
   background-color: rgba(0, 0, 0, 0.08);
 }
