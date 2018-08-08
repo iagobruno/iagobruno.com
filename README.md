@@ -13,9 +13,9 @@ Meu portifólio para apresentação do meu trabalho, habilidades e projetos real
 - [x] Adicionar onde moro em algum lugar do portifólio ("Ceará, Brasil").
 - [x] Adicionar o Google Analytics.
 - [x] Fazer uma versão compacta para celular.
-- [ ] Automatizar alguns processos com o NodeJS (usar um gerador de templates).
 - [ ] Habilitar a internacionalização da página (caso necessário futuramente).
-- [ ] Usar o [Hexo](https://hexo.io/) caso eu queira fazer um blog pessoal.
+- [ ] Tentar transferir as funções do arquivo functions.js para seus respectivos componentes, quando eu nao tiver nada pra fazer. 
+- [ ] Usar o [Next](https://github.com/zeit/next.js/) ou o [react-static](https://github.com/nozzle/react-static) caso eu queira fazer um blog pessoal estático. 
 
 
 Proibido modificar, distribuir ou fazer uso pessoal sem a prévia autorização, porém, sinta-se livre para estudar os códigos e fazer seu próprio portifólio.
