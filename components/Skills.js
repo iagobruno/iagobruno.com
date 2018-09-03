@@ -8,7 +8,7 @@ const skills = [
   },
   {
     title: "NodeJS",
-    percentage: "80",
+    percentage: "86",
     color: "#4caf50"
   },
   {
@@ -32,6 +32,11 @@ const skills = [
     color: "#555555"
   },
   {
+    title: "React",
+    percentage: "60",
+    color: "#2dd2ff"
+  },
+  {
     title: "PHP",
     percentage: "60",
     color: "#9e9e9e"
@@ -46,15 +51,10 @@ const skills = [
     percentage: "40",
     color: "#fdd835"
   },
-  {
-    title: "PWA",
-    percentage: "86",
-    color: "#c1c1c1"
-  },
 ]
 
 const others = [
-  'Bootstrap', 'React', 'Mocha', 'Gulp', 'Git', 'Layout responsivo', 'Mobile first'
+  'Bootstrap', 'Mocha', 'Gulp', 'Git', 'Layout responsivo', 'Mobile first', 'PWA'
 ]
 
 export default (props) => {
@@ -66,9 +66,10 @@ export default (props) => {
           {skills.map((item, index) => (
             <div className="skill-item" key={index}>
               <div className="skill-label" style={{background: item.color}}>{item.title}</div>
-              <div className="skill-level-bar"><span style={
-                { background: item.color, width: `${item.percentage}%`}
-              }></span></div>
+              <div className="skill-level-bar"><span style={{
+                background: item.color,
+                width: `${item.percentage}%`
+              }}></span></div>
             </div>
           ))}
 
