@@ -1,6 +1,8 @@
 ﻿# [iagobruno.com](https://www.iagobruno.com/)
 Meu portifólio para apresentação do meu trabalho, habilidades e projetos realizados.
 
+Proibido modificar, distribuir ou fazer uso pessoal sem a prévia autorização, porém, sinta-se livre para estudar os códigos e fazer seu próprio portifólio.
+
 ## Lista de melhorias
 - [ ] Tirar uma foto profissional para colocar no cabeçalho.
 - [ ] Criar uma animação de escrever os códigos atrás da minha foto no cabeçalho com [esse plugin](https://github.com/mattboldt/typed.js/).
@@ -14,8 +16,5 @@ Meu portifólio para apresentação do meu trabalho, habilidades e projetos real
 - [x] Adicionar o Google Analytics.
 - [x] Fazer uma versão compacta para celular.
 - [ ] Habilitar a internacionalização da página (caso necessário futuramente).
-- [ ] Tentar transferir as funções do arquivo functions.js para seus respectivos componentes, quando eu nao tiver nada pra fazer. 
-- [ ] Usar o [Next](https://github.com/zeit/next.js/) ou o [react-static](https://github.com/nozzle/react-static) caso eu queira fazer um blog pessoal estático. 
-
-
-Proibido modificar, distribuir ou fazer uso pessoal sem a prévia autorização, porém, sinta-se livre para estudar os códigos e fazer seu próprio portifólio.
+- [x] Tentar transferir as funções do arquivo functions.js para seus respectivos componentes, quando eu nao tiver nada pra fazer. 
+- [x] Usar o [Next](https://github.com/zeit/next.js/) ou o [react-static](https://github.com/nozzle/react-static) caso eu queira fazer um blog pessoal estático. 
