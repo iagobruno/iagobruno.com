@@ -1,22 +1,17 @@
-import React, { Component, Fragment } from 'react'
+import Document, { Head, Main, NextScript } from 'next/document'
 
-import Header from './Header'
-import About from './About'
-import CreativeProcess from './CreativeProcess'
-import Skills from './Skills'
-import Works from './Works'
-import Footer from './Footer'
-import GoogleAnalytics from './GA'
+import GoogleAnalytics from '../components/GA'
 
-class Document extends Component {
-  static getInitialProps = async () => ({
-    
-  })
+export default class MyDocument extends Document {
+  static async getInitialProps(ctx) {
+    const initialProps = await Document.getInitialProps(ctx)
+    return { ...initialProps }
+  }
 
   render() {
     return (
       <html lang="pt-BR">
-        <head>
+        <Head>
           <meta charSet="UTF-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -30,7 +25,7 @@ class Document extends Component {
           <meta property="og:url" content="http://httpiago.github.io" />
           <meta property="og:type" content="website" />
           <meta property="og:title" content="Iago Bruno &#8212; Full Stack Developer" />
-          <meta property="og:image" content="assets/images/cover.jpg" />
+          <meta property="og:image" content="static/images/cover.jpg" />
           <meta property="og:description" content="Designer e programador de websites." />
           <meta property="og:site_name" content="Iago Bruno" />
           <meta property="og:locale" content="pt_BR" />
@@ -39,32 +34,20 @@ class Document extends Component {
           <meta name="twitter:url" content="http://httpiago.github.io" />
           <meta name="twitter:title" content="Iago Bruno &#8212; Full Stack Developer" />
           <meta name="twitter:description" content="Designer e programador de websites." />
-          <meta name="twitter:image" content="assets/images/cover.jpg" />
+          <meta name="twitter:image" content="static/images/cover.jpg" />
           
           {/* Assets da página */}
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&ver=4.8.6" type="text/css" media="all" />
-          <link rel="stylesheet" href="assets/styles.css" type="text/css" media="screen" />
+          <link rel="stylesheet" href="/static/styles.css" type="text/css" media="screen" />
 
           {/* Global site tag (gtag.js) - Google Analytics */}
           <GoogleAnalytics />
-        </head>
+        </Head>
         <body>
-          <Header />
-          <About />
-          <CreativeProcess />
-          <Skills />
-          <Works />
-          <Footer />
-          
-          <Fragment>
-            <script src="assets/delegate.js"></script>
-            <script src="assets/scrollreveal.min.js"></script>
-            <script src="assets/functions.js"></script>
-          </Fragment>
+          <Main />
+          <NextScript />
         </body>
       </html>
     )
   }
 }
- 
-export default Document
