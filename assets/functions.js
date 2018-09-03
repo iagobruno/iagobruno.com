@@ -38,7 +38,7 @@ function nextSlide() {
 
   // Esperar a animação de fade-out do slide anterior
   setTimeout(function() {
-    index = (index === 0) ? 1 : 0;
+    index = (index >= (slides.length - 1)) ? 0 : ++index;
 
     slides[index].style.display = 'block';
     setTimeout(function() {
