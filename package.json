@@ -1,12 +1,12 @@
-{ 
-  "scripts": { 
-    "build": "static-react ./components > index.html", 
-    "dev": "nodemon --watch src --exec \"npm run build\"" 
-  }, 
-  "dependencies": { 
-    "nodemon": "^1.18.3", 
-    "react": "^16.4.2", 
-    "react-dom": "^16.4.2", 
-    "static-react": "^4.0.0-3" 
-  } 
-} 
+{
+  "scripts": {
+    "dev": "next",
+    "build": "next build && next export",
+    "start": "http-serve ./.next -p 3000"
+  },
+  "dependencies": {
+    "next": "^6.1.1",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  }
+}
