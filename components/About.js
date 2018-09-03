@@ -1,20 +1,65 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default (props) => {
-  return (
-    <section id="about">
-      <center>
-        <div className="code-sample-container">
-          <img className="code-sample" src="static/images/code_react.jpg" alt="Exemplo de um componente do React" />
-          <img className="code-sample" src="static/images/code_html.jpg" alt="Exemplo de um código HTML" style={{display: 'none'}} />
-          <img className="code-sample" src="static/images/code_nodejs.jpg" alt="Exemplo de um código JavaScript" style={{display: 'none'}} />
-        </div>
-        <div>
-          <p><b>Hello, World!</b></p>
-          <p>Me chamo Iago, moro no Ceará, tenho 22 anos de idade e sou programador desde os 15. Sou apaixonado por códigos e aprendi tudo sozinho, movido pela curiosidade de saber como a web funcionava, desde então, venho estudando novas linguagens programação, conceituando e desenvolvendo websites, como o design do <a href="#work-tecbolt">TecBolt</a>, que construí em parceria com o fundador do mesmo.</p>
-          <p>Possuo experiência vasta em HTML, CSS, JavaScript, PHP e estando ainda a aprender a dominar o desenvolvimento de aplicativos para celulares. <br/>Você pode conferir <a href="#skills">minhas outras habilidades</a> abaixo.</p>
-        </div>
-      </center>
-    </section>
-  )
+const slides = [
+  {
+    src: 'static/images/code_react.jpg',
+    alt: 'Exemplo de um componente do React'
+  },
+  {
+    src: 'static/images/code_html.jpg',
+    alt: 'Exemplo de um código HTML'
+  },
+  {
+    src: 'static/images/code_nodejs.jpg',
+    alt: 'Exemplo de um código JavaScript'
+  }
+]
+const fadeDuration = 1000
+
+export default class About extends Component {
+  state = {
+    current_slide: 0
+  }
+
+  componentDidMount() {
+    setInterval(() => this.nextSlide(), 10000)
+  }
+
+  nextSlide() {
+    // Ocultar o slide
+    this.slideEl.className = 'code-sample hide'
+
+    // Esperar a animação de fade-out do slide anterior
+    setTimeout(() => {
+      this.setState((prevState) => {
+        // Mudar para o próximo slide
+        return {
+          current_slide: (prevState.current_slide >= (slides.length - 1)) ? 0 : ++prevState.current_slide
+        }
+      })
+
+      // Mostrar o slide
+      setTimeout(() => this.slideEl.className = 'code-sample show', 100)
+    }, fadeDuration)
+  }
+
+  render() {
+    // Pegar os atributos do slide atual
+    let attrs = slides[this.state.current_slide]
+
+    return (
+      <section id="about">
+        <center>
+          <div className="code-sample-container">
+            <img className="code-sample" ref={(node) => this.slideEl = node} {...attrs} />
+          </div>
+          <div>
+            <p><b>Hello, World!</b></p>
+            <p>Me chamo Iago, moro no Ceará, tenho 22 anos de idade e sou programador desde os 15. Sou apaixonado por códigos e aprendi tudo sozinho, movido pela curiosidade de saber como a web funcionava, desde então, venho estudando novas linguagens programação, conceituando e desenvolvendo websites, como o design do <a href="#work-tecbolt">TecBolt</a>, que construí em parceria com o fundador do mesmo.</p>
+            <p>Possuo experiência vasta em HTML, CSS, JavaScript, PHP e estando ainda a aprender a dominar o desenvolvimento de aplicativos para celulares. <br/>Você pode conferir <a href="#skills">minhas outras habilidades</a> abaixo.</p>
+          </div>
+        </center>
+      </section>
+    )
+  }
 }
