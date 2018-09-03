@@ -5,19 +5,19 @@ const workList = [
     title: 'TecBolt',
     subTitle: '2017',
     url: 'https://tecbolt.appolo.com.br/',
-    image: 'assets/images/tecbolt-mini.jpg'
+    image: 'static/images/tecbolt-mini.jpg'
   },
   {
     title: 'Lembretes',
     subTitle: '2014',
     url: 'https://chrome.google.com/webstore/detail/lembretes/gklelabcnmojaikonejpecffihnpcpoc',
-    image: 'assets/images/lembretes-mini.jpg'
+    image: 'static/images/lembretes-mini.jpg'
   },
   {
     title: 'Rede Social Beta',
     subTitle: '2012 - 2015',
     url: 'http://www.redesocialbeta.com.br/',
-    image: 'assets/images/rede_social_beta-mini.jpg'
+    image: 'static/images/rede_social_beta-mini.jpg'
   }
 ]
 

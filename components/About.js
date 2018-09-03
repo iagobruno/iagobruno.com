@@ -5,9 +5,9 @@ export default (props) => {
     <section id="about">
       <center>
         <div className="code-sample-container">
-          <img className="code-sample" src="assets/images/code_react.jpg" alt="Exemplo de um componente do React" />
-          <img className="code-sample" src="assets/images/code_html.jpg" alt="Exemplo de um código HTML" style={{display: 'none'}} />
-          <img className="code-sample" src="assets/images/code_nodejs.jpg" alt="Exemplo de um código JavaScript" style={{display: 'none'}} />
+          <img className="code-sample" src="static/images/code_react.jpg" alt="Exemplo de um componente do React" />
+          <img className="code-sample" src="static/images/code_html.jpg" alt="Exemplo de um código HTML" style={{display: 'none'}} />
+          <img className="code-sample" src="static/images/code_nodejs.jpg" alt="Exemplo de um código JavaScript" style={{display: 'none'}} />
         </div>
         <div>
           <p><b>Hello, World!</b></p>

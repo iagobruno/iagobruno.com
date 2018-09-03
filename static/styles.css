@@ -574,3 +574,6 @@ div.list-icon {
     font-size: 28px;
   }
 }
+.code-note .react-ico {
+  margin: 2px -4px 0;
+}

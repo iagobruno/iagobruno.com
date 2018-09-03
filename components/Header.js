@@ -6,7 +6,7 @@ export default (props) => {
       <center>
         <div className="header-container">
           <nav className="header-top">
-            <img className="signature" src="assets/images/IagoBruno.png" alt="Iago Bruno"/>
+              <img className="signature" src="static/images/IagoBruno.png" alt="Iago Bruno"/>
             <ul className="links">
               <li><a href="#contact">Contato</a></li>
               <li><a href="#works">Trabalhos</a></li>
@@ -20,7 +20,7 @@ export default (props) => {
           <div className="header-bottom">
             <a href="#about" className="header-call-to-action">Sobre mim</a>
             <div className="header-photo-container notebook">
-              <img className="header-photo" src="assets/images/notebook.png" alt="Notebook"/>
+                <img className="header-photo" src="static/images/notebook.png" alt="Notebook"/>
             </div>
           </div>
         </div>
