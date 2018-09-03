@@ -17,7 +17,7 @@ export default class MyDocument extends Document {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <title>Iago Bruno &#8212; Full Stack Developer</title>
           <meta name="description" content="Designer e programador de websites." />
-          <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+          <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico" />
           <meta name="keywords" content="Full-stack developer,Front end developer,Desenvolvedor javascript,Desenvolvedor de sites,Website developer,NodeJS,javascript,programador,Ceará,Brasil,designer,designer de sites,designer de aplicativos," />
           <meta name="robots" content="index,follow" />
           
@@ -25,7 +25,7 @@ export default class MyDocument extends Document {
           <meta property="og:url" content="http://httpiago.github.io" />
           <meta property="og:type" content="website" />
           <meta property="og:title" content="Iago Bruno &#8212; Full Stack Developer" />
-          <meta property="og:image" content="static/images/cover.jpg" />
+          <meta property="og:image" content="/static/images/cover.jpg" />
           <meta property="og:description" content="Designer e programador de websites." />
           <meta property="og:site_name" content="Iago Bruno" />
           <meta property="og:locale" content="pt_BR" />
@@ -34,7 +34,7 @@ export default class MyDocument extends Document {
           <meta name="twitter:url" content="http://httpiago.github.io" />
           <meta name="twitter:title" content="Iago Bruno &#8212; Full Stack Developer" />
           <meta name="twitter:description" content="Designer e programador de websites." />
-          <meta name="twitter:image" content="static/images/cover.jpg" />
+          <meta name="twitter:image" content="/static/images/cover.jpg" />
           
           {/* Assets da página */}
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&ver=4.8.6" type="text/css" media="all" />
