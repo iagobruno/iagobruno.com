@@ -4,8 +4,12 @@ export default class Header extends Component {
   state = {
     height: ''
   }
-
+  
   componentDidMount() {
+    (window.onresize = this.changeHeaderHeight.bind(this))()
+  }
+
+  changeHeaderHeight() {
     let isMobile = window.innerWidth < 859
     let headerPadding = ((50) * 2),
       minHeight = 360,
