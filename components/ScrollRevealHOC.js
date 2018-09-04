@@ -1,19 +1,6 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 
-const revealDefault = (customObj)  => ({
-  useDelay: 'once',
-  viewFactor: 0.2,
-  duration: 0,
-  distance: '0px',
-  opacity: 1,
-  scale: 1,
-  afterReveal: (domEl) => domEl.setAttribute('style', ''),
-
-  // Merge custom props
-  ...customObj
-})
-
 export default function Reveal(WrappedComponent) {
   return class RevealEnhancer extends Component {  
     
@@ -42,7 +29,7 @@ export default function Reveal(WrappedComponent) {
   
     render() {
       return (
-        <WrappedComponent ref={(node) => this.component = node} />
+        <WrappedComponent ref={(node) => this.component = node} {...this.props} />
       )
     }
   }
