@@ -30,7 +30,7 @@ class Home extends Component {
       // Dar foco ao link do tecbolt
       document.getElementById('work-tecbolt').focus()
     }
-  return console.log('link click', link.href)
+
     // Enviar evento para o Google Analytics
     gtag('event', 'click', {
       'event_category': 'links',
