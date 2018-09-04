@@ -2,15 +2,15 @@ import React, { Component } from 'react'
 
 const slides = [
   {
-    src: 'static/images/code_react.jpg',
+    src: '/static/images/code_react.jpg',
     alt: 'Exemplo de um componente do React'
   },
   {
-    src: 'static/images/code_html.jpg',
+    src: '/static/images/code_html.jpg',
     alt: 'Exemplo de um código HTML'
   },
   {
-    src: 'static/images/code_nodejs.jpg',
+    src: '/static/images/code_nodejs.jpg',
     alt: 'Exemplo de um código JavaScript'
   }
 ]
@@ -23,6 +23,11 @@ export default class About extends Component {
 
   componentDidMount() {
     setInterval(() => this.nextSlide(), 10000)
+
+	// Carregar as próximas imagens do slide
+    Promise.all(
+      slides.slice(1).map(item => this.loadImg(item.src))
+	)
   }
 
   nextSlide() {
@@ -41,6 +46,17 @@ export default class About extends Component {
       // Mostrar o slide
       setTimeout(() => this.slideEl.className = 'code-sample show', 100)
     }, fadeDuration)
+  }
+  
+  loadImg(url) {
+    return new Promise((resolve, reject) => {
+      let img = new Image()
+	  
+      img.addEventListener('load', e => resolve(img))
+      img.addEventListener('error', () => reject(new Error(`Failed to load image's URL: ${url}`)))
+
+      img.src = url
+    })
   }
 
   render() {
