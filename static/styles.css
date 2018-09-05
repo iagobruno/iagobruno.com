@@ -569,7 +569,7 @@ div.list-icon {
     padding: 4px 12px 5px;
   }
   #creative-process h2.section-title {
-    text-align: start;
+    /* text-align: start; */
     margin-bottom: 8px;
     font-size: 28px;
   }
