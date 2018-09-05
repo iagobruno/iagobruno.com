@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import 'core-js/features/promise'
 
 const slides = [
   {
@@ -14,7 +15,8 @@ const slides = [
     alt: 'Exemplo de um código JavaScript'
   }
 ]
-const fadeDuration = 1000
+const duration = 10000 // Time que cada slide fica exposto antes de ser trocado (em ms)
+const fadeDuration = 1000 // Duração da transição em CSS do efeito "fade" do slide
 
 export default class About extends Component {
   state = {
@@ -22,7 +24,7 @@ export default class About extends Component {
   }
 
   componentDidMount() {
-    setInterval(() => this.nextSlide(), 10000)
+    setInterval(() => this.nextSlide(), duration)
 
 	// Carregar as próximas imagens do slide
     Promise.all(
