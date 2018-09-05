@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import 'core-js/features/promise'
+import Promise from './promisePolyfill'
 
 const slides = [
   {
@@ -24,12 +24,16 @@ export default class About extends Component {
   }
 
   componentDidMount() {
-    setInterval(() => this.nextSlide(), duration)
+    this.timer = setInterval(() => this.nextSlide(), duration)
 
-	// Carregar as próximas imagens do slide
+	  // Carregar as próximas imagens do slide
     Promise.all(
       slides.slice(1).map(item => this.loadImg(item.src))
-	)
+	  )
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer)
   }
 
   nextSlide() {
