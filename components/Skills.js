@@ -4,52 +4,52 @@ import Reveal from '../components/ScrollRevealHOC'
 const skills = [
   {
     title: "JavaScript",
-    percentage: "100",
+    percentage: 94,
     color: "#f44336"
   },
   {
     title: "NodeJS",
-    percentage: "86",
+    percentage: 82,
     color: "#4caf50"
   },
   {
     title: "Photoshop",
-    percentage: "68",
+    percentage: 68,
     color: "#2196f3"
   },
   {
     title: "CSS",
-    percentage: "100",
+    percentage: 100,
     color: "#7e57c2"
   },
   {
     title: "HTML",
-    percentage: "100",
+    percentage: 100,
     color: "#ff5722"
   },
   {
     title: "WordPress",
-    percentage: "60",
+    percentage: 60,
     color: "#555555"
   },
   {
     title: "React",
-    percentage: "60",
+    percentage: 60,
     color: "#2dd2ff"
   },
   {
     title: "PHP",
-    percentage: "60",
+    percentage: 50,
     color: "#9e9e9e"
   },
   {
     title: "Inglês",
-    percentage: "41",
+    percentage: 41,
     color: "#607d8b"
   },
   {
     title: "SQL",
-    percentage: "40",
+    percentage: 32,
     color: "#fdd835"
   },
 ]
