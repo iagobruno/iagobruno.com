@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 
 import Header from '../components/Header'
 import About from '../components/About'
@@ -9,7 +9,7 @@ import Footer from '../components/Footer'
 
 const Delegate = require('delegate')
 
-class Home extends Component {
+class HomePage extends Component {
   componentDidMount() {
 
     // Delegar um evento global para todos os links da página
@@ -40,16 +40,16 @@ class Home extends Component {
 
   render() {
     return (
-      <Fragment>
+      <div className="home-page">
         <Header />
         <About />
         <CreativeProcess />
         <Skills />
         <Works />
         <Footer />
-      </Fragment>
+      </div>
     )
   }
 }
 
-export default Home
+export default HomePage

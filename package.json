@@ -2,7 +2,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build && next export",
-    "start": "http-serve ./.next -p 3000"
+    "start": "http-serve ./out -p 3000"
   },
   "dependencies": {
     "delegate": "^3.2.0",
