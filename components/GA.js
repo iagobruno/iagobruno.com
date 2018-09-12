@@ -1,4 +1,6 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+
+const Fragment = ({ children }) => React.Children.toArray(children)
 
 export default () => (
   <Fragment>

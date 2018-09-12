@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 
+// Importar o preact devtools somente no modo de produção
+if (process.env.NODE_ENV === 'production') require('preact/devtools')
+
 import Header from '../components/Header'
 import About from '../components/About'
 import CreativeProcess from '../components/CreativeProcess'

@@ -5,11 +5,16 @@
     "start": "http-serve ./out -p 3000"
   },
   "dependencies": {
+    "@zeit/next-preact": "^0.0.7",
     "delegate": "^3.2.0",
     "next": "^6.1.1",
+    "preact": "^8.3.1",
+    "preact-compat": "^3.18.4",
     "prop-types": "^15.6.2",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
     "scrollreveal": "^4.0.0"
+  },
+  "devDependencies": {
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
   }
 }
