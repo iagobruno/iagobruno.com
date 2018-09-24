@@ -89,11 +89,7 @@ span.and {
   height: 100%;
   display: block;
   z-index: 0;
-}
-
-.header-photo-container.notebook {
-  height: 80%;
-  right: -100px;
+  left: 15px;
 }
 
 .signature {
@@ -479,14 +475,11 @@ div.list-icon {
     bottom: 0;
   }
   img.header-photo {
-    max-width: 260px;
-    width: 84%;
+    max-width: 280px;
+    width: 100%;
     height: inherit;
     margin: 0 auto;
-  }
-  .header-photo-container.notebook img.header-photo {
-    width: 100%;
-    max-width: 100%;
+	left: 0px;
   }
   #header {
     padding-bottom: 0px;

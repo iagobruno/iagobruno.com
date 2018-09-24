@@ -41,8 +41,8 @@ export default class Header extends Component {
             </div>
             <div className="header-bottom">
               <a href="#about" className="header-call-to-action">Sobre mim</a>
-              <div className="header-photo-container notebook">
-                <img className="header-photo" src="static/images/notebook.png" alt="Notebook"/>
+              <div className="header-photo-container">
+                <img className="header-photo" src="static/images/me.png" alt="Minha foto do cabeçalho" />
               </div>
             </div>
           </div>
