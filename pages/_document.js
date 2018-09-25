@@ -22,19 +22,19 @@ export default class MyDocument extends Document {
           <meta name="robots" content="index,follow" />
           
           {/* Social tags */}
-          <meta property="og:url" content="http://httpiago.github.io" />
+          <meta property="og:url" content="https://www.iagobruno.com" />
           <meta property="og:type" content="website" />
           <meta property="og:title" content="Iago Bruno &#8212; Full Stack Developer" />
-          <meta property="og:image" content="/static/images/website-print.jpg" />
+          <meta property="og:image" content="https://www.iagobruno.com/static/images/website-print.jpg" />
           <meta property="og:description" content="Designer e programador de websites." />
           <meta property="og:site_name" content="Iago Bruno" />
           <meta property="og:locale" content="pt_BR" />
 
           <meta name="twitter:card" content="summary" />
-          <meta name="twitter:url" content="http://httpiago.github.io" />
+          <meta name="twitter:url" content="https://www.iagobruno.com" />
           <meta name="twitter:title" content="Iago Bruno &#8212; Full Stack Developer" />
           <meta name="twitter:description" content="Designer e programador de websites." />
-          <meta name="twitter:image" content="/static/images/website-print.jpg" />
+          <meta name="twitter:image" content="https://www.iagobruno.com/static/images/website-print.jpg" />
           
           {/* Assets da página */}
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&ver=4.8.6" type="text/css" media="all" />
