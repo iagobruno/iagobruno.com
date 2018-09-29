@@ -38,7 +38,6 @@ export default class MyDocument extends Document {
           
           {/* Assets da página */}
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&ver=4.8.6" type="text/css" media="all" />
-          <link rel="stylesheet" href="/static/styles.css" type="text/css" media="screen" />
 
           {/* Global site tag (gtag.js) - Google Analytics */}
           <GoogleAnalytics />

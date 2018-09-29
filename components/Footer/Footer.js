@@ -1,4 +1,5 @@
 import React from 'react'
+import './Footer.less'
 
 const links = [
   { text: 'Email', url: 'mailto:httpiago@gmail.com' },

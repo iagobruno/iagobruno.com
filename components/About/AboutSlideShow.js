@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Promise from './promisePolyfill'
+import Promise from '../promisePolyfill'
 
 function getTransitionDuration(element) {
   let val = window.getComputedStyle(element).getPropertyValue('transition-duration')

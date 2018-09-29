@@ -4,8 +4,9 @@ import ReactDOM from 'react-dom'
 export default function Reveal(WrappedComponent) {	
   return class RevealEnhancer extends Component {
     componentDidMount() {
-      if (typeof window.ScrollReveal === 'undefined')
-        window.ScrollReveal = require('scrollreveal').default()
+      if (typeof window.ScrollReveal === 'undefined') {
+        window.ScrollReveal = require('scrollreveal')()
+      }
       
       const domElement = ReactDOM.findDOMNode(this.component)
 

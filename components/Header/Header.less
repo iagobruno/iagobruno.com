@@ -1,0 +1,156 @@
+@import '../../styles/responsiveVariables.less';
+
+.header-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 400px;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.header-vertical-center {
+  position: relative;
+  margin: auto 0;
+  top: -6px;
+}
+
+h1.header-title {
+  font-size: 64px;
+  margin: 0 0 18px -3px;
+}
+
+.header-description {
+  opacity: .7;
+  margin-top: 18px;
+}
+
+span.and {
+  background-image: url(/static/images/and.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  display: inline-block;
+  margin: -16px calc(-72px / 1.8);
+  width: 72px;
+  height: 80px;
+  z-index: -1;
+}
+
+.header-photo-container {
+  position: absolute;
+  pointer-events: none;
+  max-height: 432px;
+  height: 90%;
+  right: -30px;
+  bottom: -50px;
+  z-index: 10;
+}
+
+.header-photo {
+  position: relative;
+  height: 100%;
+  display: block;
+  z-index: 0;
+  left: 15px;
+}
+
+.signature {
+  margin-right: 24px;
+  display: block;
+  height: 46px;
+}
+
+ul.links {
+  display: block;
+  list-style: none;
+  padding: 0px;
+  margin: 4px -10px 0 0;
+}
+
+ul.links>li {
+  padding: 0 10px;
+  display: inline-block;
+}
+
+
+@media @tablets {
+  .header-vertical-center {
+    max-width: 320px;
+  }
+
+  h1.header-title {
+    font-size: 54px;
+  }
+
+  .header-photo-container {
+    height: 86%;
+  }
+}
+
+@media @phones {
+  #header {
+    padding-bottom: 0px;
+  }
+
+  .header-vertical-center {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .header-photo-container {
+    position: relative;
+    max-height: inherit;
+    height: inherit !important;
+    right: 0px !important;
+    bottom: 0;
+  }
+
+  img.header-photo {
+    max-width: 280px;
+    width: 100%;
+    height: inherit;
+    margin: 0 auto;
+	  left: 0px;
+  }
+
+  h1.header-title {
+    font-size: 30px;
+    white-space: nowrap;
+    line-height: normal;
+    margin-bottom: 12px;
+  }
+
+  #header ul.links {
+    display: none;
+  }
+
+  .signature {
+    margin: 0 auto;
+    height: 40px;
+    width: 136px;
+  }
+
+  a.header-call-to-action {
+    display: none;
+  }
+
+  .header-container {
+    height: inherit !important;
+  }
+
+  p.header-description {
+    margin-top: 12px;
+  }
+
+  span.and {
+    margin: -9px calc(-34px / 1.8);
+    width: 34px;
+    height: 38px;
+  }
+}

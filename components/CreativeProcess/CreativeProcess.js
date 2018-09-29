@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import Reveal from '../components/ScrollRevealHOC'
+import Reveal from '../ScrollRevealHOC'
+import './CreativeProcess.less'
 
 class CreativeProcess extends Component {
   static defaultProps = {

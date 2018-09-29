@@ -1,0 +1,74 @@
+@import '../../styles/responsiveVariables.less';
+
+#about {
+  background-color: rgba(0, 0, 0, 0.08);
+  line-height: 1.6;
+}
+
+#about p:last-child {
+  margin-bottom: 0;
+}
+
+.code-sample-container {
+  margin-right: 36px;
+  position: relative;
+  min-width: 480px;
+}
+
+img.code-sample {
+  background-color: #282a36;
+  box-shadow: 0 12px 30px 4px rgba(0, 0, 0, 0.42);
+  border-radius: 5px;
+  display: block;
+  height: inherit;
+  width: 100%;
+  transition: opacity 1000ms ease;
+}
+
+img.code-sample.show {
+  opacity: 1;
+}
+
+img.code-sample.hide {
+  opacity: 0;
+}
+
+#about center {
+  display: flex;
+  align-items: center;
+}
+
+
+@media @tablets {
+  .code-sample-container {
+    position: relative;
+    min-width: 100%;
+    margin: -70px 0 24px;
+    z-index: 12;
+  }
+  #about center {
+    flex-direction: column;
+    width: 86%;
+  }
+}
+
+@media @phones {
+  #about {
+    line-height: 1.46;
+  }
+
+  #about center {
+    flex-direction: column;
+  }
+
+  .code-sample-container {
+    position: relative;
+    min-width: 100%;
+    margin: -50px 0 24px;
+    z-index: 12;
+  }
+
+  #about p:first-child {
+    margin-bottom: 6px;
+  }
+}

@@ -1,0 +1,160 @@
+@import './responsiveVariables.less';
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 18px;
+  line-height: normal;
+  margin: 0px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  color: #333;
+
+  @media @phones {
+    font-size: 18px;
+    overflow-x: initial;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: #005aff;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  margin-top: 0;
+}
+
+center {
+  max-width: 1200px;
+  padding: 0 50px;
+  margin: 0 auto;
+  text-align: initial;
+
+  @media @phones {
+    padding: 0 24px;
+  }
+}
+
+header,
+section,
+footer {
+  position: relative;
+  padding: 50px 0;
+  margin-bottom: 0px;
+  display: block;
+
+  @media @phones {
+    padding: 30px 0;
+  }
+}
+
+h2.section-title {
+  font-size: 28px;
+  font-weight: 400;
+  margin: -6px 0 20px;
+}
+
+ul.list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+
+  @media @phones {
+    flex-direction: column;
+  }
+}
+
+.list > li {
+
+  @media @desktops {
+    width: calc(100% / 3);
+    padding: 0 16px;
+  }
+  @media @tablets {
+    width: calc((100% / 2) - 16px);
+  }
+  @media @phones {
+    width: 100%;
+  }
+}
+
+.list a {
+  position: relative;
+  outline: none;
+  display: block;
+  color: #333;
+}
+
+.list a:focus,
+.list a:hover {
+  color: #005aff;
+  text-decoration: none;
+}
+
+.list a::after {
+  background: transparent;
+  border-radius: 5px;
+  transform: scale(1);
+  transition: transform 180ms ease;
+  position: absolute;
+  content: '';
+  z-index: -1;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+}
+
+.list a:focus::after,
+.list a:hover::after {
+  background: rgba(0, 0, 0, .06);
+  transform: scale(1.07);
+}
+
+.list a:focus::after {
+  border: 1px solid #005aff;
+}
+
+img.list-thumb {
+  background-color: rgba(0, 0, 0, 0.06);
+  border-radius: 5px;
+  margin-bottom: 8px;
+  height: inherit;
+  width: 100%;
+}
+
+.list-title {
+  font-size: 20px;
+}
+
+.list-title span {
+  font-size: 16px;
+  display: inline-block;
+  margin-left: 6px;
+  opacity: .7;
+}
+
+
+@media @desktops {
+
+}
+
+@media @tablets {
+
+}
+
+@media @phones {
+  
+}
