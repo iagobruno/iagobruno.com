@@ -1,12 +1,16 @@
-﻿# [iagobruno.com](https://www.iagobruno.com/)
+[<img align="right" width="380" src="/static/images/website-print.jpg"/>](https://www.iagobruno.com/)
+
+# iagobruno.com
 Meu portifólio para apresentação do meu trabalho, habilidades e projetos realizados.
 
-Proibido modificar, distribuir ou fazer uso pessoal sem a prévia autorização, porém, sinta-se livre para estudar os códigos e fazer seu próprio portifólio.
+[![alt text](https://img.shields.io/website/https/www.iagobruno.com.svg)](https://www.iagobruno.com)
+
+> Proibido modificar, distribuir ou fazer uso pessoal sem a prévia autorização, porém, sinta-se livre para estudar os códigos e fazer seu próprio portifólio.
 
 ## Lista de melhorias
-- [ ] Tirar uma foto profissional para colocar no cabeçalho.
-- [ ] Criar uma animação de escrever os códigos atrás da minha foto no cabeçalho com [esse plugin](https://github.com/mattboldt/typed.js/).
-- [ ] Adicionar um print do site aqui no readme (com a nova foto do cabeçalho).
+- [ ] Documentar esse projeto pra praticar caso necessário futuramente.
+- [x] Tirar uma foto profissional para colocar no cabeçalho.
+- [x] Adicionar um print do site aqui no readme (com a nova foto do cabeçalho).
 - [ ] Enfeitar mais o topo do cabeçalho no mobile com aquela ideia lá.
 - [x] [Habilitar o SSL no domínio](https://help.umbler.com/hc/pt-br/articles/201677189-Utilizando-SSL-na-Umbler#cf).
 - [x] Adicionar tags para redes sociais.
