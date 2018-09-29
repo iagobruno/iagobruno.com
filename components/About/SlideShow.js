@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Promise from '../promisePolyfill'
+import './SlideShow.less'
 
 function getTransitionDuration(element) {
   let val = window.getComputedStyle(element).getPropertyValue('transition-duration')
@@ -66,16 +67,18 @@ class AboutSlideShow extends Component {
 }
 
 AboutSlideShow.defaultProps = {
-  duration: 10000 // Tempo que cada slide fica exposto antes de ser trocado (em ms)
+  duration: 10000
 }
 
 AboutSlideShow.propTypes = {
+  /** Os slides que serão mostrados. Deve ser um vetor de objectos [{},] */
   slides: PropTypes.arrayOf(
     PropTypes.shape({
       src: PropTypes.string.isRequired,
       alt: PropTypes.string.isRequired
     })
   ).isRequired,
+  /** Tempo que cada slide fica exposto antes de ser trocado (em ms) */
   duration: PropTypes.number
 }
 

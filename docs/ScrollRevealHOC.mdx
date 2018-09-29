@@ -1,0 +1,45 @@
+---
+name: ScrollRevealHOC
+---
+
+import { Playground, PropsTable } from 'docz'
+import Component from '../components/ScrollRevealHOC.js'
+
+# Descrição
+Esse componente cria novos _lifecycle methods_ que são chamados quando o elemento aparece ou some da tela.
+
+# Props
+
+<PropsTable of={Component} />
+
+# Como usar
+
+Esse é um simples _high order component_, basta chamá-lo passando um componente que será melhorado.
+
+```js
+import Reveal from '../ScrollRevealHOC'
+
+class Header extends React.Component {
+  static defaultProps = {
+    always: false
+  }
+
+  componentDidAppear() {
+    this.setState({})
+  }
+
+  render() {
+    return ...
+  }
+}
+
+export default Reveal(Header)
+```
+
+# Funções
+
+### componentDidAppear()
+Função que é chamada quando o componente aparece na tela.
+
+### componentDidDisappear()
+Função que é chamada quando o componente desaparecer na tela se a propriedade "always" for verdadeiro.

@@ -1,5 +1,5 @@
 import React from 'react'
-import AboutSlideShow from './AboutSlideShow'
+import SlideShow from './SlideShow'
 import './About.less'
 
 const slides = [
@@ -20,7 +20,7 @@ const slides = [
 export default (props) => (
   <section id="about">
     <center>
-      <AboutSlideShow
+      <SlideShow
         slides={slides}
         duration={10000}
       />

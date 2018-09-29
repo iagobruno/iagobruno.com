@@ -1,3 +1,8 @@
+/**
+ * @todo:
+ * Usar esse componente quando o site tiver muitas páginas por que essa solução atual não funciona para troca de páginas do next.
+ * https://github.com/sergiodxa/next-ga
+ */
 import React from 'react'
 
 const Fragment = ({ children }) => React.Children.toArray(children)
