@@ -47,7 +47,7 @@ Meu portifólio para apresentação do meu trabalho, habilidades e projetos real
 ```
 
 ## Bibliotecas e ferramentas usadas
-- [**Next.js**](https://github.com/zeit/next.js): Para renderizar as páginas do lado do servidor.
+- [**Next.js**](https://github.com/zeit/next.js): Para criar o site estático usando os componentes do React.
 - **React**: No modo de desenvolvimento.
 - **Preact**: No site em produção pra diminuir o tamanho 
 do bundle.
