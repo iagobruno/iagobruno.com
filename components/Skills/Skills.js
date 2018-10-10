@@ -68,7 +68,7 @@ class Skills extends Component {
 
   // Ocultar as porcentagens assim que o documento for carregado completamente
   componentDidMount() {
-    let itens = [].slice.call(document.querySelectorAll('.skill-level-bar span'))
+    let itens = [].slice.call(document.querySelectorAll('.skills__level-bar span'))
 
     // Salvar a porcentagem dos níveis em um Array
     // E remover o valor no elemento
@@ -81,7 +81,7 @@ class Skills extends Component {
 
   // Animar as barras de porcentagens em #skills quando o componente aparecer na tela
   componentDidAppear() {
-    let levels = document.querySelectorAll('.skill-level-bar span')
+    let levels = document.querySelectorAll('.skills__level-bar span')
     let i = 0
 
     // Fazer um loop nos elementos com um delay de diferença entre cada um
@@ -99,23 +99,24 @@ class Skills extends Component {
 
   render() {
     return (
-      <section id="skills">
+      <section className="skills" id="skills">
         <center>
-          <h2 className="section-title">Habilidades</h2>
-          <div className="skill-table">
+          <h2 className="section__title">Habilidades</h2>
+
+          <div className="skills__table">
             {skills.map((item, index) => (
-              <div className="skill-item" key={index}>
-                <div className="skill-label" style={{background: item.color}}>{item.title}</div>
-                <div className="skill-level-bar"><span style={{
+              <div className="skills__item" key={index}>
+                <div className="skills__label" style={{background: item.color}}>{item.title}</div>
+                <div className="skills__level-bar"><span style={{
                   background: item.color,
                   width: `${item.percentage}%`
                 }}></span></div>
               </div>
             ))}
   
-            <div className="other-skills">
+            <div className="skills__other-skills">
               {others.map((_, i) => (
-                <div key={i} className="skill-label">{_}</div>
+                <div key={i} className="skills__label">{_}</div>
               ))}
             </div>
           </div>

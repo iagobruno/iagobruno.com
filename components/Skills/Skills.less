@@ -1,38 +1,51 @@
 @import '../../styles/responsiveVariables.less';
 
-#skills {
+.skills {
   padding-bottom: 20px;
 }
 
-#skills h2.section-title {
+.skills .section__title {
   margin-bottom: 6px;
 }
 
-.skill-table {
+.skills__table {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   margin-bottom: -12px;
+
+  @media @phones {
+    flex-direction: column;
+  }
 }
 
-.skill-item {
+.skills__item {
   display: flex;
   align-items: center;
   padding: 10px 0;
   opacity: 0.96;
   width: 48%;
+
+  @media @phones {
+    padding: 6px 0;
+    width: 100%;
+  }
 }
 
-.skill-label {
+.skills__label {
   background-color: #9e9e9e;
   border-radius: 20px;
   padding: 4px 16px 5px;
   margin-right: 16px;
   font-size: 16px;
   color: #FFF;
+
+  @media @phones {
+    padding: 4px 12px 5px;
+  }
 }
 
-.skill-level-bar {
+.skills__level-bar {
   background-color: rgba(0, 0, 0, 0.08);
   border-radius: 20px;
   overflow: hidden;
@@ -40,7 +53,7 @@
   width: 100%;
 }
 
-.skill-level-bar span {
+.skills__level-bar span {
   background-color: #9e9e9e;
   transition: width 600ms cubic-bezier(0.17, 0.96, 0.45, 0.99);
   border-radius: 20px;
@@ -48,30 +61,14 @@
   height: 100%;
 }
 
-.other-skills > .skill-label {
-  display: inline-block;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  opacity: 1;
-}
-
-.other-skills {
+.skills__other-skills {
   padding-top: 8px;
   width: 100%;
 }
 
-
-@media @phones {
-  .skill-item {
-    padding: 6px 0;
-    width: 100%;
-  }
-
-  .skill-table {
-    flex-direction: column;
-  }
-
-  .skill-label {
-    padding: 4px 12px 5px;
-  }
+.skills__other-skills > .skills__label {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  opacity: 1;
 }

@@ -1,50 +1,32 @@
 @import '../../styles/responsiveVariables.less';
 
-#about {
+.about {
   background-color: rgba(0, 0, 0, 0.08);
   line-height: 1.6;
+
+  @media @phones {
+    line-height: 1.46;
+  }
 }
 
-#about p:last-child {
-  margin-bottom: 0;
-}
-
-#about center {
+.about center {
   display: flex;
   align-items: center;
-}
 
-
-@media @tablets {
-  .code-sample-container {
-    position: relative;
-    min-width: 100%;
-    margin: -70px 0 24px;
-    z-index: 12;
-  }
-  #about center {
+  @media @tablets {
     flex-direction: column;
     width: 86%;
   }
-}
-
-@media @phones {
-  #about {
-    line-height: 1.46;
-  }
-
-  #about center {
+  
+  @media @phones {
     flex-direction: column;
   }
+}
 
-  .code-sample-container {
-    position: relative;
-    min-width: 100%;
-    margin: -50px 0 24px;
-    z-index: 12;
-  }
+.about__me p:last-child {
+  margin-bottom: 0;
 
-  #about p:first-child {
+  @media @phones {
     margin-bottom: 6px;
   }
 }

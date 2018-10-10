@@ -1,31 +1,31 @@
 @import '../../styles/responsiveVariables.less';
 
-#works {
+.works {
   padding-bottom: 26px;
+
+  @media @desktops {
+    padding-bottom: 30px;
+  }
+
+  @media @phones {
+    padding-bottom: 6px;
+  }
 }
 
-#works .list > li {
+@media @phones {
+  #works h2.section-title {
+    margin-bottom: 16px;
+  }
+}
+
+.works .list > li {
   transition: transform 800ms cubic-bezier(0.04, 0.64, 0.21, 0.99);
   margin-bottom: 24px;
 }
 
 
 @media @desktops {
-  #works {
-    padding-bottom: 30px;
-  }
-
-  #works ul.list.cols-3 {
+  .works .list--3-cols {
     margin: 0 -16px;
-  }
-}
-
-@media @phones {
-  #works {
-    padding-bottom: 6px;
-  }
-
-  #works h2.section-title {
-    margin-bottom: 16px;
   }
 }

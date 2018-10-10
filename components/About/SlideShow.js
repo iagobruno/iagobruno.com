@@ -28,7 +28,7 @@ class AboutSlideShow extends Component {
 
   nextSlide() {
     // Ocultar o slide
-    this.slideEl.className = 'code-sample hide'
+    this.slideEl.className = 'slide-show__image hide'
 
     let fadeDuration = getTransitionDuration(this.slideEl)
     // Esperar a animação de fade-out do slide anterior
@@ -38,7 +38,7 @@ class AboutSlideShow extends Component {
         current_slide: (prevState.current_slide >= (this.props.slides.length - 1)) ? 0 : ++prevState.current_slide
       }), () => {
         // Mostrar o slide
-        this.slideEl.className = 'code-sample show'
+        this.slideEl.className = 'slide-show__image show'
       })
     }, fadeDuration)
   }
@@ -59,8 +59,8 @@ class AboutSlideShow extends Component {
     let attrs = this.props.slides[this.state.current_slide]
 
     return (
-      <div className="code-sample-container">
-        <img className="code-sample" ref={(node) => this.slideEl = node} {...attrs} />
+      <div className="slide-show">
+        <img className="slide-show__image" ref={(node) => this.slideEl = node} {...attrs} />
       </div>
     )
   }

@@ -57,7 +57,7 @@ footer {
   }
 }
 
-h2.section-title {
+.section__title {
   font-size: 28px;
   font-weight: 400;
   margin: -6px 0 20px;
@@ -82,9 +82,11 @@ ul.list {
     width: calc(100% / 3);
     padding: 0 16px;
   }
+
   @media @tablets {
     width: calc((100% / 2) - 16px);
   }
+  
   @media @phones {
     width: 100%;
   }
@@ -127,7 +129,7 @@ ul.list {
   border: 1px solid #005aff;
 }
 
-img.list-thumb {
+img.list__thumb {
   background-color: rgba(0, 0, 0, 0.06);
   border-radius: 5px;
   margin-bottom: 8px;
@@ -135,26 +137,21 @@ img.list-thumb {
   width: 100%;
 }
 
-.list-title {
+.list__title {
   font-size: 20px;
 }
 
-.list-title span {
+.list__title span {
   font-size: 16px;
   display: inline-block;
   margin-left: 6px;
   opacity: .7;
 }
 
-
-@media @desktops {
-
-}
-
-@media @tablets {
-
-}
-
-@media @phones {
-  
+.list__description {
+  margin-top: 6px;
+  /* margin-bottom: 0; */
+  font-size: 16px;
+  line-height: 1.5;
+  color: #777;
 }

@@ -58,10 +58,10 @@ class Works extends Component {
 
   render() {
     return (
-      <section id="works">
+      <section className="works" id="works">
         <center>
-          <h2 className="section-title">Trabalhos</h2>
-          <ul className="list cols-3">
+          <h2 className="section__title">Trabalhos</h2>
+          <ul className="list list--3-cols">
             {workList.map((work, index) => {
               let id = 'work-' + work.title.toLowerCase().replace(/(\s)/g, '')
               let alt = (work.title === 'Lembretes')
@@ -71,8 +71,8 @@ class Works extends Component {
               return (
                 <li key={index}>
                   <a href={work.url} target="_blank" rel="noopener" id={id}>
-                    <img className="list-thumb" src={work.image} alt={alt} />
-                    <div className="list-title">{work.title} <span>({work.subTitle})</span></div>
+                    <img className="list__thumb" src={work.image} alt={alt} />
+                    <div className="list__title">{work.title} <span>({work.subTitle})</span></div>
                   </a>
                 </li>
               )  
