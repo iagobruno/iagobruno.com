@@ -56,7 +56,7 @@ const skills = [
 ]
 
 const others = [
-  'Bootstrap', 'Mocha', 'Gulp', 'Git', 'Layout responsivo', 'Mobile first', 'PWA'
+  'Bootstrap', 'Mocha', 'Gulp', 'Git', 'Layout responsivo', 'Mobile first', "PWA's", 'BEM'
 ]
 
 var levelsCache = []
