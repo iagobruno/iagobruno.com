@@ -1,0 +1,7 @@
+{
+  "files.exclude": {
+    "**/.docz/**": true,
+    "**/.next/**": true,
+    "**/node_modules/**": true
+  }
+}

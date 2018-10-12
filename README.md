@@ -146,6 +146,7 @@ OBS: O domínio ta registrado na Umbler.
 - [ ] Escrever testes dos componentes usando Jest.
 - [ ] Aprender a configurar o travis.
 - [x] Documentar esse projeto pra praticar caso necessário futuramente.
+- [x] Configurar o debugger do vs code. [ver mais](https://github.com/Microsoft/vscode-recipes/tree/master/Next-js)
 - [x] Tirar uma foto profissional para colocar no cabeçalho.
 - [ ] Enfeitar mais o topo do cabeçalho no mobile com aquela ideia lá.
 - [x] [Habilitar o SSL no domínio](https://help.umbler.com/hc/pt-br/articles/201677189-Utilizando-SSL-na-Umbler#cf).
