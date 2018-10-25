@@ -18,7 +18,7 @@ const slides = [
 ]
 
 export default (props) => (
-  <section className="about"  id="about">
+  <section className="about" id="about">
     <center>
       <SlideShow
         slides={slides}

@@ -17,8 +17,8 @@ export default class Header extends Component {
       maxHeight = 540,
       // Calcular a altura mínima e máxima do cabeçalho
       height = (isMobile)
-        ? '' :
-        Math.min(Math.max(minHeight, (window.innerHeight - headerPadding)), maxHeight) + 'px'
+        ? ''
+        : Math.min(Math.max(minHeight, (window.innerHeight - headerPadding)), maxHeight) + 'px'
 
     this.setState({ height })
   }

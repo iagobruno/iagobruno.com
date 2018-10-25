@@ -10,7 +10,9 @@ module.exports = withCSS(withLESS(withPreact({
     let newConfigs = {
       resolve: {
         plugins: [
-          new DirectoryNamedWebpackPlugin(true)
+          new DirectoryNamedWebpackPlugin({
+            honorIndex: true
+          })
         ]
       }
     }

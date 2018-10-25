@@ -61,6 +61,7 @@ class Works extends Component {
       <section className="works" id="works">
         <center>
           <h2 className="section__title">Trabalhos</h2>
+
           <ul className="list list--3-cols">
             {workList.map((work, index) => {
               let id = 'work-' + work.title.toLowerCase().replace(/(\s)/g, '')
