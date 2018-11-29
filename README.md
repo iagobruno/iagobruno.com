@@ -16,8 +16,6 @@ Meu portifólio para apresentação do meu trabalho, habilidades e projetos real
 
 **`yarn run start`**: Iniciar a versão de produção na máquina local (requer que o comando "build" seja chamado antes).
 
-**`yarn run docs`**: Iniciar o [Docz](https://github.com/pedronauck/docz/).
-
 
 ## Estrutura do projeto
 
@@ -28,7 +26,6 @@ Meu portifólio para apresentação do meu trabalho, habilidades e projetos real
 │   │   └── Header.jsx
 │   ├── Footer
 │   └── ...
-├── docs            // Contém a documentação dos componentes
 ├── pages           // Páginas do site
 │   ├── index.js
 │   ├── posts.js
@@ -40,7 +37,6 @@ Meu portifólio para apresentação do meu trabalho, habilidades e projetos real
 ├── styles          // Arquivos de estilos
 │   └── main.less
 ├── .gitignore
-├── doczrc.js       // Configurações do docz
 ├── next.config.js  // Configurações do Next
 ├── package.json
 └── README.md
@@ -50,9 +46,8 @@ Meu portifólio para apresentação do meu trabalho, habilidades e projetos real
 - [**Next.js**](https://github.com/zeit/next.js): Para criar o site estático usando os componentes do React.
 - **React**: No modo de desenvolvimento.
 - **Preact**: No site em produção pra diminuir o tamanho 
-do bundle.
+  do bundle.
 - [**prop-types**](https://www.npmjs.com/package/prop-types): Pra fazer a checagem dos tipos nas propriedades dos componentes.
-- [**docz**](https://github.com/pedronauck/docz): Documentação dos componentes.
 - [**Less**](http://lesscss.org)
 - [**Delegate**](https://github.com/zenorocha/delegate): Criar eventos globais.
 - [**ScrollReveal**](https://github.com/scrollreveal/scrollreveal): Animar os blocos (header, about) do site a medida em que eles vão aparecendo.
@@ -145,7 +140,6 @@ OBS: O domínio ta registrado na Umbler.
 
 - [ ] Escrever testes dos componentes usando Jest.
 - [ ] Aprender a configurar o travis.
-- [x] Documentar esse projeto pra praticar caso necessário futuramente.
 - [x] Configurar o debugger do vs code. [ver mais](https://github.com/Microsoft/vscode-recipes/tree/master/Next-js)
 - [x] Tirar uma foto profissional para colocar no cabeçalho.
 - [ ] Enfeitar mais o topo do cabeçalho no mobile com aquela ideia lá.
