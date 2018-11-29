@@ -12,25 +12,53 @@ class AboutSlideShow extends Component {
   state = {
     current_slide: 0
   }
+  
+  imgRef = React.createRef()
 
   componentDidMount() {
-    this.timer = setInterval(() => this.nextSlide(), this.props.duration)
+    this.initSlide()
 
     // Carregar as próximas imagens do slide
     Promise.all(
       this.props.slides.slice(1).map(item => this.loadImg(item.src))
     )
+    
+    // Parar o slide quando a página não estiver visível para o usuário e iniciar quando voltar a ficar visível
+    /*document.addEventListener('visibilitychange', this.visibilityChangeFn = () => {
+      if (document.hidden === false) this.initSlide()
+      else this.stopSlide()
+    })*/
+    
+    this.imgFadeTransitionDuration = getTransitionDuration(this.imgRef.current)
   }
 
   componentWillUnmount() {
+    this.stopSlide()
+    
+    //document.removeEventListener('visibilitychange', this.visibilityChangeFn)
+  }
+  
+  /**
+   * Iniciar slideshow
+   */
+  initSlide = () => {
+    this.timer = setInterval(() => this.nextSlide(), this.props.duration)
+  }
+  
+  /**
+   * Parar slide
+   */
+  stopSlide = () => {
     clearInterval(this.timer)
   }
-
-  nextSlide() {
+  
+  /**
+   * Avançar para o próximo slide.
+   */
+  nextSlide = () => {
     // Ocultar o slide
-    this.slideEl.className = 'slide-show__image hide'
+    this.imgRef.current.classList.add('hidden')
 
-    let fadeDuration = getTransitionDuration(this.slideEl)
     // Esperar a animação de fade-out do slide anterior
     setTimeout(() => {
       // Mudar para o próximo slide
@@ -38,12 +66,18 @@ class AboutSlideShow extends Component {
         current_slide: (prevState.current_slide >= (this.props.slides.length - 1)) ? 0 : ++prevState.current_slide
       }), () => {
         // Mostrar o slide
-        this.slideEl.className = 'slide-show__image show'
+        this.imgRef.current.classList.remove('hidden')
       })
-    }, fadeDuration)
+    }, this.imgFadeTransitionDuration)
   }
-  
-  loadImg(url) {
+
+  /**
+   * Forçar o carregamento de uma imagem que será usada futuramente.
+   *
+   * @param {string} url Endereço da imagem a ser carregada
+   * @returns {Promise}
+   */
+  loadImg = (url) => {
     return new Promise((resolve, reject) => {
       let img = new Image()
 	  
@@ -60,7 +94,7 @@ class AboutSlideShow extends Component {
 
     return (
       <div className="slide-show">
-        <img className="slide-show__image" ref={(node) => this.slideEl = node} {...attrs} />
+        <img className="slide-show__image" ref={this.imgRef} {...attrs} />
       </div>
     )
   }
@@ -71,7 +105,7 @@ AboutSlideShow.defaultProps = {
 }
 
 AboutSlideShow.propTypes = {
-  /** Os slides que serão mostrados. Deve ser um vetor de objectos [{},] */
+  /** Os slides que serão mostrados. Deve ser um vetor de objetos [{},] */
   slides: PropTypes.arrayOf(
     PropTypes.shape({
       src: PropTypes.string.isRequired,
