@@ -15,7 +15,7 @@ const skills = [
   },
   {
     title: "Photoshop",
-    percentage: 68,
+    percentage: 50,
     color: "#2196f3"
   },
   {
@@ -35,12 +35,12 @@ const skills = [
   },
   {
     title: "React",
-    percentage: 60,
+    percentage: 72,
     color: "#2dd2ff"
   },
   {
     title: "PHP",
-    percentage: 50,
+    percentage: 40,
     color: "#9e9e9e"
   },
   {
@@ -56,7 +56,7 @@ const skills = [
 ]
 
 const others = [
-  'Bootstrap', 'Mocha', 'Gulp', 'Git', 'Layout responsivo', 'Mobile first', "PWA's", 'BEM'
+  'Bootstrap', 'Mocha / Jest', 'Gulp', 'Git', 'Layout responsivo', 'Mobile first', "PWA's", 'BEM'
 ]
 
 var levelsCache = []
