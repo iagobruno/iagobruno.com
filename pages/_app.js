@@ -12,6 +12,16 @@ export default class MyApp extends App {
 
     return { pageProps }
   }
+  
+  componentDidMount() {
+    // Ativar o modo design durante o desenvolvimento
+    if (process.env.NODE_ENV === 'development') {
+      document.designMode = 'on'
+
+      let logStyle = 'background: green; border-radius:2px; color:white; padding: 0 4px;'
+      console.log('%cDesign mode: ON', logStyle, 'Você pode editar qualquer texto diretamente no DOM.')
+    }
+  }
 
   render () {
     const { Component, pageProps } = this.props
