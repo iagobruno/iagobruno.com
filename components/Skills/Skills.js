@@ -20,13 +20,13 @@ const skills = [
   },
   {
     title: "CSS",
-    percentage: 100,
+    percentage: 96,
     color: "#7e57c2"
   },
   {
-    title: "HTML",
-    percentage: 100,
-    color: "#ff5722"
+    title: "Adobe XD",
+    percentage: 60,
+    color: "#FF26BE"
   },
   {
     title: "WordPress",
@@ -35,7 +35,7 @@ const skills = [
   },
   {
     title: "React",
-    percentage: 72,
+    percentage: 80,
     color: "#2dd2ff"
   },
   {
