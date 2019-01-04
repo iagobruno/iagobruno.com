@@ -67,7 +67,7 @@ class CreativeProcess extends Component {
             <li className="shadow">
               <div className="list__icon" style={{backgroundPosition: '1px 0'}}></div>
               <div className="list__title">Protótipo</div>
-              <p className="list__description">Consiste em criar uma versão preliminar do site ou aplicativo com base na identidade visual da empresa. Nessa etapa não tem segredo, pego um lápis e papel para desenhar e posteriormente se necessário uso o Adobe XD para criar uma versão testável.</p>
+              <p className="list__description">Consiste em criar uma versão preliminar do site ou aplicativo com base na identidade visual da empresa. Nessa etapa não tem segredo, pego um lápis e papel para desenhar e posteriormente se necessário uso o Adobe Experience Design para criar uma versão testável.</p>
             </li>
             <li>
               <div className="list__icon" style={{backgroundPosition: '-50px 0'}}></div>
