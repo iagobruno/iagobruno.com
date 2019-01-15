@@ -15,9 +15,9 @@ const links = [
 
 export default (props) => {
   return (
-    <footer className="footer" id="contact">
+    <footer className="footer" id="contact" role="contentinfo">
       <center>
-        <h1 className="footer__title">Contato</h1>
+        <h2 className="footer__title">Contato</h2>
         
         <ul className="links footer__links">
           {links.map((link, i) => (
