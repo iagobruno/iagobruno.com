@@ -3,7 +3,8 @@
 # iagobruno.com
 Meu portifólio para apresentação do meu trabalho, habilidades e projetos realizados.
 
-[![Visitar website](https://img.shields.io/website/https/www.iagobruno.com.svg)](https://www.iagobruno.com) 
+[![Visitar website](https://img.shields.io/website/https/www.iagobruno.com.svg)](https://www.iagobruno.com)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/aea4592e-19c7-4d18-85cf-d7bff624e9ea/deploy-status)](https://app.netlify.com/sites/iagobruno-com/deploys)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/28419b5ab582462bad5995f50c53e8ca)](https://www.codacy.com/app/httpiago/www.iagobruno.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=httpiago/www.iagobruno.com&amp;utm_campaign=Badge_Grade)
 
 > Proibido modificar, distribuir ou fazer uso pessoal sem a prévia autorização, porém, sinta-se livre para estudar os códigos e fazer seu próprio portifólio.
