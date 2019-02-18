@@ -7,17 +7,15 @@ const withPreact = (process.env.NODE_ENV === 'production')
 
 module.exports = withCSS(withLESS(withPreact({
   webpack(config) {
-    let newConfigs = {
-      resolve: {
-        plugins: [
-          new DirectoryNamedWebpackPlugin({
-            honorIndex: true
-          })
-        ]
-      }
-    }
+    config.resolve.plugins = [
+      ...(config.resolve.plugins || []),
 
-    return Object.assign({}, config, newConfigs)
+      new DirectoryNamedWebpackPlugin({
+        honorIndex: true
+      })
+    ]
+
+    return config;
   },
   async exportPathMap(defaultPathMap) {
     return {

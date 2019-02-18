@@ -1,4 +1,11 @@
 {
+  "version": "2.0.0",
+  "homepage": "https://www.iagobruno.com/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/httpiago/www.iagobruno.com.git"
+  },
+  "private": true,
   "scripts": {
     "dev": "next",
     "build": "next build && next export",
@@ -10,15 +17,18 @@
     "@zeit/next-preact": "^0.1.0",
     "delegate": "^3.2.0",
     "directory-named-webpack-plugin": "^4.0.0",
-    "less": "^3.8.1",
-    "next": "^7.0.0",
-    "preact": "^8.3.1",
+    "less": "^3.9.0",
+    "next": "^8.0.1",
+    "preact": "^8.4.2",
     "preact-compat": "^3.18.4",
-    "prop-types": "^15.6.2",
-    "scrollreveal": "^4.0.4"
+    "prop-types": "^15.7.2",
+    "scrollreveal": "^4.0.5"
   },
   "devDependencies": {
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2"
+  },
+  "engines": {
+    "node": ">=10.0.0"
   }
 }
