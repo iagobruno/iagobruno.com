@@ -1,11 +1,8 @@
 const DirectoryNamedWebpackPlugin  = require('directory-named-webpack-plugin')
 const withCSS = require('@zeit/next-css')
 const withLESS = require('@zeit/next-less')
-const withPreact = (process.env.NODE_ENV === 'production')
-  ? require('@zeit/next-preact')
-  : (config = {}) => config
 
-module.exports = withCSS(withLESS(withPreact({
+module.exports = withCSS(withLESS({
   webpack(config) {
     config.resolve.plugins = [
       ...(config.resolve.plugins || []),
@@ -26,4 +23,4 @@ module.exports = withCSS(withLESS(withPreact({
       }
     }
   }
-})))
+}))

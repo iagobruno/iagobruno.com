@@ -1,7 +1,5 @@
-import React, { Component } from 'react'
-
-// Importar o preact devtools somente no modo de produção
-if (process.env.NODE_ENV === 'production') require('preact/devtools')
+import React, { Component, Fragment } from 'react'
+import Head from 'next/head'
 
 import Header from '../components/Header'
 import About from '../components/About'
@@ -43,14 +41,20 @@ class HomePage extends Component {
 
   render() {
     return (
-      <div className="home-page">
-        <Header />
-        <About />
-        <CreativeProcess />
-        <Skills />
-        <Works />
-        <Footer />
-      </div>
+      <Fragment>
+        <Head>
+          <title>Iago Bruno &#8212; Full Stack Developer</title>
+        </Head>
+
+        <div className="home-page">
+          <Header />
+          <About />
+          <CreativeProcess />
+          <Skills />
+          <Works />
+          <Footer />
+        </div>
+      </Fragment>
     )
   }
 }

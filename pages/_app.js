@@ -1,5 +1,6 @@
 import React from 'react'
 import App, { Container } from 'next/app'
+
 import '../styles/main.less'
 
 export default class MyApp extends App {

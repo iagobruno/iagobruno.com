@@ -15,7 +15,6 @@ export default class MyDocument extends Document {
           <meta charSet="UTF-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <title>Iago Bruno &#8212; Full Stack Developer</title>
           <meta name="description" content="Programador de websites com experiência vasta em JavaScript, Node, React, CSS, PHP, entre outros." />
           <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico" />
           <meta name="keywords" content="Full-stack developer,Front end developer,Desenvolvedor javascript,Desenvolvedor de sites,Website developer,NodeJS,javascript,programador,Ceará,Brasil,designer,designer de sites,designer de aplicativos," />
