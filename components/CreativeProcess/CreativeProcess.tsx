@@ -1,11 +1,13 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 import Reveal from '../ScrollRevealHOC'
 import './CreativeProcess.less'
 
-class CreativeProcess extends Component {
+class CreativeProcess extends React.Component {
   static defaultProps = {
     revealViewFactor: 0.6
   }
+
+  private Cols: any
 
   componentDidMount() {
     const isMobile = window.innerWidth < 859
@@ -24,7 +26,7 @@ class CreativeProcess extends Component {
     let i = 0
 
     // Aplicar ou remover uma sombra no elemento
-    function applyShadow(element, method = 'add') {    
+    function applyShadow(element: HTMLElement, method: string = 'add') {    
       let value = (method === 'remove') ? 'none' : '0 12px 30px rgba(0,0,0,.3)'
 
       element.style.boxShadow = value

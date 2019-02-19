@@ -2,7 +2,15 @@ import React, { Component } from 'react'
 import Reveal from '../ScrollRevealHOC'
 import './Works.less'
 
-const workList = [
+interface WorkItem {
+  title: string;
+  subTitle: string;
+  url: string;
+  image: string;
+  description: string;
+}
+
+const workList: Array<WorkItem> = [
   {
     title: 'TecBolt',
     subTitle: '2017',
@@ -36,14 +44,14 @@ class Works extends Component {
     let works = [].slice.call(document.querySelectorAll('#works .list > li'))
 
     // Ocultar cada item da sessão
-    works.map((item) => {
+    works.map((item: HTMLElement) => {
       item.style.transform = 'scale(0)'
     })
   }
 
   // Mostrar os trabalhos quando o componente aparecer na tela
   componentDidAppear() {
-    let works = document.querySelectorAll('#works .list > li')
+    let works: NodeListOf<HTMLDivElement> = document.querySelectorAll('#works .list > li')
     let i = 0
 
     // Fazer um loop nos elementos com um delay de diferença entre cada um
@@ -71,7 +79,7 @@ class Works extends Component {
               let alt = (work.title === 'Lembretes')
                 ? 'Captura de tela da página do Lembretes na Chrome Web Store'
                 : 'Captura de tela do site ' + work.title
-  
+
               return (
                 <li key={index}>
                   <a href={work.url} target="_blank" rel="noopener" id={id}>

@@ -3,3 +3,5 @@ declare namespace JSX {
     [elemName: string]: any;
   }
 }
+
+declare module 'delegate';

@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import * as React from 'react'
+const { useState, useEffect } = React
 import './Header.less'
 
 export default function Header() {
-  const [height, setHeight] = useState('')
-  
+  const [height, setHeight] = useState('');
+
   useEffect(() => {
     window.addEventListener('resize', changeHeaderHeight)
     changeHeaderHeight()
     
     return () => window.removeEventListener('resize', changeHeaderHeight)
-  }, [])
+  }, []);
 
   function changeHeaderHeight() {
     let isMobile = window.innerWidth < 859
@@ -51,5 +52,5 @@ export default function Header() {
         </div>
       </center>
     </header>
-  )
+  );
 }
