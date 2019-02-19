@@ -2,7 +2,13 @@ import React, { Component } from 'react'
 import Reveal from '../ScrollRevealHOC'
 import './Skills.less'
 
-const skills = [
+interface SkillItem {
+  title: string;
+  percentage: number;
+  color: string;
+}
+
+const skills: Array<SkillItem> = [
   {
     title: "JavaScript",
     percentage: 94,
@@ -55,11 +61,11 @@ const skills = [
   },
 ]
 
-const others = [
+const others: Array<string> = [
   'Bootstrap', 'Mocha / Jest', 'Gulp', 'Git', 'Layout responsivo', 'Mobile first', "PWA's", 'BEM'
 ]
 
-var levelsCache = []
+var levelsCache: Array<string|any> = []
 
 class Skills extends Component {
   static defaultProps = {
@@ -72,7 +78,7 @@ class Skills extends Component {
 
     // Salvar a porcentagem dos níveis em um Array
     // E remover o valor no elemento
-    itens.map((item) => {
+    itens.map((item: HTMLElement) => {
       levelsCache.push(item.style.width)
 
       item.style.width = '0%'
@@ -81,7 +87,7 @@ class Skills extends Component {
 
   // Animar as barras de porcentagens em #skills quando o componente aparecer na tela
   componentDidAppear() {
-    let levels = document.querySelectorAll('.skills__level-bar span')
+    let levels: NodeListOf<HTMLDivElement> = document.querySelectorAll('.skills__level-bar span')
     let i = 0
 
     // Fazer um loop nos elementos com um delay de diferença entre cada um

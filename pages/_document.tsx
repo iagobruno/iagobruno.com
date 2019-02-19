@@ -1,9 +1,10 @@
 import Document, { Head, Main, NextScript } from 'next/document'
+import { NextDocumentContext } from 'next'
 
 import GoogleAnalytics from '../components/GA'
 
 export default class MyDocument extends Document {
-  static async getInitialProps(ctx) {
+  static async getInitialProps(ctx: NextDocumentContext) {
     const initialProps = await Document.getInitialProps(ctx)
     return { ...initialProps }
   }
