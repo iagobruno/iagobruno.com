@@ -1,34 +1,11 @@
 import * as React from 'react'
-const { useState, useEffect } = React
 import './Header.less'
 
 export default function Header() {
-  const [height, setHeight] = useState('');
-
-  useEffect(() => {
-    window.addEventListener('resize', changeHeaderHeight)
-    changeHeaderHeight()
-    
-    return () => window.removeEventListener('resize', changeHeaderHeight)
-  }, []);
-
-  function changeHeaderHeight() {
-    let isMobile = window.innerWidth < 859
-    let headerPadding = ((50) * 2),
-      minHeight = 360,
-      maxHeight = 540,
-      // Calcular a altura mínima e máxima do cabeçalho
-      newHeight = (isMobile)
-        ? ''
-        : Math.min(Math.max(minHeight, (window.innerHeight - headerPadding)), maxHeight) + 'px'
-
-    setHeight(newHeight)
-  }
-
   return (
     <header className="header" id="header" role="banner">
       <center>
-        <div className="header__container" style={{ height }}>
+        <div className="header__container">
           <nav className="header__align--top">
             <img className="signature" src="static/images/IagoBruno.png" role="logo" alt="Iago Bruno"/>
             <ul className="links header__links">

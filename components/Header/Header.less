@@ -12,7 +12,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 400px;
+  // Calcular a altura do cabeçalho removendo os 100px de padding padrão das sessões
+  height: calc(100vh - 50px * 2);
+  min-height: 360px;
+  max-height: 540px;
 
   @media @phones {
     height: inherit !important;
