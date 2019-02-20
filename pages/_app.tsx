@@ -19,14 +19,6 @@ export default class MyApp extends App {
   componentDidMount() {
     // Delegar um evento global para todos os links da página
     Delegate('a', 'click', this.handleLinkClick)
-    
-    // Ativar o modo design durante o desenvolvimento
-    if (process.env.NODE_ENV === 'development') {
-      document.designMode = 'on'
-
-      let logStyle = 'background: green; border-radius:2px; color:white; padding: 0 4px;'
-      console.log('%cDesign mode: ON', logStyle, 'Você pode editar qualquer texto diretamente no DOM.')
-    }
 
     console.log('%c👀', 'font-size: 20px;');
   }
