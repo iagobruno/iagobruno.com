@@ -110,6 +110,7 @@ class AboutSlideShow extends React.Component<PropTypes, StateTypes> {
         <img
           className="slide-show__image"
           ref={this.imgRef}
+          alt=""
           {...attrs}
         />
       </div>

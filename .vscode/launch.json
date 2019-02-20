@@ -4,14 +4,14 @@
     {
       "type": "chrome",
       "request": "launch",
-      "name": "Next: Chrome",
+      "name": "Next: Client side",
       "url": "http://localhost:3000",
       "webRoot": "${workspaceFolder}"
     },
     {
       "type": "node",
       "request": "launch",
-      "name": "Next: Node",
+      "name": "Next: Node side",
       "runtimeExecutable": "yarn",
       "runtimeArgs": [
         "run", "dev", "--inspect"
@@ -23,7 +23,7 @@
   "compounds": [
     {
       "name": "Next: Full",
-      "configurations": ["Next: Node", "Next: Chrome"]
+      "configurations": ["Next: Node side", "Next: Client side"]
     }
   ]
 }

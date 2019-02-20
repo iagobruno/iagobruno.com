@@ -18,14 +18,14 @@
   }
 }
 
-.works .list > li {
-  transition: transform 800ms cubic-bezier(0.04, 0.64, 0.21, 0.99);
-  margin-bottom: 24px;
-}
-
-
-@media @desktops {
-  .works .list--3-cols {
+.works .list {
+  @media @desktops {
     margin: 0 -16px;
+    justify-content: initial;
+  }
+
+  & > li {
+    transition: transform 800ms cubic-bezier(0.04, 0.64, 0.21, 0.99);
+    margin-bottom: 24px;
   }
 }

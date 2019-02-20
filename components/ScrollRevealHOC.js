@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+const ScrollReveal = (typeof window !== 'undefined') ? require('scrollreveal').default : () => {}
 
-export default function Reveal(WrappedComponent) {	
+export default function Reveal(WrappedComponent) {
   return class RevealEnhancer extends Component {
     static defaultProps = {
       revealViewFactor: 0.2,
@@ -15,13 +16,9 @@ export default function Reveal(WrappedComponent) {
     }
 
     componentDidMount() {
-      if (typeof window.ScrollReveal === 'undefined') {
-        window.ScrollReveal = require('scrollreveal')()
-      }
-      
       const domElement = ReactDOM.findDOMNode(this.component)
-
-      ScrollReveal.reveal(domElement, {
+      
+      ScrollReveal().reveal(domElement, {
         useDelay: (this.component.props.always === true) ? 'always' : 'once',
         viewFactor: this.component.props.revealViewFactor,
         duration: 0,
@@ -49,7 +46,10 @@ export default function Reveal(WrappedComponent) {
   
     render() {
       return (
-        <WrappedComponent ref={(node) => this.component = node} {...this.props} />
+        <WrappedComponent
+          ref={(node) => this.component = node}
+          {...this.props}
+        />
       )
     }
   }
