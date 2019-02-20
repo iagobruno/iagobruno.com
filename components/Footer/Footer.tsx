@@ -1,12 +1,7 @@
 import * as React from 'react'
 import './Footer.less'
 
-interface LinkItem {
-  text: string;
-  url: string;
-}
-
-const links: Array<LinkItem> = [
+const links: Array<LinkItemType> = [
   { text: 'Email', url: 'mailto:httpiago@gmail.com' },
   { text: 'Telefone', url: 'tel:+5588999892495' },
   { text: 'Facebook', url: 'https://www.facebook.com/httpiago' },
@@ -18,7 +13,7 @@ const links: Array<LinkItem> = [
   { text: 'Github', url: 'https://github.com/httpiago/' },
 ]
 
-export default function Footer(props: Object) {
+export default function Footer() {
   return (
     <footer className="footer" id="contact" role="contentinfo">
       <center>

@@ -2,12 +2,7 @@ import * as React from 'react'
 import SlideShow from './SlideShow'
 import './About.less'
 
-interface SlideItem {
-  src: string;
-  alt: string;
-}
-
-const slides: Array<SlideItem> = [
+const slides: Array<SlideItemType> = [
   {
     src: '/static/images/code_react.jpg',
     alt: 'Exemplo de um componente do React'
@@ -22,7 +17,7 @@ const slides: Array<SlideItem> = [
   }
 ]
 
-export default function About(props: Object) {
+export default function About() {
   return (
     <section className="about" id="about">
       <center>

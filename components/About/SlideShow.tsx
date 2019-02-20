@@ -1,14 +1,9 @@
 import * as React from 'react'
 import './SlideShow.less'
 
-interface SlideItem {
-  src: string;
-  alt: string;
-}
-
 interface PropTypes {
   duration: number;
-  slides: Array<SlideItem>;
+  slides: Array<SlideItemType>;
 }
 
 interface StateTypes {

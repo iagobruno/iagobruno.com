@@ -2,13 +2,7 @@ import React, { Component } from 'react'
 import Reveal from '../ScrollRevealHOC'
 import './Skills.less'
 
-interface SkillItem {
-  title: string;
-  percentage: number;
-  color: string;
-}
-
-const skills: Array<SkillItem> = [
+const skills: Array<SkillItemType> = [
   {
     title: "JavaScript",
     percentage: 94,

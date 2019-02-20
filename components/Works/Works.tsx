@@ -2,15 +2,8 @@ import React, { Component } from 'react'
 import Reveal from '../ScrollRevealHOC'
 import './Works.less'
 
-interface WorkItem {
-  title: string;
-  subTitle: string;
-  url: string;
-  image: string;
-  description: string;
-}
 
-const workList: Array<WorkItem> = [
+const workList: Array<WorkItemType> = [
   {
     title: 'TecBolt',
     subTitle: '2017',
