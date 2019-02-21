@@ -121,13 +121,14 @@ ul.list {
 }
 
 .list a:focus::after,
-.list a:hover::after {
+.list a:hover::after,
+.list a.with-background::after {
   background: rgba(0, 0, 0, .06);
   transform: scale(1.07);
 }
 
 .list a:focus::after {
-  border: 1px solid #005aff;
+  // border: 1px solid #005aff;
 }
 
 img.list__thumb {

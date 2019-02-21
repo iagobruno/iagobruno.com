@@ -5,12 +5,16 @@ declare namespace JSX {
 }
 
 declare module 'delegate';
-interface WorkItem {
+declare module 'react-portal';
+
+interface WorkItemType {
   title: string;
   subTitle: string;
   url?: string;
   image: string;
   description: string;
+  totalDevelopmentTime?: string;
+  technologies?: Array<string>;
 }
 
 interface SkillItemType {

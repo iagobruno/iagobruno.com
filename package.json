@@ -18,10 +18,11 @@
     "@zeit/next-typescript": "^1.1.1",
     "delegate": "^3.2.0",
     "less": "^3.9.0",
-    "next": "^8.0.1",
+    "next": "7.0.3",
     "prop-types": "^15.7.2",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
+    "react-portal": "^4.2.0",
     "scrollreveal": "^4.0.5"
   },
   "devDependencies": {

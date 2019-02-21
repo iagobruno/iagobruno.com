@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { getTransitionDuration } from '../../Utils'
 import './SlideShow.less'
 
 interface PropTypes {
@@ -111,11 +112,6 @@ class AboutSlideShow extends React.Component<PropTypes, StateTypes> {
       </div>
     )
   }
-}
-
-function getTransitionDuration(element: HTMLElement) {
-  let val = window.getComputedStyle(element).getPropertyValue('transition-duration')
-  return Number( val.slice(0, -1) ) * 1000
 }
 
 export default AboutSlideShow
