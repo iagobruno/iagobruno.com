@@ -32,6 +32,8 @@ interface PostMetaType {
   publishDate: string;
   /** Imagem de capa para ser mostrada nas redes sociais. */
   image?: string;
+  /** Slug da postagem para ser adiciona no head da página */
+  slug: string;
 }
 
 interface SkillItemType {
