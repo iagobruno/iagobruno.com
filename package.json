@@ -7,7 +7,7 @@
   },
   "private": true,
   "scripts": {
-    "dev": "next",
+    "dev": "yarn run generate-rss-feed && next",
     "build": "next build && next export && yarn run generate-rss-feed",
     "start": "http-serve ./out -p 3000",
     "generate-rss-feed": "ts-node --project scripts/tsconfig.ts-node.json scripts/build-rss-feed.ts"
@@ -26,7 +26,6 @@
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-portal": "^4.2.0",
-    "require-from-string": "^2.0.2",
     "rss": "^1.2.2",
     "scrollreveal": "^4.0.5",
     "ts-node": "^8.0.2",

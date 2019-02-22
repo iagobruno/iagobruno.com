@@ -1,3 +1,6 @@
+const glob = require('glob')
+const fs = require('fs')
+
 /**
  * Checar o se é um dispositivo móvel (se a tela é pequena)
  */
@@ -5,35 +8,61 @@ export const checkIsMobile = (): boolean => (window.innerWidth <= 859)
 
 /**
  * Transformar uma função que usa callback em uma versão compatível com async/await.
- *
- * @param {Function} func
- * @param {Array} args Argumentos da chamada da função
- * @param {Object} context Normalmente pode ser ignorado, porém, se for uma função do React
- *                         deve-se definir o escopo do componente. Veja no exemplo abaixo.
- * @returns {Promise}
- *
- * @example
- * async handleClick() {
-  *   await promisify(this.setState, [{ showButton: true }], this)
-  * }
-  */
-export function promisify(func: Function, args: any[], context: any): Promise<any> {
+ */
+export function promisify(func: Function, args: any[], context: any = null): Promise<any> {
   return new Promise((resolve, reject) => {
-    args.push((err: any, data: any) => {
-      if (err) return reject(err);
-
-      resolve(data)
+    args.push(function (err: any, data: any) {
+      if (err) reject(err);
+      else resolve(data);
     })
 
-    func.apply(context, args);
+    func.apply(context, args)
   })
+}
+
+/**
+ * Buscar todas as postagens do blog ordenadas por data de publicação.
+ */
+export async function getAllPosts(limit: number = Infinity, fromCache: boolean = true) {
+  if (fromCache) {
+    return require('./posts-data.js');
+  }
+
+  const files: string[] = await promisify(glob, [`./pages/posts/**/*.mdx`])
+  const now = new Date()
+
+  return files
+    .map((filePath) => {
+      let data: any = getPostData(filePath)
+      return { ...data, publishDate: new Date(data.publishDate) }
+    })
+    // Só retornar posts já publicados no passado
+    .filter(({ publishDate }) => {
+      return (typeof publishDate !== 'undefined' && publishDate <= now)
+    })
+    // Ordenar por data de publicação
+    .sort((a, b) => b.publishDate - a.publishDate)
+    // Limitar o número de resultados
+    .slice(0, limit) as Array<object>;
+
+  // Buscar e retornar as informações do post na constante "meta" dentro do arquivo.
+  function getPostData(filePath: string) {
+    const content = fs.readFileSync(filePath, { encoding: 'utf-8' })
+    const result = RegExp('export const meta = (?<infos>\{(.|\n|\r)*(?!\}));', 'gim').exec(content)
+
+    if (!result) {
+      throw new Error(`Não foi possível pegar as informações do post: ${filePath}`);
+    }
+
+    return eval(`(${result.groups!.infos})`) as object
+  }
 }
 
 /**
  * Retorna o valor "transition-duration" do css do elemento.
  */
 export function getTransitionDuration(element: HTMLElement): number {
-  let val = window.getComputedStyle(element)
+  const val = window.getComputedStyle(element)
     .getPropertyValue('transition-duration')
 
   return Number( val.slice(0, -1) ) * 1000
@@ -43,7 +72,7 @@ export function getTransitionDuration(element: HTMLElement): number {
  * setTimeout as a Promise.
  */
 export function sleep(delay: number): Promise<any> {
-  return new Promise(function(resolve) {
-      setTimeout(resolve, delay);
-  });
+  return new Promise(resolve => {
+    setTimeout(resolve, delay);
+  })
 }
