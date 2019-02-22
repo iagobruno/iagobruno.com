@@ -18,6 +18,7 @@ export default class MyDocument extends Document {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico" />
           <meta name="keywords" content="Full-stack developer,Front end developer,Desenvolvedor javascript,Desenvolvedor de sites,Website developer,NodeJS,javascript,programador,Ceará,Brasil,designer,designer de sites,designer de aplicativos," />
+          <link rel="alternate" type="application/rss+xml" title="Blog RSS Feed" href="/static/rss-feed.xml" />
           <meta name="robots" content="index,follow" />
 
           {/* Assets da página */}

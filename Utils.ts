@@ -39,6 +39,9 @@ export function getTransitionDuration(element: HTMLElement): number {
   return Number( val.slice(0, -1) ) * 1000
 }
 
+/**
+ * setTimeout as a Promise.
+ */
 export function sleep(delay: number): Promise<any> {
   return new Promise(function(resolve) {
       setTimeout(resolve, delay);
