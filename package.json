@@ -7,10 +7,12 @@
   },
   "private": true,
   "scripts": {
-    "dev": "yarn run generate-rss-feed && next",
-    "build": "next build && next export && yarn run generate-rss-feed",
-    "start": "http-serve ./out -p 3000",
-    "generate-rss-feed": "ts-node --project scripts/tsconfig.ts-node.json scripts/build-rss-feed.ts"
+    "dev": "next",
+    "build": "next build && next export",
+    "predev": "yarn run generate-rss-feed",
+    "postbuild": "yarn run generate-rss-feed",
+    "generate-rss-feed": "ts-node --project scripts/tsconfig.ts-node.json scripts/build-rss-feed.ts",
+    "start": "http-serve ./out -p 3000"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
@@ -21,7 +23,7 @@
     "delegate": "^3.2.0",
     "glob": "^7.1.3",
     "less": "^3.9.0",
-    "next": "7.0.3",
+    "next": "8.0.3",
     "prop-types": "^15.7.2",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
