@@ -5,6 +5,8 @@ import Delegate from 'delegate'
 
 import '../styles/main.less'
 
+import Notification from '../components/Notification/Notification'
+
 export default class MyApp extends App {
   static async getInitialProps({ Component, ctx }: NextAppContext) {
     let pageProps = {}
@@ -51,6 +53,7 @@ export default class MyApp extends App {
     return (
       <Container>
         <Component {...pageProps} />
+        <Notification />
       </Container>
     )
   }
