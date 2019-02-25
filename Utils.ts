@@ -1,5 +1,7 @@
 const glob = require('glob')
 const fs = require('fs')
+const readingTime = require('reading-time')
+const sanitizeHtml = require('sanitize-html')
 
 /**
  * Checar o se é um dispositivo móvel (se a tela é pequena)
@@ -33,8 +35,15 @@ export async function getAllPosts(limit: number = Infinity, fromCache: boolean =
 
   return files
     .map((filePath) => {
-      let data: any = getPostData(filePath)
-      return { ...data, publishDate: new Date(data.publishDate) }
+      const rawContent = fs.readFileSync(filePath, { encoding: 'utf-8' })
+      const cleanedContent = clearContent( rawContent )
+      const data: any = getPostData(rawContent, filePath)
+
+      return {
+        ...data,
+        publishDate: new Date(data.publishDate),
+        readingTime: readingTime( cleanedContent ).text.replace('read', 'de leitura'),
+      }
     })
     // Só retornar posts já publicados no passado
     .filter(({ publishDate }) => {
@@ -45,16 +54,25 @@ export async function getAllPosts(limit: number = Infinity, fromCache: boolean =
     // Limitar o número de resultados
     .slice(0, limit) as Array<object>;
 
-  // Buscar e retornar as informações do post na constante "meta" dentro do arquivo.
-  function getPostData(filePath: string) {
-    const content = fs.readFileSync(filePath, { encoding: 'utf-8' })
-    const result = RegExp('export const meta = (?<infos>\{(.|\n|\r)*(?!\}));', 'gim').exec(content)
+  /** Retornar as informações do post na constante "meta" dentro do arquivo. */
+  function getPostData(rawContent: string, filePath?: string) {
+    const result = RegExp('export const meta = (?<infos>\{(.|\n|\r)*(?!\}));', 'gim').exec(rawContent)
 
     if (!result) {
       throw new Error(`Não foi possível pegar as informações do post: ${filePath}`);
     }
 
     return eval(`(${result.groups!.infos})`) as object
+  }
+
+  /** Remover todas as sintáxes JS e JSX do coneteúdo para o pacote "reading-time" gerar resultados mais pecisos */
+  function clearContent(rawContent: string) {
+    const treatedContent = rawContent
+      .replace(/import .*(?=(\r|\n))/gi, '')
+      .replace(/export const meta = (.|\n|\r)*;/gi, '')
+      .replace(/export default .*(\;|\n|\r)/gi, '')
+
+    return sanitizeHtml(treatedContent)
   }
 }
 
