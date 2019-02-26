@@ -4,14 +4,16 @@ import './Skills.less'
 
 const skills: Array<SkillItemType> = [
   {
-    title: "JavaScript",
-    percentage: 94,
-    color: "#f44336"
-  },
-  {
-    title: "NodeJS",
+    title: "JavaScript/Node",
     percentage: 82,
     color: "#4caf50"
+  },
+  {
+    title: "React",
+    percentage: 76,
+    color: "#2dd2ff",
+    description: "Framework para criação de interfaces de usuário.",
+    studying: true
   },
   {
     title: "Photoshop",
@@ -20,13 +22,14 @@ const skills: Array<SkillItemType> = [
   },
   {
     title: "CSS",
-    percentage: 96,
+    percentage: 92,
     color: "#7e57c2"
   },
   {
     title: "Adobe XD",
     percentage: 60,
-    color: "#FF26BE"
+    color: "#FF26BE",
+    description: "Ferramenta para criação de protótipos de experiência do usuário para aplicativos da Web e móveis."
   },
   {
     title: "WordPress",
@@ -34,9 +37,10 @@ const skills: Array<SkillItemType> = [
     color: "#555555"
   },
   {
-    title: "React",
-    percentage: 80,
-    color: "#2dd2ff"
+    title: "Inglês",
+    percentage: 42,
+    color: "#607d8b",
+    studying: true
   },
   {
     title: "PHP",
@@ -44,19 +48,28 @@ const skills: Array<SkillItemType> = [
     color: "#9e9e9e"
   },
   {
-    title: "Inglês",
-    percentage: 41,
-    color: "#607d8b"
-  },
-  {
     title: "SQL",
-    percentage: 32,
+    percentage: 50,
     color: "#fdd835"
   },
+  {
+    title: "TypeScript",
+    percentage: 46,
+    color: '#007ACC',
+    description: "Linguagem para fazer tipagem de código JavaScript.",
+    studying: true
+  }
 ]
 
-const others: Array<string> = [
-  'Bootstrap', 'Mocha / Jest', 'Gulp', 'Git', 'Layout responsivo', 'Mobile first', "PWA's", 'BEM'
+const others: Array<OthersSkillsItemType> = [
+  { title: 'Jest / Mocha', description: 'Ferramentas de testes automatizados.' },
+  { title: 'Gulp', description: 'Automatização de tarefas.' },
+  { title: 'Git', description: 'Versionamento de código.' },
+  { title: 'Bootstrap' },
+  { title: 'Layout responsivo' },
+  { title: 'Mobile first', description: 'Desenvolvimento com dispositivos móveis em mente.' },
+  { title: "PWA's", description: 'Progressive Web Apps.' },
+  { title: "BEM", description: 'Conceito de organização para CSS.' },
 ]
 
 var levelsCache: Array<string|any> = []
@@ -105,18 +118,25 @@ class Skills extends Component {
 
           <div className="skills__table">
             {skills.map((item, index) => (
-              <div className="skills__item" key={index}>
+              <div
+                className={`skills__item ${item.studying ? 'skills__item--studying' : ''}`}
+                key={index}
+                title={(item.description ? item.description : '') + (item.description && item.studying ? ' - '  : '') + (item.studying ? 'Estudando no momento...' : '')}
+                aria-label={item.description}
+              >
                 <div className="skills__label" style={{background: item.color}}>{item.title}</div>
                 <div className="skills__level-bar"><span style={{
-                  background: item.color,
+                  backgroundColor: item.color,
                   width: `${item.percentage}%`
                 }}></span></div>
               </div>
             ))}
   
             <div className="skills__other-skills">
-              {others.map((_, i) => (
-                <div key={i} className="skills__label">{_}</div>
+              {others.map(({ title, description}, i) => (
+                <div key={i} className="skills__label" title={description} aria-label={description}>
+                  {title}
+                </div>
               ))}
             </div>
           </div>

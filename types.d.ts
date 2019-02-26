@@ -21,6 +21,13 @@ interface SkillItemType {
   title: string;
   percentage: number;
   color: string;
+  description?: string;
+  studying?: boolean;
+}
+
+interface OthersSkillsItemType {
+  title: string;
+  description?: string;
 }
 
 interface SlideItemType {

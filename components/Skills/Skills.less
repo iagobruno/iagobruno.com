@@ -73,3 +73,22 @@
   margin-bottom: 10px;
   opacity: 1;
 }
+
+.skills__item--studying .skills__level-bar span {
+  background-image: -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, .1) 33%, rgba(0,0, 0, .1) 66%, transparent 66%);
+  background-image: -moz-linear-gradient( 135deg, transparent 33%, rgba(0, 0, 0, 0.1) 33%, rgba(0, 0, 0, 0.1) 66%, transparent 66% );
+  background-size: 35px 20px, 100% 100%, 100% 100%;
+  background-repeat: repeat;
+  -webkit-animation: evolving-loading 8s linear infinite;
+  animation: evolving-loading 8s linear infinite;
+}
+
+@keyframes evolving-loading {
+  from { background-position: 0; }
+  to { background-position-x: -75px; }
+}
+
+@-webkit-keyframes evolving-loading {
+  from { background-position: 0; }
+  to { background-position-x: -75px; }
+}
