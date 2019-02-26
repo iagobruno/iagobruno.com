@@ -27,7 +27,7 @@ interface PostMetaType {
   /** Título da postagem */
   title: string;
   /** Breve descrição para ser mostrado no Google e nas redes sociais. */
-  summary?: string;
+  summary: string;
   /** Data de publicação, exemplo: 2018-05-10T12:00:00Z */
   publishDate: string;
   /** Imagem de capa para ser mostrada nas redes sociais. */

@@ -25,7 +25,7 @@ export function promisify(func: Function, args: any[], context: any = null): Pro
 /**
  * Buscar todas as postagens do blog ordenadas por data de publicação.
  */
-export async function getAllPosts(limit: number = Infinity, fromCache: boolean = true) {
+export async function getAllPosts(limit: number = Infinity, fromCache: boolean = true): Promise<object[]> {
   if (fromCache) {
     return require('./posts-data.js');
   }
@@ -52,7 +52,7 @@ export async function getAllPosts(limit: number = Infinity, fromCache: boolean =
     // Ordenar por data de publicação
     .sort((a, b) => b.publishDate - a.publishDate)
     // Limitar o número de resultados
-    .slice(0, limit) as Array<object>;
+    .slice(0, limit);
 
   /** Retornar as informações do post na constante "meta" dentro do arquivo. */
   function getPostData(rawContent: string, filePath?: string) {
@@ -93,4 +93,16 @@ export function sleep(delay: number): Promise<any> {
   return new Promise(resolve => {
     setTimeout(resolve, delay);
   })
+}
+
+const months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
+
+/**
+ * Formatar data e hora em uma versão legível por humanos
+ */
+export function formateDate(date: Date | string): string {
+  const d = !(date instanceof Date) ? new Date(date) : date
+  const zero = (n: number) => ('0'+n).slice (-2)
+
+  return `${zero(d.getDate())} de ${months[d.getMonth()]} de ${d.getFullYear()} às ${zero(d.getHours())}:${zero(d.getMinutes())}`
 }

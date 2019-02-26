@@ -11,7 +11,7 @@ interface SocialTagProps {
 function SocialTags({ url, page_title, description, image }: SocialTagProps) {
   return (
     <Head>
-      <title>{page_title}</title>
+      <title>{`${page_title} — Iago Bruno`}</title>
       <meta name="description" content={description} />
 
       <meta property="og:url" content={url} />

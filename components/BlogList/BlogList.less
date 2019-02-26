@@ -1,0 +1,24 @@
+@import '../../styles/responsiveVariables.less';
+
+.blog-list {
+  padding-bottom: 26px;
+
+  @media @desktops {
+    padding-bottom: 30px;
+  }
+
+  @media @phones {
+    padding-bottom: 6px;
+  }
+}
+
+.blog-list .list {
+  @media @desktops {
+    margin: 0 -16px;
+    justify-content: initial;
+  }
+
+  & > li {
+    margin-bottom: 24px;
+  }
+}

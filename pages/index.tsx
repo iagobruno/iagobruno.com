@@ -7,6 +7,7 @@ import Skills from '../components/Skills/Skills'
 import Works from '../components/Works/Works'
 import Footer from '../components/Footer/Footer'
 import SocialTags from '../components/SocialTags'
+import BlogList from '../components/BlogList/BlogList'
 
 export default function HomePage() {
   return (
@@ -19,11 +20,12 @@ export default function HomePage() {
       />
 
       <div className="home-page">
-        <Header />
+        <Header mode="full" />
         <About />
         <CreativeProcess />
         <Skills />
         <Works />
+        <BlogList />
         <Footer />
       </div>
     </Fragment>
