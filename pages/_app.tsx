@@ -1,9 +1,12 @@
 import * as React from 'react'
 import { NextAppContext } from 'next'
 import App, { Container } from 'next/app'
+import NProgress from 'nprogress'
+import Router from 'next/router'
 import Delegate from 'delegate'
 
 import '../styles/main.less'
+import '../styles/nprogress.css'
 
 import Notification from '../components/Notification/Notification'
 
@@ -58,3 +61,15 @@ export default class MyApp extends App {
     )
   }
 }
+
+NProgress.configure({
+  trickleSpeed: 100,
+  showSpinner: false
+})
+
+Router.events.on('routeChangeStart', (url: string) => {
+  console.log(`Loading: ${url}`)
+  NProgress.start()
+})
+Router.events.on('routeChangeComplete', () => NProgress.done())
+Router.events.on('routeChangeError', () => NProgress.done())
