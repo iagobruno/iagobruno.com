@@ -2,6 +2,8 @@ const glob = require('glob')
 const fs = require('fs')
 const readingTime = require('reading-time')
 const sanitizeHtml = require('sanitize-html')
+const uniqid = require('uniqid')
+
 
 /**
  * Checar o se é um dispositivo móvel (se a tela é pequena)
@@ -40,6 +42,7 @@ export async function getAllPosts(limit: number = Infinity, fromCache: boolean =
       const data: any = getPostData(rawContent, filePath)
 
       return {
+        id: uniqid(),
         ...data,
         publishDate: new Date(data.publishDate),
         readingTime: readingTime( cleanedContent ).text.replace('read', 'de leitura'),

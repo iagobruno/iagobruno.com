@@ -23,10 +23,9 @@ export default function BlogList() {
         <h2 className="section__title">Últimas postagens</h2>
 
         <ul className="list list--3-cols">
-          {latestPosts.map((post, index) => {
-            const { slug, title, image } = post
+          {latestPosts.map(({ id, slug, title, image }) => {
             return (
-              <li key={index}>
+              <li key={id}>
                 <Link href={`/posts/${slug}`}>
                   <a>
                     <img className="list__thumb" src={image} alt={title} />

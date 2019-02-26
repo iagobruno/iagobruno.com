@@ -34,7 +34,8 @@
     "sanitize-html": "^1.20.0",
     "scrollreveal": "^4.0.5",
     "ts-node": "^8.0.2",
-    "typescript": "^3.3.3"
+    "typescript": "^3.3.3",
+    "uniqid": "^5.0.3"
   },
   "devDependencies": {
     "@types/next": "^8.0.1",
