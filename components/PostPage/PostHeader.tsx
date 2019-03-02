@@ -22,13 +22,13 @@ function PostHeader({ title, cover, publishDate, layout }: PostHeaderProps) {
         <div className="post__header__top">
           <h1 className="post__title">{title}</h1>
           {cover && (
-            <img src={cover} className="post__cover" />
+            <img src={cover} className="post__cover" alt={title} />
           )}
         </div>
         <div className="post__header__bottom">
           <Link href="/">
             <a>
-              <img className="post__avatar" src="https://avatars0.githubusercontent.com/u/3616259?s=60&v=4" />
+              <img className="post__avatar" src="https://avatars0.githubusercontent.com/u/3616259?s=60&v=4" alt="Iago Bruno" />
             </a>
           </Link>
 
