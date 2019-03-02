@@ -34,6 +34,8 @@ interface PostMetaType {
   image?: string;
   /** Slug da postagem para ser adiciona no head da página */
   slug: string;
+  /** Url da postagem */
+  path: string;
 }
 
 interface SkillItemType {

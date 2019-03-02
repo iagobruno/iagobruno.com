@@ -1,5 +1,6 @@
+import * as fs from 'fs'
+import * as path from 'path'
 const glob = require('glob')
-const fs = require('fs')
 const readingTime = require('reading-time')
 const sanitizeHtml = require('sanitize-html')
 const uniqid = require('uniqid')
@@ -40,12 +41,15 @@ export async function getAllPosts(limit: number = Infinity, fromCache: boolean =
       const rawContent = fs.readFileSync(filePath, { encoding: 'utf-8' })
       const cleanedContent = clearContent( rawContent )
       const data: any = getPostData(rawContent, filePath)
+      const slug = path.basename(filePath, '.mdx')
 
       return {
         id: uniqid(),
         ...data,
         publishDate: new Date(data.publishDate),
         readingTime: readingTime( cleanedContent ).text.replace('read', 'de leitura'),
+        path: `/posts/${slug}`,
+        slug,
       }
     })
     // Só retornar posts já publicados no passado
