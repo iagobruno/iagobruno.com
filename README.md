@@ -17,6 +17,8 @@ Meu portifólio para apresentação do meu trabalho, habilidades e projetos real
 
 **`yarn run start`**: Iniciar a versão de produção na máquina local (requer que o comando "build" seja chamado antes).
 
+**`yarn run generate-rss-feed`**: Exatamente, gera o feed rss e um cache de postagens do blog. (Ele é executado automaticamente antes dos comandos "dev" e "build")
+
 
 ## Estrutura do projeto
 
@@ -28,6 +30,9 @@ Meu portifólio para apresentação do meu trabalho, habilidades e projetos real
 │   ├── Footer
 │   └── ...
 ├── pages           // Páginas do site
+│   ├── posts       // Contém as postagens do blog
+│   │   ├── hello-world.mdx
+│   │   └── ...
 │   ├── index.js
 │   ├── posts.js
 │   └── ...
@@ -35,32 +40,58 @@ Meu portifólio para apresentação do meu trabalho, habilidades e projetos real
 │   ├── images
 │   │   └── ...
 │   └── favicon.ico 
-├── styles          // Arquivos de estilos
+├── styles          // Pasta com arquivos de estilo
 │   └── main.less
 ├── .gitignore
 ├── next.config.js  // Configurações do Next
 ├── package.json
-└── README.md
+├── README.md
+└── Utils.ts        // Contém funções e variáveis que podem ser usadas mais de uma vez dentro do projeto.
 ```
 
 ## Bibliotecas e ferramentas usadas
-- [**Next.js**](https://github.com/zeit/next.js): Para criar o site estático usando os componentes do React.
-- **React**: No modo de desenvolvimento.
-- **Preact**: No site em produção pra diminuir o tamanho 
-  do bundle.
-- [**prop-types**](https://www.npmjs.com/package/prop-types): Pra fazer a checagem dos tipos nas propriedades dos componentes.
-- [**Less**](http://lesscss.org)
-- [**Delegate**](https://github.com/zenorocha/delegate): Criar eventos globais.
-- [**ScrollReveal**](https://github.com/scrollreveal/scrollreveal): Animar os blocos (header, about) do site a medida em que eles vão aparecendo.
-- [**directory-named-webpack-plugin**](https://www.npmjs.com/package/directory-named-webpack-plugin)
-- [**next-css**](https://github.com/zeit/next-plugins/tree/master/packages/next-css) e [**next-less**](https://github.com/zeit/next-plugins/tree/master/packages/next-less): Para permitir a importação de arquivos css e less dentro dos arquivos js.
 
-## Páginas
+- [React](http://reactjs.org): Para componentizar o site.
+- [Next](https://github.com/zeit/next.js): Para criar um site estático com server side rendering usando os componentes do React.
+- [TypeScript](https://typescriptlang.org): Para fazer a tipagem dos códigos e dos componentes.
+- [MDX](https://mdxjs.com/): Para escrever as postagens do blog usando markdown e JSX.
+- [Less](http://lesscss.org): Foi o escolhido para pré-processar o css.
+- [Delegate](https://github.com/zenorocha/delegate): Criar eventos globais.
+- [ScrollReveal](https://github.com/scrollreveal/scrollreveal): Animar os blocos (header, about ...) do site a medida em que eles vão aparecendo.
+- [next-css](https://github.com/zeit/next-plugins/tree/master/packages/next-css) e [next-less](https://github.com/zeit/next-plugins/tree/master/packages/next-less): Para permitir a importação de arquivos css e less dentro dos arquivos js.
 
-Para criar uma nova página basta criar um novo componente em React dentro da pasta "pages" e o nome do arquivo será mapeado para o endereço do site, por exemplo: 
-"pages/about.js" será acessado em "www.exemplo.com/about"
+## Páginas e postagens
+
+Para criar uma nova página basta criar um novo componente React dentro da pasta "pages" e o nome do arquivo será mapeado para o endereço do site, por exemplo: 
+"pages/about.js" será acessado em "www.iagobruno.com/about"
 
 [Ver mais na documentação do Next](https://github.com/zeit/next.js).
+
+### Criar uma nova postagem
+
+Todas as postagens são escritas usando [MDX](https://mdxjs.com/syntax), que possibilita utilizar componentes do React com o [markdown tradicional](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). Igual as páginas comuns, o nome dos arquivos .mdx  dentro da pasta `/pages/posts/` serão mapeados para o endereço do site.
+
+Exemplo:
+
+```js
+// pages/posts/hello-world.mdx
+import PostPage from '../../components/PostPage/PostPage'
+
+export const meta = {
+  title: 'Olá mundo!', // Título da postagem
+  summary: 'resumo', // Um breve resumo que irá aparecer nas redes sociais e no Google.
+  publishDate: '2018-05-10T12:00:00Z', // ano-mês-dia hora-minuto-segundo
+  image: '/static/...', // Capa da postagem
+  slug: 'hello-world' // Exatamente o nome desse arquivo sem a extensão .mdx
+};
+
+Conteúdo da postagem...
+
+export default ({ children }) => <PostPage {...meta}>{children}</PostPage>
+
+```
+
+A postagem acima poderá ser acessada em "www.iagobruno.com/posts/hello-world".
 
 ## Componentes
 
@@ -75,10 +106,6 @@ componentes
 │   └── About.mdx        // Documentação
 └── ...
 ```
-
-OBS: Para chamar um componente basta só referenciar a pasta dele, por que esse projeto tem instalado um plugin do webpack que chama o arquivo com mesmo nome da pasta.
-
-Então `import About from './components/About'` é o mesmo que `import About from './components/About/About.js'`
 
 ## Estilização dos componentes
 
@@ -128,7 +155,7 @@ Com esse método é possível modificar o css sempre que o componente for atuali
 
 ## Hospedagem
 
-A Hospedagem fica por conta de [Netlify](https://www.netlify.com) que faz o deploy automático (Continuous deployment) a cada novo commit neste repositório remoto no Github e distribui os arquivos estáticos gerados pelo Next.js.
+A Hospedagem fica por conta de [Netlify](https://www.netlify.com) que faz o deploy automático (Continuous deployment) a cada novo commit neste repositório remoto e distribui os arquivos estáticos gerados pelo Next.js.
 
 Fluxograma:
 ![Fluxograma da hospedagem](/static/images/Netlify_Flow_Chart.jpeg)
@@ -136,21 +163,3 @@ Fluxograma:
 [Link do projeto na Netlify](https://app.netlify.com/sites/iagobruno-com).
 
 OBS: O domínio ta registrado na Umbler.
-
-## Lista de melhorias
-
-- [ ] Escrever testes dos componentes usando Jest.
-- [ ] Aprender a configurar o travis.
-- [x] Configurar o debugger do vs code. [ver mais](https://github.com/Microsoft/vscode-recipes/tree/master/Next-js)
-- [x] Tirar uma foto profissional para colocar no cabeçalho.
-- [ ] Enfeitar mais o topo do cabeçalho no mobile com aquela ideia lá.
-- [x] [Habilitar o SSL no domínio](https://help.umbler.com/hc/pt-br/articles/201677189-Utilizando-SSL-na-Umbler#cf).
-- [x] Adicionar tags para redes sociais.
-- [x] Reorganizar a sessão habilidades.
-- [x] Revisar o texto da sessão "sobre".
-- [x] Adicionar onde moro em algum lugar do portifólio ("Ceará, Brasil").
-- [x] Adicionar o Google Analytics.
-- [x] Fazer uma versão compacta para celular.
-- [ ] Habilitar a internacionalização da página (caso necessário futuramente).
-- [x] Tentar transferir as funções do arquivo functions.js para seus respectivos componentes, quando eu nao tiver nada pra fazer. 
-- [x] Usar o [Next](https://github.com/zeit/next.js/) ou o [react-static](https://github.com/nozzle/react-static) caso eu queira fazer um blog pessoal estático. 
