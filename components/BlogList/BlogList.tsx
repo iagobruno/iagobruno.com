@@ -4,15 +4,21 @@ import Link from 'next/link'
 
 import './BlogList.less'
 
+interface BlogList {
+  length: number;
+}
+
 /**
  * Mostrar últimas postagens ao usuário
+ * 
+ * @todo Fazer um sistema de paginação caso necessário futuramente
  */
-export default function BlogList() {
+export default function BlogList({ length }: BlogList) {
   const [latestPosts, setLatestPosts] = React.useState<Array<any>>([])
 
   React.useEffect(() => {
     (async () => {
-      const posts = await getAllPosts(3)
+      const posts = await getAllPosts(length)
       setLatestPosts(posts)
     })()
   })
@@ -20,6 +26,11 @@ export default function BlogList() {
   return (
     <section className="blog-list" id="blog">
       <center>
+        {length === 3 && (
+          <Link href="/posts">
+            <a className="blog-list__more-link">Ver mais</a>
+          </Link>
+        )}
         <h2 className="section__title">Últimas postagens</h2>
 
         <ul className="list list--3-cols">
@@ -39,4 +50,8 @@ export default function BlogList() {
       </center>
     </section>
   )
+}
+
+BlogList.defaultProps = {
+  length: 3
 }

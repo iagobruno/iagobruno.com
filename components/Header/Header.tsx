@@ -20,7 +20,11 @@ export default function Header({ mode }: HeaderProps) {
                 <Link href="/#contact"><a aria-label="Contato">Contato</a></Link>
               </li>
               <li>
-                <Link href="/#works"><a aria-label="Lista de Trabalhos">Trabalhos</a></Link></li>
+                <Link href="/#works"><a aria-label="Lista de Trabalhos">Trabalhos</a></Link>
+              </li>
+              <li>
+                <Link href="/posts"><a aria-label="Lista de postagens">Blog</a></Link>
+              </li>
               <li>
                 <a href="https://github.com/httpiago/" aria-label="Perfil no Github">GitHub</a>
               </li>
