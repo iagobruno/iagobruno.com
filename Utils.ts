@@ -59,13 +59,13 @@ export async function getAllPosts(limit: number = Infinity, fromCache: boolean =
 
   /** Retornar as informações do post na constante "meta" dentro do arquivo. */
   function getPostData(rawContent: string, filePath?: string) {
-    const result = RegExp('export const meta = (?<infos>\{(.|\n|\r)*(?!\}));', 'gim').exec(rawContent)
+    const result = RegExp('export const meta = (\{(.|\n|\r)*(?!\}));', 'gim').exec(rawContent)
 
     if (!result) {
       throw new Error(`Não foi possível pegar as informações do post: ${filePath}`);
     }
 
-    return eval(`(${result.groups!.infos})`) as object
+    return eval(`(${result[1]})`) as object
   }
 
   /** Remover todas as sintáxes JS e JSX do coneteúdo para o pacote "reading-time" gerar resultados mais pecisos */
