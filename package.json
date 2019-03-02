@@ -10,7 +10,7 @@
     "dev": "next",
     "build": "next build && next export",
     "predev": "yarn run generate-rss-feed",
-    "postbuild": "yarn run generate-rss-feed",
+    "prebuild": "yarn run generate-rss-feed",
     "generate-rss-feed": "ts-node --project scripts/tsconfig.ts-node.json scripts/build-rss-feed.ts",
     "start": "http-serve ./out -p 3000"
   },
