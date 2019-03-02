@@ -4,13 +4,15 @@ import App, { Container } from 'next/app'
 import NProgress from 'nprogress'
 import Router from 'next/router'
 import Delegate from 'delegate'
+import withGA from 'next-ga'
+import ReactGA from 'react-ga'
 
 import '../styles/main.less'
 import '../styles/nprogress.css'
 
 import Notification from '../components/Notification/Notification'
 
-export default class MyApp extends App {
+class MyApp extends App {
   static async getInitialProps({ Component, ctx }: NextAppContext) {
     let pageProps = {}
 
@@ -44,9 +46,10 @@ export default class MyApp extends App {
     }
 
     // Enviar evento para o Google Analytics
-    gtag('event', 'click', {
-      'event_category': 'links',
-      'event_label': `Cliques em "${url}"`
+    ReactGA.event({
+      category: 'links',
+      action: 'click',
+      label: `Cliques em "${url}"`
     })
   }
 
@@ -67,9 +70,12 @@ NProgress.configure({
   showSpinner: false
 })
 
+// Mostrar barra de progresso durante a troca de página
 Router.events.on('routeChangeStart', (url: string) => {
   console.log(`Loading: ${url}`)
   NProgress.start()
 })
 Router.events.on('routeChangeComplete', () => NProgress.done())
 Router.events.on('routeChangeError', () => NProgress.done())
+
+export default withGA("UA-119109259-1", Router)(MyApp)

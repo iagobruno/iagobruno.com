@@ -1,8 +1,6 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 import { NextDocumentContext } from 'next'
 
-import GoogleAnalytics from '../components/GA'
-
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: NextDocumentContext) {
     const initialProps = await Document.getInitialProps(ctx)
@@ -23,9 +21,6 @@ export default class MyDocument extends Document {
 
           {/* Assets da página */}
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&ver=4.8.6" type="text/css" media="all" />
-
-          {/* Global site tag (gtag.js) - Google Analytics */}
-          <GoogleAnalytics />
         </Head>
         <body>
           <Main />
