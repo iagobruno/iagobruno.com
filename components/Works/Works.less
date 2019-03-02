@@ -3,21 +3,7 @@
 @work-modal-transition: 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
 
 .works {
-  padding-bottom: 26px;
-
-  @media @desktops {
-    padding-bottom: 30px;
-  }
-
-  @media @phones {
-    padding-bottom: 6px;
-  }
-}
-
-@media @phones {
-  #works h2.section-title {
-    margin-bottom: 16px;
-  }
+  padding-bottom: 0px;
 }
 
 .works .list {
@@ -130,8 +116,9 @@ a.work__button {
 
   & svg {
     transition: padding 218ms ease;
+    display: block;
     fill: none;
-    stroke: currentColor;
+    stroke: #333;
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;

@@ -1,0 +1,92 @@
+@import '../../styles/responsiveVariables.less';
+
+.notification {
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,.24);
+  border-radius: 5px;
+  position: fixed;
+  z-index: 2000;
+  bottom: 10px;
+  right: 10px;
+  overflow: hidden;
+  width: 400px;
+  display: flex;
+  align-items: center;
+
+  &.notification--width-image {
+    width: 460px;
+  }
+}
+
+.notification a {
+  display: flex;
+  align-items: center;
+  text-decoration: none !important;
+  flex: 1;
+}
+
+.notification__infos {
+  padding: 12px 14px;
+  flex: 1;
+}
+
+.notification__mini-title {
+  font-size: 14px;
+  color: #666;
+}
+
+.notification__title {
+  font-size: 18px;
+  margin: 2px 0 0;
+}
+
+img.notification__image {
+  max-width: 100px;
+  max-height: 84px;
+  object-fit: cover;
+  display: block;
+}
+
+.notification__close {
+  padding: 6px 8px 6px 0;
+  cursor: pointer;
+
+  & svg {
+    transition: padding 218ms ease;
+    display: block;
+    fill: none;
+    stroke: #333;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    width: 34px;
+    height: 34px;
+    padding: 6px;
+  }
+}
+.notification__close:active svg {
+  padding: 8px;
+}
+
+@media @phones {
+  .notification {
+    border-radius: 0;
+    box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.16);
+    max-width: 100%;
+    width: 100% !important;
+    right: 0;
+    bottom: 0;
+  
+    .notification__mini-title {
+      font-size: 13px;
+    }
+  
+    .notification__title {
+      font-size: 16px;
+    }
+  
+    img.notification__image {
+      max-width: 70px;
+    }
+  }
+}
