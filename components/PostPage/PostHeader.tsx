@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import readingTime from 'reading-time'
 import { formateDate } from '../../Utils'
@@ -53,9 +53,9 @@ function PostHeader({ title, cover, publishDate, layout }: PostHeaderProps) {
 }
 
 function useReadingTime() {
-  const [val, setVal] = React.useState<string>('')
+  const [val, setVal] = useState<string>('')
 
-  React.useEffect(() => {
+  useEffect(() => {
     const text = document.getElementsByClassName('post__content')[0].innerText
     const time = readingTime(text).text.replace('read', 'de leitura')
 

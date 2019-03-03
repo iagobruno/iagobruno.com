@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, FunctionComponent } from 'react'
 
 import Header from '../components/Header/Header'
 import About from '../components/About/About'
@@ -25,7 +25,7 @@ export default function HomePage() {
         <CreativeProcess />
         <Skills />
         <Works />
-        <BlogList />
+        <BlogList length={3} />
         <Footer />
       </div>
     </Fragment>

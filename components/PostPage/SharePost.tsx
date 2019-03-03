@@ -1,15 +1,15 @@
-import * as React from 'react'
+import React, { useState, useEffect } from 'react'
 
 interface ShareProps {
   mode: 'buttons' | 'icon-only';
 }
 
 export default function SharePost({ mode }: ShareProps) {
-  const [postInfos, setPostInfos] = React.useState<any>({})
+  const [postInfos, setPostInfos] = useState<any>({})
 
-  React.useEffect(() => {
+  useEffect(() => {
     setPostInfos({
-      title: encodeURIComponent(document.querySelector('meta[property="og:title"]')!.content),
+      title: encodeURIComponent(document.querySelector('meta[property="og:title"]')!.getAttribute('content')!),
       url: encodeURIComponent(location.href)
     })
   })
