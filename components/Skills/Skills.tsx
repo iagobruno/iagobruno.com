@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import Reveal from '../ScrollRevealHOC'
+import React, { useEffect } from 'react'
+import useReveal from '../ScrollRevealHook'
 import './Skills.less'
 
 const skills: Array<SkillItemType> = [
@@ -72,29 +72,30 @@ const others: Array<OthersSkillsItemType> = [
   { title: "BEM", description: 'Conceito de organização para CSS.' },
 ]
 
-var levelsCache: Array<string|any> = []
+var levelsCache: Array<string> = []
 
-class Skills extends Component {
-  static defaultProps = {
-    revealViewFactor: 0.6
+export default function Skills() {
+  const revealConfigs = {
+    element: '#skills',
+    viewFactor: 0.6
   }
 
   // Ocultar as porcentagens assim que o documento for carregado completamente
-  componentDidMount() {
-    let itens = [].slice.call(document.querySelectorAll('.skills__level-bar span'))
+  useEffect(() => {
+    let itens: Array<HTMLElement> = [].slice.call(document.querySelectorAll('.skills__level-bar span'))
 
     // Salvar a porcentagem dos níveis em um Array
     // E remover o valor no elemento
-    itens.map((item: HTMLElement) => {
-      levelsCache.push(item.style.width)
+    itens.map(item => {
+      levelsCache.push(item.style.width!)
 
       item.style.width = '0%'
     })
-  }
+  })
 
   // Animar as barras de porcentagens em #skills quando o componente aparecer na tela
-  componentDidAppear() {
-    let levels: NodeListOf<HTMLDivElement> = document.querySelectorAll('.skills__level-bar span')
+  useReveal(revealConfigs, () => {
+    let levels: NodeListOf<HTMLElement> = document.querySelectorAll('.skills__level-bar span')
     let i = 0
 
     // Fazer um loop nos elementos com um delay de diferença entre cada um
@@ -108,42 +109,38 @@ class Skills extends Component {
       i++
 
     }, 40)
-  }
+  })
+  
+  return (
+    <section className="skills" id="skills">
+      <center>
+        <h2 className="section__title">Habilidades</h2>
 
-  render() {
-    return (
-      <section className="skills" id="skills">
-        <center>
-          <h2 className="section__title">Habilidades</h2>
+        <div className="skills__table">
+          {skills.map((item, index) => (
+            <div
+              className={`skills__item ${item.studying ? 'skills__item--studying' : ''}`}
+              key={index}
+              title={(item.description ? item.description : '') + (item.description && item.studying ? ' - '  : '') + (item.studying ? 'Estudando no momento...' : '')}
+              aria-label={item.description}
+            >
+              <div className="skills__label" style={{background: item.color}}>{item.title}</div>
+              <div className="skills__level-bar"><span style={{
+                backgroundColor: item.color,
+                width: `${item.percentage}%`
+              }}></span></div>
+            </div>
+          ))}
 
-          <div className="skills__table">
-            {skills.map((item, index) => (
-              <div
-                className={`skills__item ${item.studying ? 'skills__item--studying' : ''}`}
-                key={index}
-                title={(item.description ? item.description : '') + (item.description && item.studying ? ' - '  : '') + (item.studying ? 'Estudando no momento...' : '')}
-                aria-label={item.description}
-              >
-                <div className="skills__label" style={{background: item.color}}>{item.title}</div>
-                <div className="skills__level-bar"><span style={{
-                  backgroundColor: item.color,
-                  width: `${item.percentage}%`
-                }}></span></div>
+          <div className="skills__other-skills">
+            {others.map(({ title, description }, i) => (
+              <div key={i} className="skills__label" title={description} aria-label={description}>
+                {title}
               </div>
             ))}
-  
-            <div className="skills__other-skills">
-              {others.map(({ title, description}, i) => (
-                <div key={i} className="skills__label" title={description} aria-label={description}>
-                  {title}
-                </div>
-              ))}
-            </div>
           </div>
-        </center>
-      </section>
-    )
-  }
+        </div>
+      </center>
+    </section>
+  )
 }
-
-export default Reveal(Skills)

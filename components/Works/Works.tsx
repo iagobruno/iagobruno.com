@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import Reveal from '../ScrollRevealHOC'
+import React, { useEffect } from 'react'
+import useReveal from '../ScrollRevealHook'
 import './Works.less'
 
 import WorksItem from './WorksItem'
@@ -28,29 +28,29 @@ const workList: Array<WorkItemType> = [
   }
 ]
 
-class Works extends Component {
-  static defaultProps = {
-    revealViewFactor: 0.4
+export default function Works() {
+  const revealConfigs = {
+    element: '#works',
+    viewFactor: 0.4
   }
 
   // Ocultar os itens em #works quando a páina carregar
-  componentDidMount() {
-    let works = [].slice.call(document.querySelectorAll('#works .list > li'))
+  useEffect(() => {
+    let works: Array<HTMLElement> = [].slice.call(document.querySelectorAll('#works .list > li'))
 
     // Ocultar cada item da sessão
-    works.map((item: HTMLElement) => {
+    works.map(item => {
       item.style.transform = 'scale(0)'
     })
-  }
+  })
 
   // Mostrar os trabalhos quando o componente aparecer na tela
-  componentDidAppear() {
+  useReveal(revealConfigs, () => {
     let works: NodeListOf<HTMLDivElement> = document.querySelectorAll('#works .list > li')
     let i = 0
 
     // Fazer um loop nos elementos com um delay de diferença entre cada um
     let timer = setInterval(() => {
-
       // Mostrar o elemento
       works[i].style.transform = 'scale(1)'
 
@@ -59,25 +59,21 @@ class Works extends Component {
       i++
 
     }, 100)
-  }
+  })
 
-  render() {
-    return (
-      <section className="works" id="works">
-        <center>
-          <h2 className="section__title">Trabalhos</h2>
+  return (
+    <section className="works" id="works">
+      <center>
+        <h2 className="section__title">Trabalhos</h2>
 
-          <ul className="list list--3-cols">
-            {workList.map((work, index) => (
-              <li key={index}>
-                <WorksItem {...work} />
-              </li>
-            ))}
-          </ul>
-        </center>
-      </section>
-    )
-  }
+        <ul className="list list--3-cols">
+          {workList.map((work, index) => (
+            <li key={index}>
+              <WorksItem {...work} />
+            </li>
+          ))}
+        </ul>
+      </center>
+    </section>
+  )
 }
-
-export default Reveal(Works)
