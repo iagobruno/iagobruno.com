@@ -154,7 +154,7 @@ class WorksItem extends React.Component<WorkItemType, WorksItemState> {
   }
 
   render() {
-    const { title, subTitle, image, url, description } = this.props
+    const { title, subTitle, image, url, description, technologies, totalDevelopmentTime } = this.props
     const { opened, modalPosition } = this.state
     
     const id = 'work-' + title.toLowerCase().replace(/(\s)/g, '')
@@ -196,6 +196,12 @@ class WorksItem extends React.Component<WorkItemType, WorksItemState> {
             <div className="list__title list__title--centered">
               {title} <span>({subTitle})</span>
             </div>
+            {technologies && <div className="work__additional-infos">
+              <b>Tecnologias usadas:</b> {technologies.join(', ')}.
+            </div>}
+            {totalDevelopmentTime && <div className="work__additional-infos">
+              <b>Tempo de desenvolvimento:</b> {totalDevelopmentTime}.
+            </div>}
             <p className="work__description">{description}</p>
             {url && (
               <a

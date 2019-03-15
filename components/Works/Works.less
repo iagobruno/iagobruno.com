@@ -50,21 +50,31 @@
 
 .work__modal .list__title {
   transition: font-size @work-modal-transition;
+  margin-bottom: 10px;
 }
 
 .work__modal.opened {
   & .list__title {
     font-size: 26px;
   }
+  & .work__additional-infos,
   & .work__description {
     opacity: 1;
   }
 }
 
+.work__additional-infos {
+  margin-top: 6px;
+  padding: 0 6px;
+  font-size: 16px;
+  transition: opacity @work-modal-transition;
+  opacity: 0;
+}
+
 p.work__description {
   font-size: 18px;
   line-height: 18px * 1.5;
-  margin: 10px 0 14px;
+  margin: 14px 0;
   padding: 0 6px;
   width: calc(500px - 48px);
   max-width: calc(100vw - 48px);

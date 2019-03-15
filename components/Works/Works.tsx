@@ -10,21 +10,24 @@ const workList: Array<WorkItemType> = [
     subTitle: '2017',
     url: 'https://tecbolt.appolo.com.br/',
     image: 'static/images/tecbolt-mini.jpg',
-    description: `O TecBolt é um projeto de longa data, a ideia principal é que hoje em dia com um estilo de vida cada vez mais corrido, os usuários possam se informar rapidamente com notícias curtas (porém completas) em um formato já consolidado de histórias e facilmente encontrar formas de saber mais caso queiram. Atualmente o projeto está passando por uma reformulação com volta prevista para 2019.`
+    description: `O TecBolt é um projeto de longa data, a ideia principal é que hoje em dia com um estilo de vida cada vez mais corrido, os usuários possam se informar rapidamente com notícias curtas (porém completas) em um formato já consolidado de histórias e facilmente encontrar formas de saber mais caso queiram. Atualmente o projeto está passando por uma reformulação com volta prevista para 2019.`,
+    technologies: ['PHP', 'WordPress'],
+    totalDevelopmentTime: '1 mês'
   },
   {
     title: 'Lembretes',
     subTitle: '2014',
     url: 'https://chrome.google.com/webstore/detail/lembretes/gklelabcnmojaikonejpecffihnpcpoc',
     image: 'static/images/lembretes-mini.jpg',
-    description: `Ele era é um simples aplicativo de lista de tarefas com foco em lembretes e é meu xodó até hoje, pois foi desenvolvendo esse aplicativo que dei meus primeiros passos a fundo no universo JavaScript. Você ainda pode conferi-lo mas sua utilização não é recomendada por está desatualizado e com problemas de performance.`
+    description: `Ele era é um simples aplicativo de lista de tarefas com foco em lembretes e é meu xodó até hoje, pois foi desenvolvendo esse aplicativo que dei meus primeiros passos a fundo no universo JavaScript. Você ainda pode conferi-lo mas sua utilização não é recomendada por está desatualizado e com problemas de performance.`,
+    technologies: ['JavaScript puro']
   },
   {
     title: 'Rede Social Beta',
     subTitle: '2012 - 2015',
     url: 'http://www.redesocialbeta.com.br/',
     image: 'static/images/rede_social_beta-mini.jpg',
-    description: `O Rede Social Beta foi meu primeiro grande trabalho, na época o blog recebia uma grande quantidade sólida de visitas e fui contratado para me encarregar de cuidar do site. Até pouco tempo era possível conferir um arquivo online com todas as postagens publicadas mas atualmente a única coisa que sobrou foi o print acima.`
+    description: `O Rede Social Beta foi meu primeiro grande trabalho, na época o blog recebia uma grande quantidade sólida de visitas e fui contratado para me encarregar de cuidar do site. Até pouco tempo era possível conferir um arquivo online com todas as postagens publicadas mas atualmente a única coisa que sobrou foi o print acima.`,
   }
 ]
 

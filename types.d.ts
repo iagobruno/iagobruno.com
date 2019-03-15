@@ -17,9 +17,9 @@ interface WorkItemType {
   image: string;
   /** Descrião sobre o projeto */
   description: string;
-  /** Tempo total de desenvolvimento até a entrega, exemplo: */
+  /** Tempo total de desenvolvimento até a entrega, exemplo: '2 meses' */
   totalDevelopmentTime?: string;
-  /** Tecnologias usadas */
+  /** Tecnologias usadas no desenvolvimento */
   technologies?: Array<string>;
 }
 
