@@ -102,7 +102,7 @@ class AboutSlideShow extends React.Component<PropTypes, StateTypes> {
     let attrs = this.props.slides[this.state.current_slide]
 
     return (
-      <div className="slide-show">
+      <div className="slide-show" aria-live="polite">
         <img
           className="slide-show__image"
           ref={this.imgRef}

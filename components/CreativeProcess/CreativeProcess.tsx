@@ -16,7 +16,7 @@ export default function CreativeProcess() {
 
     Cols = document.querySelectorAll('#creative-process .list > li')
     Cols[1].style.boxShadow = 'none'
-  })
+  }, [])
 
   // Criar uma animação com as sombras dos elementos
   useReveal(revealConfigs, () => {

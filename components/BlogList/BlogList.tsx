@@ -18,7 +18,7 @@ export default function BlogList({ length = 3 }: BlogListProps) {
 
   useEffect(() => {
     getAllPosts(length).then(setLatestPosts)
-  }, [])
+  }, [length])
 
   return (
     <section className="blog-list" id="blog">

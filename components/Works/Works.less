@@ -113,6 +113,10 @@ a.work__button {
 
 .work__modal__close {
   background-color: #FFF;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iZmVhdGhlciIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHN0eWxlPSJmaWxsOiBub25lO3N0cm9rZTogIzMzMztzdHJva2Utd2lkdGg6IDI7c3Ryb2tlLWxpbmVjYXA6IHJvdW5kO3N0cm9rZS1saW5lam9pbjogcm91bmQ7Ij48bGluZSB4MT0iMTgiIHkxPSI2IiB4Mj0iNiIgeTI9IjE4Ij48L2xpbmU+PGxpbmUgeDE9IjYiIHkxPSI2IiB4Mj0iMTgiIHkyPSIxOCI+PC9saW5lPjwvc3ZnPg==);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 26px;
   border-radius: 50%;
   position: absolute;
   opacity: 0;
@@ -124,25 +128,12 @@ a.work__button {
   transition: opacity 218ms ease;
   z-index: 10;
 
-  & svg {
-    transition: padding 218ms ease;
-    display: block;
-    fill: none;
-    stroke: #333;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    width: 40px;
-    height: 40px;
-    padding: 8px;
-  }
-
-  &:active svg {
-    padding: 11px;
+  &:active {
+    background-size: 21px;
   }
 }
 
 .work__modal.opened .work__modal__close {
-  transition: opacity 300ms 700ms ease;
+  transition: opacity 300ms 700ms ease, background-size 218ms ease;
   opacity: 1;
 }

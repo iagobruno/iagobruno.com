@@ -45,7 +45,7 @@ export default function Works() {
     works.map(item => {
       item.style.transform = 'scale(0)'
     })
-  })
+  }, [])
 
   // Mostrar os trabalhos quando o componente aparecer na tela
   useReveal(revealConfigs, () => {

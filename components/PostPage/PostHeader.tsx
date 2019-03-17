@@ -17,7 +17,7 @@ function PostHeader({ title, cover, publishDate, layout }: PostHeaderProps) {
   const timeToRead = useReadingTime()
 
   return (
-    <section className={`post__header post--${layout} ${cover && 'with-cover'}`}>
+    <header className={`post__header post--${layout} ${cover && 'with-cover'}`}>
       <center>
         <div className="post__header__top">
           <h1 className="post__title">{title}</h1>
@@ -48,7 +48,7 @@ function PostHeader({ title, cover, publishDate, layout }: PostHeaderProps) {
           </div>
         </div>
       </center>
-    </section>
+    </header>
   )
 }
 
@@ -56,11 +56,11 @@ function useReadingTime() {
   const [val, setVal] = useState<string>('')
 
   useEffect(() => {
-    const text = document.getElementsByClassName('post__content')[0].innerText
-    const time = readingTime(text).text.replace('read', 'de leitura')
+    const content = document.getElementsByClassName('post__content')[0].innerText
+    const time = readingTime(content).text.replace('read', 'de leitura')
 
     setVal(time)
-  })
+  }, [])
 
   return val
 }

@@ -49,7 +49,7 @@ class Notification extends React.Component<{}, Partial<NotificationState>> {
     return (
       <div className={`notification ${image && 'notification--width-image'}`}>
         <Link href={link}>
-          <a onClick={this.handleClose}>
+          <a onClick={this.handleClose} role="link">
             {image && (
               <img className="notification__image" src={image} alt={title} />
             )}

@@ -188,12 +188,12 @@ class WorksItem extends React.Component<WorkItemType, WorksItemState> {
             className="work__modal"
             style={modalPosition}
             ref={this.modalRef}
+            role="dialog"
+            aria-hidden={!opened}
           >
-            <div className="work__modal__close" onClick={this.closeModal} title="Clique ou pressione ESC para fechar">
-              <svg className="feather" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            </div>
+            <div className="work__modal__close" onClick={this.closeModal} aria-label="Fechar" title="Clique ou pressione ESC para fechar" role="button" tabIndex="0" />
             <img className="list__thumb" src={image} alt={alt} />
-            <div className="list__title list__title--centered">
+            <div className="list__title list__title--centered" role="heading" aria-level="2">
               {title} <span>({subTitle})</span>
             </div>
             {technologies && <div className="work__additional-infos">
@@ -210,6 +210,7 @@ class WorksItem extends React.Component<WorkItemType, WorksItemState> {
                 target="_blank"
                 rel="noopener"
                 role="button"
+                aria-label={`Ir para o ${title}`}
               >Ir para o site</a>
             )}
           </div>

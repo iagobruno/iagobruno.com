@@ -91,7 +91,7 @@ export default function Skills() {
 
       item.style.width = '0%'
     })
-  })
+  }, [])
 
   // Animar as barras de porcentagens em #skills quando o componente aparecer na tela
   useReveal(revealConfigs, () => {
@@ -117,24 +117,25 @@ export default function Skills() {
         <h2 className="section__title">Habilidades</h2>
 
         <div className="skills__table">
-          {skills.map((item, index) => (
+          {skills.map(({ title, description, percentage, color, studying }) => (
             <div
-              className={`skills__item ${item.studying ? 'skills__item--studying' : ''}`}
-              key={index}
-              title={(item.description ? item.description : '') + (item.description && item.studying ? ' - '  : '') + (item.studying ? 'Estudando no momento...' : '')}
-              aria-label={item.description}
+              className={`skills__item ${studying ? 'skills__item--studying' : ''}`}
+              title={(description ? description : '') + (description && studying ? ' - '  : '') + (studying ? 'Estudando no momento...' : '')}
+              key={title}
             >
-              <div className="skills__label" style={{background: item.color}}>{item.title}</div>
-              <div className="skills__level-bar"><span style={{
-                backgroundColor: item.color,
-                width: `${item.percentage}%`
-              }}></span></div>
+              <div className="skills__label" style={{ background: color }}>{title}</div>
+              <div className="skills__level-bar" role="progressbar" aria-valuenow={percentage} aria-valuemin="0" aria-valuemax="100">
+                <span style={{
+                  backgroundColor: color,
+                  width: `${percentage}%`
+                }} />
+              </div>
             </div>
           ))}
 
           <div className="skills__other-skills">
-            {others.map(({ title, description }, i) => (
-              <div key={i} className="skills__label" title={description} aria-label={description}>
+            {others.map(({ title, description }) => (
+              <div className="skills__label" title={description} key={title}>
                 {title}
               </div>
             ))}
