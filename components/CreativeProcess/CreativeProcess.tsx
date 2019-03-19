@@ -59,7 +59,7 @@ export default function CreativeProcess() {
       <center>
         <h2 className="section__title">Processo criativo</h2>
 
-        <ul className="list list--3-cols">
+        <ul className="list list--3-cols" aria-label="Meu processo criativo">
           <li>
             <div className="list__icon" style={{backgroundPosition: '-100px 0'}}></div>
             <div className="list__title">Planejamento</div>

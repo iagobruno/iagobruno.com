@@ -116,15 +116,18 @@ export default function Skills() {
       <center>
         <h2 className="section__title">Habilidades</h2>
 
-        <div className="skills__table">
+        <div className="skills__table" role="list" aria-label="Lista de habilidades">
           {skills.map(({ title, description, percentage, color, studying }) => (
             <div
               className={`skills__item ${studying ? 'skills__item--studying' : ''}`}
-              title={(description ? description : '') + (description && studying ? ' - '  : '') + (studying ? 'Estudando no momento...' : '')}
+              title={(description ? description : '') + (description && studying ? ' — '  : '') + (studying ? 'Estudando no momento...' : '')}
               key={title}
+              role="listitem"
+              aria-label={`${percentage}% de conhecimento em ${title}${studying ? ' e estudando no momento.' : ''}`}
+              tabIndex={0}
             >
               <div className="skills__label" style={{ background: color }}>{title}</div>
-              <div className="skills__level-bar" role="progressbar" aria-valuenow={percentage} aria-valuemin="0" aria-valuemax="100">
+              <div className="skills__level-bar" role="progressbar" aria-valuenow={percentage} aria-valuemin={0} aria-valuemax={100}>
                 <span style={{
                   backgroundColor: color,
                   width: `${percentage}%`
@@ -133,9 +136,9 @@ export default function Skills() {
             </div>
           ))}
 
-          <div className="skills__other-skills">
+          <div className="skills__other-skills" role="list" aria-label="Lista de outras habilidades">
             {others.map(({ title, description }) => (
-              <div className="skills__label" title={description} key={title}>
+              <div className="skills__label" title={description} role="listitem" key={title}>
                 {title}
               </div>
             ))}

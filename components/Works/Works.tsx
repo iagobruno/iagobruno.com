@@ -69,7 +69,7 @@ export default function Works() {
       <center>
         <h2 className="section__title">Trabalhos</h2>
 
-        <ul className="list list--3-cols">
+        <ul className="list list--3-cols" aria-label="Lista de trabalhos realizados">
           {workList.map((work, index) => (
             <li key={index}>
               <WorksItem {...work} />

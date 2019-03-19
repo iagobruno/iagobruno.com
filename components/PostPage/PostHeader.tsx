@@ -33,10 +33,10 @@ function PostHeader({ title, cover, publishDate, layout }: PostHeaderProps) {
           </Link>
 
           <div className="post__infos">
-            <div className="post__author">
+            <div className="post__author" aria-label={`Postado por Iago Bruno`} tabIndex={-1}>
               Postado por <Link href="/"><a>Iago Bruno</a></Link>
             </div>
-            <div className="post__date">
+            <div className="post__date" aria-label={`Postado em ${formatedDate}. ${timeToRead.replace('min', 'minutos')}`} tabIndex={-1}>
               Em{' '}
               <time dateTime={publishDate}>{formatedDate}</time>
               <span className="post__reading-time" title={timeToRead}>{' • ' + timeToRead}</span>

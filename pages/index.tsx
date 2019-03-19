@@ -1,4 +1,4 @@
-import React, { Fragment, FunctionComponent } from 'react'
+import React, { Fragment } from 'react'
 
 import Header from '../components/Header/Header'
 import About from '../components/About/About'
@@ -19,7 +19,7 @@ export default function HomePage() {
         image="https://www.iagobruno.com/static/images/website-print.jpg"
       />
 
-      <div className="home-page">
+      <div className="page home-page">
         <Header mode="full" />
         <About />
         <CreativeProcess />

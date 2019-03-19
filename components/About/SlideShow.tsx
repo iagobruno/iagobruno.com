@@ -89,7 +89,7 @@ class AboutSlideShow extends React.Component<PropTypes, StateTypes> {
   loadImg = (url: string) => {
     return new Promise((resolve: Function, reject: Function) => {
       let img = new Image()
-	  
+
       img.addEventListener('load', () => resolve(img))
       img.addEventListener('error', () => reject(new Error(`Failed to load image's URL: ${url}`)))
 
@@ -102,7 +102,7 @@ class AboutSlideShow extends React.Component<PropTypes, StateTypes> {
     let attrs = this.props.slides[this.state.current_slide]
 
     return (
-      <div className="slide-show" aria-live="polite">
+      <div className="slide-show" aria-live="off" aria-atomic="false">
         <img
           className="slide-show__image"
           ref={this.imgRef}

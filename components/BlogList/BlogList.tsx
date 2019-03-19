@@ -25,17 +25,17 @@ export default function BlogList({ length = 3 }: BlogListProps) {
       <center>
         {length === 3 && (
           <Link href="/posts">
-            <a className="blog-list__more-link">Ver mais</a>
+            <a className="blog-list__more-link" aria-label="Ver mais postagens">Ver mais</a>
           </Link>
         )}
         <h2 className="section__title">Últimas postagens</h2>
 
-        <ul className="list list--3-cols">
+        <ul className="list list--3-cols" aria-label="Lista com as últimas postagens">
           {latestPosts.map(({ id, slug, title, image }) => {
             return (
               <li key={id}>
                 <Link href={`/posts/${slug}`}>
-                  <a>
+                  <a aria-label={title}>
                     <img className="list__thumb" src={image} alt={title} />
                     <div className="list__title list__title--centered">{title}</div>
                   </a>

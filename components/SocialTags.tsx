@@ -8,7 +8,7 @@ interface SocialTagProps {
   image?: string,
 }
 
-function SocialTags({ url, page_title, description, image }: SocialTagProps) {
+export default function SocialTags({ url, page_title, description, image }: SocialTagProps) {
   return (
     <Head>
       <title>{`${page_title} — Iago Bruno`}</title>
@@ -36,5 +36,3 @@ function SocialTags({ url, page_title, description, image }: SocialTagProps) {
 SocialTags.defaultProps = {
   image: "https://www.iagobruno.com/static/images/website-print.jpg"
 }
-
-export default SocialTags

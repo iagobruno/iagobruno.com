@@ -12,7 +12,6 @@ import BlogList from '../BlogList/BlogList'
 
 interface PostPageProps extends PostMetaType {
   children: JSX.Element;
-  [key: any]: any;
 }
 
 /**
@@ -28,22 +27,24 @@ export default function PostPage({ children, ...props }: PostPageProps) {
         image={props.image}
       />
 
-      <Header mode="compact" />
+      <div className="page post-page">
+        <Header mode="compact" />
+        
+        <article role="main">
+          <PostHeader
+            layout="default"
+            title={props.title}
+            cover={props.image}
+            publishDate={props.publishDate}
+          />
 
-      <article className="post-page" role="main">
-        <PostHeader
-          layout="default"
-          title={props.title}
-          cover={props.image}
-          publishDate={props.publishDate}
-        />
+          <center className="post__content">{children}</center>
 
-        <center className="post__content">{children}</center>
-
-        <PostFooter />
+          <PostFooter />
+        </article>
 
         <BlogList />
-      </article>
+      </div>
 
       <Footer />
     </React.Fragment>

@@ -11,9 +11,9 @@ export default function Header({ mode }: HeaderProps) {
     <header className={`header header--${mode}`} id="header" role="banner">
       <center>
         <div className="header__container">
-          <nav className="header__align--top">
+          <nav className="header__align--top" role="navigation">
             <Link href="/">
-              <a style={{ flex: 1 }}>
+              <a style={{ flex: 1 }} aria-label="Página inicial">
                 <img className="signature" src="/static/images/IagoBruno.png" role="logo" alt="Iago Bruno" />
               </a>
             </Link>

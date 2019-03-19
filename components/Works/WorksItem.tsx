@@ -80,6 +80,8 @@ class WorksItem extends React.Component<WorkItemType, WorksItemState> {
       }
     }))
 
+    this.modalRef.current!.focus() // Dar foco no modal
+
     // Eventos que podem fechar o modal, como por exemplo presionar a tecla ESC.
     window.addEventListener('scroll', this.handleScroll)
     window.addEventListener('keyup', this.handleKeypress)
@@ -133,6 +135,7 @@ class WorksItem extends React.Component<WorkItemType, WorksItemState> {
     })
 
     this.modalRef.current!.classList.remove('with-animation')
+    this.miniItenRef.current!.focus() // Dar foco no mini item
   }
 
   /**
@@ -150,7 +153,7 @@ class WorksItem extends React.Component<WorkItemType, WorksItemState> {
     const deltaY = Math.abs(window.scrollY - this.initialScrollPosistion.y)
     const deltaX = Math.abs(window.scrollX - this.initialScrollPosistion.x)
 
-    if (deltaY >= 160 || deltaX >= 160) this.closeModal()
+    if (deltaY >= 250 || deltaX >= 250) this.closeModal()
   }
 
   render() {
@@ -172,6 +175,7 @@ class WorksItem extends React.Component<WorkItemType, WorksItemState> {
           target="_blank"
           rel="noopener"
           ref={this.miniItenRef}
+          aria-label={`Clique para ver mais informações sobre o ${title}`}
           id={id}
         >
           <img className="list__thumb" src={image} alt={alt} />
@@ -182,7 +186,7 @@ class WorksItem extends React.Component<WorkItemType, WorksItemState> {
 
         <Portal node={PortalContainer}>
           {opened && (
-            <div className="work__modal__backdrop" onClick={this.closeModal} />
+            <div className="work__modal__backdrop" onClick={this.closeModal} aria-label="Fechar caixa de diálogo" />
           )}
           <div
             className="work__modal"
@@ -190,10 +194,12 @@ class WorksItem extends React.Component<WorkItemType, WorksItemState> {
             ref={this.modalRef}
             role="dialog"
             aria-hidden={!opened}
+            aria-label={`Mostrando informações sobre o ${title}`}
+            tabIndex={0}
           >
-            <div className="work__modal__close" onClick={this.closeModal} aria-label="Fechar" title="Clique ou pressione ESC para fechar" role="button" tabIndex="0" />
+            <div className="work__modal__close" onClick={this.closeModal} role="button" aria-label="Fechar caixa de diálogo" title="Clique ou pressione ESC para fechar" tabIndex="0" />
             <img className="list__thumb" src={image} alt={alt} />
-            <div className="list__title list__title--centered" role="heading" aria-level="2">
+            <div className="list__title list__title--centered" role="heading" aria-level={2}>
               {title} <span>({subTitle})</span>
             </div>
             {technologies && <div className="work__additional-infos">
