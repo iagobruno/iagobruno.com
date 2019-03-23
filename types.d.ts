@@ -3,8 +3,8 @@ declare namespace JSX {
     [elemName: string]: any;
   }
 }
-declare module 'delegate';
 declare module 'react-portal';
+declare module 'next-ga';
 
 interface WorkItemType {
   /** Título do projeto */

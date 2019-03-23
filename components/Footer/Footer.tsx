@@ -1,4 +1,6 @@
 import * as React from 'react'
+import ReactGA from 'react-ga'
+
 import './Footer.less'
 
 const links: Array<LinkItemType> = [
@@ -14,6 +16,15 @@ const links: Array<LinkItemType> = [
 ]
 
 export default function Footer() {
+  function sendClickToGA(linkText: string) {
+    // Enviar evento de clique em link de contato para o Google Analytics
+    ReactGA.event({
+      category: 'contact links',
+      action: 'click',
+      label: `Cliques em "${linkText}"`
+    })
+  }
+
   return (
     <footer className="footer" id="contact" role="contentinfo">
       <center>
@@ -21,7 +32,9 @@ export default function Footer() {
         
         <ul className="links footer__links" aria-label="Lista de links para contato">
           {links.map((link, index) => (
-            <li key={index}><a href={link.url}>{link.text}</a></li>
+            <li key={index}>
+              <a href={link.url} onClick={() => sendClickToGA(link.text)}>{link.text}</a>
+            </li>
           ))}
         </ul>
 

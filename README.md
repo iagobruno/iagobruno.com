@@ -56,7 +56,6 @@ Meu portifólio para apresentação do meu trabalho, habilidades e projetos real
 - [TypeScript](https://typescriptlang.org): Para fazer a tipagem dos códigos e dos componentes.
 - [MDX](https://mdxjs.com/): Para escrever as postagens do blog usando markdown e JSX.
 - [Less](http://lesscss.org): Foi o escolhido para pré-processar o css.
-- [Delegate](https://github.com/zenorocha/delegate): Criar eventos globais.
 - [ScrollReveal](https://github.com/scrollreveal/scrollreveal): Animar os blocos (header, about ...) do site a medida em que eles vão aparecendo.
 - [next-css](https://github.com/zeit/next-plugins/tree/master/packages/next-css) e [next-less](https://github.com/zeit/next-plugins/tree/master/packages/next-less): Para permitir a importação de arquivos css e less dentro dos arquivos js.
 
