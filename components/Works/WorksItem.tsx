@@ -1,8 +1,8 @@
-import * as React from 'react'
+import React, { Component, Fragment } from 'react'
 import { Portal } from 'react-portal'
 import { promisify, getTransitionDuration, sleep } from '../../Utils'
 
-interface WorksItemState {
+type WorksItemState = {
   opened: boolean;
   modalPosition: {
     [key: string]: string | number
@@ -14,7 +14,7 @@ interface WorksItemState {
  * legal de expanção para mostrar mais detalhes ao usuário.
  * @see https://reactfordesigners.com/
  */
-class WorksItem extends React.Component<WorkItemType, WorksItemState> {
+class WorksItem extends Component<WorkItemType, WorksItemState> {
   public state: WorksItemState = {
     opened: false,
     modalPosition: {
@@ -167,7 +167,7 @@ class WorksItem extends React.Component<WorkItemType, WorksItemState> {
     const PortalContainer = typeof document !== 'undefined' && document.getElementById('works')
     
     return (
-      <React.Fragment>
+      <Fragment>
         <a
           href={url}
           onClick={this.expandModal}
@@ -197,7 +197,7 @@ class WorksItem extends React.Component<WorkItemType, WorksItemState> {
             aria-label={`Mostrando informações sobre o ${title}`}
             tabIndex={0}
           >
-            <div className="work__modal__close" onClick={this.closeModal} role="button" aria-label="Fechar caixa de diálogo" title="Clique ou pressione ESC para fechar" tabIndex="0" />
+            <div className="work__modal__close" onClick={this.closeModal} role="button" aria-label="Fechar caixa de diálogo" title="Clique ou pressione ESC para fechar" tabIndex={0} />
             <img className="list__thumb" src={image} alt={alt} />
             <div className="list__title list__title--centered" role="heading" aria-level={2}>
               {title} <span>({subTitle})</span>
@@ -221,7 +221,7 @@ class WorksItem extends React.Component<WorkItemType, WorksItemState> {
             )}
           </div>
         </Portal>
-      </React.Fragment>
+      </Fragment>
     )
   }
 }

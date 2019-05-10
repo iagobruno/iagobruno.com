@@ -2,12 +2,12 @@ import * as React from 'react'
 import { getTransitionDuration } from '../../Utils'
 import './SlideShow.less'
 
-interface PropTypes {
+type PropTypes = {
   duration: number;
   slides: Array<SlideItemType>;
 }
 
-interface StateTypes {
+type StateTypes = {
   current_slide: number;
 }
 

@@ -49,4 +49,4 @@ Router.events.on('routeChangeStart', (url: string) => {
 Router.events.on('routeChangeComplete', () => NProgress.done())
 Router.events.on('routeChangeError', () => NProgress.done())
 
-export default withGA("UA-119109259-1", Router)(MyApp)
+export default withGA('UA-119109259-1', Router)(MyApp)

@@ -1,14 +1,14 @@
-import * as React from 'react'
+import React, { FunctionComponent } from 'react'
 import Head from 'next/head'
 
-interface SocialTagProps {
+type SocialTagProps = {
   page_title: string,
   description: string,
   url: string,
   image?: string,
 }
 
-export default function SocialTags({ url, page_title, description, image }: SocialTagProps) {
+const SocialTags: FunctionComponent<SocialTagProps> = ({ url, page_title, description, image = 'https://www.iagobruno.com/static/images/website-print.jpg' }) => {
   return (
     <Head>
       <title>{`${page_title} — Iago Bruno`}</title>
@@ -33,6 +33,4 @@ export default function SocialTags({ url, page_title, description, image }: Soci
   )
 }
 
-SocialTags.defaultProps = {
-  image: "https://www.iagobruno.com/static/images/website-print.jpg"
-}
+export default SocialTags

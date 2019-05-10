@@ -1,7 +1,7 @@
-import * as React from 'react'
+import React, { FunctionComponent } from 'react'
 import SharePost from './SharePost'
 
-export default function PostFooter() {
+const PostFooter: FunctionComponent = () => {
   return (
     <footer>
       <center>
@@ -11,3 +11,5 @@ export default function PostFooter() {
     </footer>
   )
 }
+
+export default PostFooter

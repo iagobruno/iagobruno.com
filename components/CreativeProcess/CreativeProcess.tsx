@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { FunctionComponent, useEffect } from 'react'
 import useReveal from '../ScrollRevealHook'
 import './CreativeProcess.less'
 
-var Cols: NodeListOf<HTMLElement>
+let Cols: NodeListOf<HTMLElement>
 
-export default function CreativeProcess() {
+const CreativeProcess: FunctionComponent = () => {
   const revealConfigs = {
     element: '#creative-process',
     viewFactor: 0.6
@@ -34,7 +34,7 @@ export default function CreativeProcess() {
     }
 
     // Fazer um loop nos elementos com um delay de diferença entre cada um
-    var timer = setInterval(() => {
+    let timer = setInterval(() => {
       // Aplicar simmbra no elemento
       applyShadow(Cols[i])
       
@@ -80,3 +80,5 @@ export default function CreativeProcess() {
     </section>
   )
 }
+
+export default CreativeProcess

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { sleep } from '../Utils'
 const scrollReveal = (typeof window !== 'undefined') ? require('scrollreveal').default : () => {}
 
-interface ConfigsType {
+type ConfigsType = {
   element: string,
   viewFactor?: number,
   always?: boolean,

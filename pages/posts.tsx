@@ -1,13 +1,14 @@
-import * as React from 'react'
+import React, { Fragment } from 'react'
+import { NextFunctionComponent } from 'next'
 
 import SocialTags from '../components/SocialTags'
 import Header from '../components/Header/Header'
 import BlogList from '../components/BlogList/BlogList'
 import Footer from '../components/Footer/Footer'
 
-export default function PostsPage() {
+const PostPage: NextFunctionComponent = () => {
   return (
-    <React.Fragment>
+    <Fragment>
       <SocialTags
         page_title="Últimas postagens de Iago Bruno"
         description="Últimas postagens do blog do Iago Bruno"
@@ -25,6 +26,8 @@ export default function PostsPage() {
 
         <Footer />
       </div>
-    </React.Fragment>
+    </Fragment>
   )
 }
+
+export default PostPage

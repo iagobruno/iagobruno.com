@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { FunctionComponent, useState, useEffect } from 'react'
 import Link from 'next/link'
 import readingTime from 'reading-time'
 import { formateDate } from '../../Utils'
 
 import SharePost from './SharePost'
 
-interface PostHeaderProps {
+type PostHeaderProps = {
   title: string;
   cover?: string;
   publishDate: Date | string;
   layout: 'default';
 }
 
-function PostHeader({ title, cover, publishDate, layout }: PostHeaderProps) {
+const PostHeader: FunctionComponent<PostHeaderProps> = ({ title, cover, publishDate, layout }) => {
   const formatedDate = formateDate(publishDate)
   const timeToRead = useReadingTime()
 

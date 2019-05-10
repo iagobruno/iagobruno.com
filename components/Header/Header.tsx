@@ -1,12 +1,12 @@
-import * as React from 'react'
+import React, { FunctionComponent, Fragment } from 'react'
 import Link from 'next/link'
 import './Header.less'
 
-interface HeaderProps {
+type HeaderProps = {
   mode: 'full' | 'compact'
 }
 
-export default function Header({ mode }: HeaderProps) {
+const Header: FunctionComponent<HeaderProps> = ({ mode }) => {
   return (
     <header className={`header header--${mode}`} id="header" role="banner">
       <center>
@@ -34,7 +34,7 @@ export default function Header({ mode }: HeaderProps) {
           </nav>
 
           {mode === 'full' && (
-            <React.Fragment>
+            <Fragment>
               <div className="header__align--middle">
                 <h1 className="header__title" aria-label="Designer & Developer">Designer <span className="and"></span> Developer</h1>
                 <p className="header__description">Prototipagem de interfaces e desenvolvimento de websites.</p>
@@ -46,10 +46,12 @@ export default function Header({ mode }: HeaderProps) {
                   <img className="header__photo__img" src="static/images/me.png" alt="Minha foto do cabeçalho" />
                 </div>
               </div>
-            </React.Fragment>
+            </Fragment>
           )}
         </div>
       </center>
     </header>
   );
 }
+
+export default Header

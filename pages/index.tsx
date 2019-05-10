@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import { NextFunctionComponent } from 'next'
 
 import Header from '../components/Header/Header'
 import About from '../components/About/About'
@@ -9,7 +10,7 @@ import Footer from '../components/Footer/Footer'
 import SocialTags from '../components/SocialTags'
 import BlogList from '../components/BlogList/BlogList'
 
-export default function HomePage() {
+const HomePage: NextFunctionComponent = () => {
   return (
     <Fragment>
       <SocialTags
@@ -31,3 +32,5 @@ export default function HomePage() {
     </Fragment>
   )
 }
+
+export default HomePage

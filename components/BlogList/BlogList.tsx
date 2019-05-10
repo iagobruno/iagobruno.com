@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import { getAllPosts } from '../../Utils'
+import React, { FunctionComponent, useState, useEffect } from 'react'
 import Link from 'next/link'
-
+import { getAllPosts } from '../../Utils'
 import './BlogList.less'
 
-interface BlogListProps {
+type BlogListProps = {
   length?: number;
 }
 
@@ -13,7 +12,7 @@ interface BlogListProps {
  * 
  * @todo Fazer um sistema de paginação caso necessário futuramente
  */
-export default function BlogList({ length = 3 }: BlogListProps) {
+const BlogList: FunctionComponent<BlogListProps> = ({ length = 3 }) => {
   const [latestPosts, setLatestPosts] = useState<Array<any>>([])
 
   useEffect(() => {
@@ -48,3 +47,5 @@ export default function BlogList({ length = 3 }: BlogListProps) {
     </section>
   )
 }
+
+export default BlogList

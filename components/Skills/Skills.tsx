@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { FunctionComponent, useEffect } from 'react'
 import useReveal from '../ScrollRevealHook'
 import './Skills.less'
 
@@ -54,7 +54,7 @@ const skills: Array<SkillItemType> = [
   },
   {
     title: "TypeScript",
-    percentage: 46,
+    percentage: 60,
     color: '#007ACC',
     description: "Linguagem para fazer tipagem de código JavaScript.",
     studying: true
@@ -74,7 +74,7 @@ const others: Array<OthersSkillsItemType> = [
 
 var levelsCache: Array<string> = []
 
-export default function Skills() {
+const Skills: FunctionComponent = () => {
   const revealConfigs = {
     element: '#skills',
     viewFactor: 0.6
@@ -148,3 +148,5 @@ export default function Skills() {
     </section>
   )
 }
+
+export default Skills

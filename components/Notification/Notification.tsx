@@ -3,18 +3,19 @@ import Link from 'next/link'
 import { getAllPosts } from '../../Utils'
 import './Notification.less'
 
-interface NotificationState {
+type NotificationState = Partial<{
   title: string;
   image: string;
   link: string;
+  slug: string;
   show: boolean;
-}
+}>
 
 /**
  * Mostrar a última postagem ao visitante em uma notificação na tela.
  */
-class Notification extends React.Component<{}, Partial<NotificationState>> {
-  public state = {
+class Notification extends React.Component<{}, NotificationState> {
+  public state: NotificationState = {
     show: false
   }
 

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { FunctionComponent, useState, useEffect } from 'react'
 
-interface ShareProps {
+type ShareProps = {
   mode: 'buttons' | 'icon-only';
 }
 
-export default function SharePost({ mode }: ShareProps) {
+const SharePost: FunctionComponent<ShareProps> = ({ mode }) => {
   const [postInfos, setPostInfos] = useState<any>({})
 
   useEffect(() => {
@@ -51,3 +51,5 @@ export default function SharePost({ mode }: ShareProps) {
     </div>
   )
 }
+
+export default SharePost

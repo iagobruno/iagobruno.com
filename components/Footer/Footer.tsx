@@ -1,6 +1,5 @@
-import * as React from 'react'
+import React, { FunctionComponent } from 'react'
 import ReactGA from 'react-ga'
-
 import './Footer.less'
 
 const links: Array<LinkItemType> = [
@@ -15,7 +14,7 @@ const links: Array<LinkItemType> = [
   { text: 'Github', url: 'https://github.com/httpiago/' },
 ]
 
-export default function Footer() {
+const Footer: FunctionComponent = () => {
   function sendClickToGA(linkText: string) {
     // Enviar evento de clique em link de contato para o Google Analytics
     ReactGA.event({
@@ -55,3 +54,5 @@ export default function Footer() {
     </footer>
   )
 }
+
+export default Footer

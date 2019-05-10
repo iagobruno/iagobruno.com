@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { FunctionComponent, useEffect } from 'react'
 import useReveal from '../ScrollRevealHook'
 import './Works.less'
 
@@ -31,7 +31,7 @@ const workList: Array<WorkItemType> = [
   }
 ]
 
-export default function Works() {
+const Works: FunctionComponent = () => {
   const revealConfigs = {
     element: '#works',
     viewFactor: 0.4
@@ -80,3 +80,5 @@ export default function Works() {
     </section>
   )
 }
+
+export default Works

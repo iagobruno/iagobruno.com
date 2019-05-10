@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FunctionComponent, Fragment, ReactNode } from 'react'
 import PropTypes from 'prop-types'
 
 import SocialTags from '../SocialTags'
@@ -6,20 +6,20 @@ import PostHeader from './PostHeader'
 import Header from '../Header/Header'
 import PostFooter from './PostFooter'
 import Footer from '../Footer/Footer'
-
 import './PostPage.less'
+
 import BlogList from '../BlogList/BlogList'
 
 interface PostPageProps extends PostMetaType {
-  children: JSX.Element;
+  children: ReactNode;
 }
 
 /**
  * Componente que emgloba as páginas mdx e cria todo layout de postagem.
  */
-export default function PostPage({ children, ...props }: PostPageProps) {
+const PostPage: FunctionComponent<PostPageProps> = ({ children, ...props }) => {
   return (
-    <React.Fragment>
+    <Fragment>
       <SocialTags
         page_title={props.title}
         url={`https://www.iagobruno.com/posts/${props.slug}`}
@@ -47,14 +47,16 @@ export default function PostPage({ children, ...props }: PostPageProps) {
       </div>
 
       <Footer />
-    </React.Fragment>
+    </Fragment>
   )
 }
 
-PostPage.propTypes = {
-  title: PropTypes.string.isRequired,
-  publishDate: PropTypes.string.isRequired,
-  summary: PropTypes.string,
-  image: PropTypes.string,
-  slug: PropTypes.string.isRequired,
-}
+// PostPage.propTypes = {
+//   title: PropTypes.string.isRequired,
+//   publishDate: PropTypes.string.isRequired,
+//   summary: PropTypes.string,
+//   image: PropTypes.string,
+//   slug: PropTypes.string.isRequired,
+// }
+
+export default PostPage

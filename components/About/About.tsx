@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FunctionComponent } from 'react'
 import SlideShow from './SlideShow'
 import './About.less'
 
@@ -17,7 +17,7 @@ const slides: Array<SlideItemType> = [
   }
 ]
 
-export default function About() {
+const About: FunctionComponent = () => {
   function workTecboltClick(event: React.MouseEvent) {
     event.preventDefault()
 
@@ -44,3 +44,5 @@ export default function About() {
     </section>
   );
 }
+
+export default About
