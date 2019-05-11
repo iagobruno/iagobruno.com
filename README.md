@@ -56,7 +56,7 @@ Meu portifólio para apresentação do meu trabalho, habilidades e projetos real
 - [TypeScript](https://typescriptlang.org): Para fazer a tipagem dos códigos e dos componentes.
 - [MDX](https://mdxjs.com/): Para escrever as postagens do blog usando markdown e JSX.
 - [Less](http://lesscss.org): Foi o escolhido para pré-processar o css.
-- [ScrollReveal](https://github.com/scrollreveal/scrollreveal): Animar os blocos (header, about ...) do site a medida em que eles vão aparecendo.
+- [ScrollReveal](https://github.com/scrollreveal/scrollreveal): Animar os blocos (header, about, ...) do site a medida em que eles vão aparecendo.
 - [next-css](https://github.com/zeit/next-plugins/tree/master/packages/next-css) e [next-less](https://github.com/zeit/next-plugins/tree/master/packages/next-less): Para permitir a importação de arquivos css e less dentro dos arquivos js.
 
 ## Páginas e postagens
@@ -68,7 +68,7 @@ Para criar uma nova página basta criar um novo componente React dentro da pasta
 
 ### Criar uma nova postagem
 
-Todas as postagens são escritas usando [MDX](https://mdxjs.com/syntax), que possibilita utilizar componentes do React com o [markdown tradicional](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). Igual as páginas comuns, o nome dos arquivos .mdx  dentro da pasta `/pages/posts/` serão mapeados para o endereço do site.
+Todas as postagens são escritas usando [MDX](https://mdxjs.com/syntax), que possibilita utilizar componentes do React junto com o [markdown tradicional](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). Igual as páginas comuns, os arquivos .mdx  dentro da pasta `/pages/posts/` serão mapeados para o endereço do site.
 
 Exemplo:
 
@@ -94,7 +94,7 @@ A postagem acima poderá ser acessada em "www.iagobruno.com/posts/hello-world".
 
 ## Componentes
 
-Esse projeto usa um padrão de organização chamado "modlet" em que cada componente ~~importante~~ tem seu própria pasta e dentro dela possui todos os arquivos relativos aquele componente, por exemplo:
+Esse projeto usa um padrão de organização chamado "modlet" em que cada componente ~~importante~~ tem sua própria pasta e dentro dela possui todos os arquivos relativos aquele componente, por exemplo:
 
 ```
 componentes
@@ -108,7 +108,7 @@ componentes
 
 ## Estilização dos componentes
 
-Tem duas maneiras de estilizar os componentes, uma delas é criando um arquivo .less ou .css ~~com somente os estilos dele~~ e importar-lo e o outro é com o [styled-jsx](https://github.com/zeit/styled-jsx) padrão do next. Exemplos:
+Há duas maneiras de estilizar os componentes, uma delas é criando um arquivo .less ou .css ~~com somente os estilos dele~~ e importá-lo e o outro é com o [styled-jsx](https://github.com/zeit/styled-jsx) padrão do next. Exemplos:
 
 #### Importando arquivo separado:
 
@@ -129,7 +129,7 @@ export defult () => (
 ...
 ```
 
-OBS: Durante o processo de build o next unifica todos os arquivos importados de todas as páginas em um único arquivo css global que é colocado automaticamente em todas as páginas visitadas pelo usuário, então, deve-se ficar atento futuramente para o usuário não ter que carregar muitos bytes de css que ele não vai precisar.
+OBS: Durante o processo de build o next unifica todos os arquivos importados de todas as páginas em um único arquivo css global que é colocado automaticamente em todas as páginas visitadas pelo usuário, então, deve-se ficar atento futuramente para o usuário não ter que carregar muitos bytes de css desnecessários.
 
 #### Usando o styled-jsx:
 
@@ -150,15 +150,15 @@ export defult (props) => (
 )
 ```
 
-Com esse método é possível modificar o css sempre que o componente for atualizado como mostrado acima. Além disso, diferente do outro jeito, o next só coloca esse estilo na página se o componente for solicitado pela renderização, isso é bom para evitar carregamento desnecessário de css que não será usado.
+Com esse método é possível modificar o css sempre que o componente for atualizado como mostrado acima. Além disso, diferente da outra maneira, o next só coloca esse estilo na página se o componente for solicitado pela renderização, isso é bom para evitar carregamento desnecessário de css que não será usado.
 
 ## Hospedagem
 
-A Hospedagem fica por conta de [Netlify](https://www.netlify.com) que faz o deploy automático (Continuous deployment) a cada novo commit neste repositório remoto e distribui os arquivos estáticos gerados pelo Next.js.
+A Hospedagem fica por conta da [Netlify](https://www.netlify.com) que faz o deploy automático (Continuous deployment) a cada novo commit neste repositório remoto e distribui os arquivos estáticos gerados pelo NextJS.
 
 Fluxograma:
 ![Fluxograma da hospedagem](/static/images/Netlify_Flow_Chart.jpeg)
 
 [Link do projeto na Netlify](https://app.netlify.com/sites/iagobruno-com).
 
-OBS: O domínio ta registrado na Umbler.
+OBS: O domínio está registrado na Umbler.
