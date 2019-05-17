@@ -1,6 +1,6 @@
 import React, { FunctionComponent, Fragment } from 'react'
 import Link from 'next/link'
-import ReactGA from 'react-ga'
+import { sendLinkClickToGA } from '../../Utils'
 import './Header.less'
 
 type HeaderProps = {
@@ -8,16 +8,6 @@ type HeaderProps = {
 }
 
 const Header: FunctionComponent<HeaderProps> = ({ mode }) => {
-
-  function handleGithubLinkClick() {
-    // Enviar evento de clique em link do github para o Google Analytics
-    ReactGA.event({
-      category: 'contact links',
-      action: 'click',
-      label: `Cliques em "Github"`
-    })
-  }
-
   return (
     <header className={`header header--${mode}`} id="header" role="banner">
       <center>
@@ -39,7 +29,7 @@ const Header: FunctionComponent<HeaderProps> = ({ mode }) => {
                 <Link href="/posts"><a aria-label="Lista de postagens">Blog</a></Link>
               </li>*/}
               <li>
-                <a href="https://github.com/httpiago/" onClick={handleGithubLinkClick} aria-label="Perfil no Github">GitHub</a>
+                <a href="https://github.com/httpiago/" onClick={sendLinkClickToGA('contact links')} aria-label="Perfil no Github">GitHub</a>
               </li>
             </ul>
           </nav>

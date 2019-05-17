@@ -1,6 +1,7 @@
 import * as fs from 'fs'
 import * as path from 'path'
 import * as ReactGA from 'react-ga'
+import * as React from 'react'
 const glob = require('glob')
 const readingTime = require('reading-time')
 const sanitizeHtml = require('sanitize-html')
@@ -88,15 +89,26 @@ export async function getAllPosts(limit: number = Infinity, fromCache: boolean =
   }
 }
 
+type ValidCategoriesName = 'links' | 'contact links'
+
 /**
- * Enviar evento ao Google Analitycs sobre click em um link
+ * Enviar evento ao Google Analitycs sobre click em um link.
+ * 
+ * @param category - Categoria do link. Se não for especificado a categoria genérica "links" vai ser usada.
+ * 
+ * @example
+ *   <a href="..." onClick={sendLinkClickToGA()}>...</a>
  */
-export function sendLinkClickToGA(url: string) {
-  ReactGA.event({
-    category: 'links',
-    action: 'click',
-    label: `Cliques em "${url}"`
-  })
+export function sendLinkClickToGA(category: ValidCategoriesName = 'links') {
+  return (event: React.MouseEvent<HTMLAnchorElement>) => {
+    const url = event.currentTarget.href
+
+    ReactGA.event({
+      category,
+      action: 'click',
+      label: `Cliques em "${url}"`
+    })
+  }
 }
 
 /**

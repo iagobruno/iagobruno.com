@@ -216,7 +216,7 @@ class WorksItem extends Component<WorkItemType, WorksItemState> {
                 target="_blank"
                 rel="noopener"
                 role="button"
-                onClick={() => sendLinkClickToGA(url)}
+                onClick={sendLinkClickToGA()}
                 aria-label={`Ir para o ${title}`}
               >Ir para o site</a>
             )}

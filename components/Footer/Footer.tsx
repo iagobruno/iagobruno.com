@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react'
-import ReactGA from 'react-ga'
 import { sendLinkClickToGA } from '../../Utils';
 import './Footer.less'
 
@@ -16,16 +15,6 @@ const links: Array<LinkItemType> = [
 ]
 
 const Footer: FunctionComponent = () => {
-
-  function sendClickToGA(linkText: string) {
-    // Enviar evento de clique em link de contato para o Google Analytics
-    ReactGA.event({
-      category: 'contact links',
-      action: 'click',
-      label: `Cliques em "${linkText}"`
-    })
-  }
-
   return (
     <footer className="footer" id="contact" role="contentinfo">
       <center>
@@ -34,7 +23,7 @@ const Footer: FunctionComponent = () => {
         <ul className="links footer__links" aria-label="Lista de links para contato">
           {links.map((link, index) => (
             <li key={index}>
-              <a href={link.url} onClick={() => sendClickToGA(link.text)}>{link.text}</a>
+              <a href={link.url} onClick={sendLinkClickToGA('contact links')}>{link.text}</a>
             </li>
           ))}
         </ul>
@@ -42,7 +31,7 @@ const Footer: FunctionComponent = () => {
         <a
           className="footer__code-note"
           href="https://github.com/httpiago/iagobruno.com"
-          onClick={() => sendLinkClickToGA('https://github.com/httpiago/iagobruno.com')}
+          onClick={sendLinkClickToGA()}
           aria-label="Considerações finais: Feito com reaquite e amor por mim mesmo"
         >
           <svg viewBox="0 0 20 15" width="18" height="13"><path d="M13.197.39l-2.084 2.083 4.862 4.862-4.862 4.862 2.084 2.084 6.251-6.946-6.25-6.946zm-6.946 0L0 7.334l6.251 6.946 2.084-2.084-4.862-4.862 4.862-4.862L6.251.389z" fillRule="nonzero" fill="#444444"></path></svg>

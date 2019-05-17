@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useEffect } from 'react'
 import useReveal from '../ScrollRevealHook'
+import { sendLinkClickToGA } from '../../Utils'
 import './Skills.less'
 
 const skills: Array<SkillItemType> = [
@@ -143,6 +144,10 @@ const Skills: FunctionComponent = () => {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="skills__footer">
+          Ver <a href="https://github.com/httpiago?tab=stars" onClick={sendLinkClickToGA()}>meus favoritos no Github</a> é uma outra ótima forma de descobrir minhas habilidades.
         </div>
       </center>
     </section>
