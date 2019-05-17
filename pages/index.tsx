@@ -26,7 +26,7 @@ const HomePage: NextFunctionComponent = () => {
         <CreativeProcess />
         <Skills />
         <Works />
-        <BlogList length={3} />
+        {/*<BlogList length={3} />*/}
         <Footer />
       </div>
     </Fragment>

@@ -43,6 +43,8 @@ export async function getAllPosts(limit: number = Infinity, fromCache: boolean =
       const data: any = getPostData(rawContent, filePath)
       const slug = path.basename(filePath, '.mdx')
 
+      if (slug === '_example') return null;
+
       return {
         id: uniqid(),
         ...data,
@@ -50,11 +52,13 @@ export async function getAllPosts(limit: number = Infinity, fromCache: boolean =
         readingTime: readingTime( cleanedContent ).text.replace('read', 'de leitura'),
         path: `/posts/${slug}`,
         slug,
+        filePath,
+        fileName: slug
       }
     })
-    // Só retornar posts já publicados no passado
-    .filter(({ publishDate }) => {
-      return (typeof publishDate !== 'undefined' && publishDate <= now)
+    // Só retornar posts válidos já publicados no passado
+    .filter(data => {
+      return data !== null && (typeof data.publishDate !== 'undefined' && data.publishDate <= now)
     })
     // Ordenar por data de publicação
     .sort((a, b) => b.publishDate - a.publishDate)

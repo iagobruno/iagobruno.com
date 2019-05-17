@@ -24,9 +24,9 @@ const Header: FunctionComponent<HeaderProps> = ({ mode }) => {
               <li>
                 <Link href="/#works"><a aria-label="Lista de Trabalhos">Trabalhos</a></Link>
               </li>
-              <li>
+              {/*<li>
                 <Link href="/posts"><a aria-label="Lista de postagens">Blog</a></Link>
-              </li>
+              </li>*/}
               <li>
                 <a href="https://github.com/httpiago/" aria-label="Perfil no Github">GitHub</a>
               </li>

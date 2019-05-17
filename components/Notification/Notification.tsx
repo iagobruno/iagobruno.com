@@ -23,6 +23,8 @@ class Notification extends React.Component<{}, NotificationState> {
     // Buscar última postagem
     const infos: any = await getAllPosts(1).then(res => res[0])
 
+    if (typeof infos === 'undefined') return;
+
     // Checar se o user já clicou na notificação
     if (!localStorage.getItem(`notification:${infos.slug}`)) {
       // Mostar noti
