@@ -1,31 +1,24 @@
-const DirectoryNamedWebpackPlugin  = require('directory-named-webpack-plugin')
+const withTypescript = require('@zeit/next-typescript')
 const withCSS = require('@zeit/next-css')
 const withLESS = require('@zeit/next-less')
-const withPreact = (process.env.NODE_ENV === 'production')
-  ? require('@zeit/next-preact')
-  : (config = {}) => config
+const withMDX = require('@zeit/next-mdx')()
 
-module.exports = withCSS(withLESS(withPreact({
+/**
+ * @see https://github.com/zeit/next.js#static-html-export
+ */
+module.exports = withTypescript(withMDX(withCSS(withLESS({
+  pageExtensions: ['jsx', 'js', 'tsx', 'mdx'],
   webpack(config) {
-    let newConfigs = {
-      resolve: {
-        plugins: [
-          new DirectoryNamedWebpackPlugin({
-            honorIndex: true
-          })
-        ]
-      }
+    config.resolve.plugins = [
+      ...(config.resolve.plugins || []),
+    ]
+    config.node = {
+      fs: 'empty'
     }
 
-    return Object.assign({}, config, newConfigs)
+    return config;
   },
   async exportPathMap(defaultPathMap) {
-    return {
-      ...defaultPathMap,
-      
-      '/': {
-        page: '/index'
-      }
-    }
+    return defaultPathMap
   }
-})))
+}))))

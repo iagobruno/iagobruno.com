@@ -1,24 +1,43 @@
 {
+  "version": "2.0.0",
+  "homepage": "https://www.iagobruno.com/",
+  "repository": "https://github.com/httpiago/iagobruno.com.git",
+  "private": true,
   "scripts": {
     "dev": "next",
     "build": "next build && next export",
+    "predev": "yarn run generate-rss-feed",
+    "prebuild": "yarn run generate-rss-feed",
+    "generate-rss-feed": "ts-node --project scripts/tsconfig.ts-node.json scripts/build-rss-feed.ts",
     "start": "http-serve ./out -p 3000"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-less": "^1.0.1",
-    "@zeit/next-preact": "^0.1.0",
-    "delegate": "^3.2.0",
-    "directory-named-webpack-plugin": "^4.0.0",
-    "less": "^3.8.1",
-    "next": "^7.0.0",
-    "preact": "^8.3.1",
-    "preact-compat": "^3.18.4",
-    "prop-types": "^15.6.2",
-    "scrollreveal": "^4.0.4"
+    "@zeit/next-mdx": "^1.2.0",
+    "@zeit/next-typescript": "^1.1.1",
+    "glob": "^7.1.3",
+    "less": "^3.9.0",
+    "next": "8.0.3",
+    "next-ga": "^2.3.4",
+    "nprogress": "^0.2.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
+    "react-portal": "^4.2.0",
+    "reading-time": "^1.1.3",
+    "rss": "^1.2.2",
+    "sanitize-html": "^1.20.0",
+    "scrollreveal": "^4.0.5",
+    "ts-node": "^8.0.2",
+    "typescript": "^3.3.3",
+    "uniqid": "^5.0.3"
   },
   "devDependencies": {
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "@types/next": "^8.0.1",
+    "@types/nprogress": "^0.0.29",
+    "@types/react": "^16.8.3",
+    "@types/react-dom": "^16.8.2",
+    "http-serve": "^1.0.1"
   }
 }

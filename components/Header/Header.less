@@ -12,12 +12,30 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 400px;
+  // Calcular a altura do cabeçalho removendo os 100px de padding padrão das sessões
+  height: calc(100vh - 50px * 2);
+  min-height: 360px;
+  max-height: 540px;
 
   @media @phones {
     height: inherit !important;
   }
 }
+
+.header--compact .header__container {
+  height: initial;
+  max-height: initial;
+  min-height: initial;
+}
+
+.header--compact {
+  padding-bottom: 0;
+}
+
+.header--compact center {
+  max-width: 1140px;
+}
+
 
 .header__align--top {
   display: flex;

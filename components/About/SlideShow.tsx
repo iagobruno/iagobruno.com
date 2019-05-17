@@ -1,19 +1,28 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import Promise from '../promisePolyfill'
+import * as React from 'react'
+import { getTransitionDuration } from '../../Utils'
 import './SlideShow.less'
 
-function getTransitionDuration(element) {
-  let val = window.getComputedStyle(element).getPropertyValue('transition-duration')
-  return Number( val.slice(0, -1) ) * 1000
+type PropTypes = {
+  duration: number;
+  slides: Array<SlideItemType>;
 }
 
-class AboutSlideShow extends Component {
-  state = {
+type StateTypes = {
+  current_slide: number;
+}
+
+class AboutSlideShow extends React.Component<PropTypes, StateTypes> {
+  static defaultProps = {
+    duration: 10000
+  }
+
+  public state = {
     current_slide: 0
   }
   
-  imgRef = React.createRef()
+  private imgRef = React.createRef<HTMLImageElement>()
+  private imgFadeTransitionDuration: any
+  private timer: any
 
   componentDidMount() {
     this.initSlide()
@@ -29,7 +38,7 @@ class AboutSlideShow extends Component {
       else this.stopSlide()
     })*/
     
-    this.imgFadeTransitionDuration = getTransitionDuration(this.imgRef.current)
+    this.imgFadeTransitionDuration = getTransitionDuration(this.imgRef.current!)
   }
 
   componentWillUnmount() {
@@ -57,16 +66,16 @@ class AboutSlideShow extends Component {
    */
   nextSlide = () => {
     // Ocultar o slide
-    this.imgRef.current.classList.add('hidden')
+    this.imgRef.current!.classList.add('hidden')
 
     // Esperar a animação de fade-out do slide anterior
     setTimeout(() => {
       // Mudar para o próximo slide
       this.setState((prevState) => ({
-        current_slide: (prevState.current_slide >= (this.props.slides.length - 1)) ? 0 : ++prevState.current_slide
+        current_slide: (prevState.current_slide >= (this.props.slides.length - 1)) ? 0 : (prevState.current_slide + 1)
       }), () => {
         // Mostrar o slide
-        this.imgRef.current.classList.remove('hidden')
+        this.imgRef.current!.classList.remove('hidden')
       })
     }, this.imgFadeTransitionDuration)
   }
@@ -77,11 +86,11 @@ class AboutSlideShow extends Component {
    * @param {string} url Endereço da imagem a ser carregada
    * @returns {Promise}
    */
-  loadImg = (url) => {
-    return new Promise((resolve, reject) => {
+  loadImg = (url: string) => {
+    return new Promise((resolve: Function, reject: Function) => {
       let img = new Image()
-	  
-      img.addEventListener('load', e => resolve(img))
+
+      img.addEventListener('load', () => resolve(img))
       img.addEventListener('error', () => reject(new Error(`Failed to load image's URL: ${url}`)))
 
       img.src = url
@@ -93,27 +102,16 @@ class AboutSlideShow extends Component {
     let attrs = this.props.slides[this.state.current_slide]
 
     return (
-      <div className="slide-show">
-        <img className="slide-show__image" ref={this.imgRef} {...attrs} />
+      <div className="slide-show" aria-live="off" aria-atomic="false">
+        <img
+          className="slide-show__image"
+          ref={this.imgRef}
+          alt=""
+          {...attrs}
+        />
       </div>
     )
   }
-}
-
-AboutSlideShow.defaultProps = {
-  duration: 10000
-}
-
-AboutSlideShow.propTypes = {
-  /** Os slides que serão mostrados. Deve ser um vetor de objetos [{},] */
-  slides: PropTypes.arrayOf(
-    PropTypes.shape({
-      src: PropTypes.string.isRequired,
-      alt: PropTypes.string.isRequired
-    })
-  ).isRequired,
-  /** Tempo que cada slide fica exposto antes de ser trocado (em ms) */
-  duration: PropTypes.number
 }
 
 export default AboutSlideShow
