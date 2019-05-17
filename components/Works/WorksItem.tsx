@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { Portal } from 'react-portal'
-import { promisify, getTransitionDuration, sleep } from '../../Utils'
+import { promisify, getTransitionDuration, sleep, sendLinkClickToGA } from '../../Utils'
 
 type WorksItemState = {
   opened: boolean;
@@ -216,6 +216,7 @@ class WorksItem extends Component<WorkItemType, WorksItemState> {
                 target="_blank"
                 rel="noopener"
                 role="button"
+                onClick={() => sendLinkClickToGA(url)}
                 aria-label={`Ir para o ${title}`}
               >Ir para o site</a>
             )}

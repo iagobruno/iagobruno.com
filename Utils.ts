@@ -1,5 +1,6 @@
 import * as fs from 'fs'
 import * as path from 'path'
+import * as ReactGA from 'react-ga'
 const glob = require('glob')
 const readingTime = require('reading-time')
 const sanitizeHtml = require('sanitize-html')
@@ -85,6 +86,19 @@ export async function getAllPosts(limit: number = Infinity, fromCache: boolean =
 
     return sanitizeHtml(treatedContent)
   }
+}
+
+/**
+ * Enviar evento ao Google Analitycs sobre click em um link
+ */
+export function sendLinkClickToGA(url: string) {
+  const urlWithoutProtocol = url.replace(/http(s)?\:\/\//g, '')
+
+  ReactGA.event({
+    category: 'links',
+    action: 'click',
+    label: `Cliques em "${urlWithoutProtocol}"`
+  })
 }
 
 /**
