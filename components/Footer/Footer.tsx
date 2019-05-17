@@ -42,7 +42,7 @@ const Footer: FunctionComponent = () => {
         <a
           className="footer__code-note"
           href="https://github.com/httpiago/iagobruno.com"
-          onClick={() => sendLinkClickToGA('github.com/httpiago/iagobruno.com')}
+          onClick={() => sendLinkClickToGA('https://github.com/httpiago/iagobruno.com')}
           aria-label="Considerações finais: Feito com reaquite e amor por mim mesmo"
         >
           <svg viewBox="0 0 20 15" width="18" height="13"><path d="M13.197.39l-2.084 2.083 4.862 4.862-4.862 4.862 2.084 2.084 6.251-6.946-6.25-6.946zm-6.946 0L0 7.334l6.251 6.946 2.084-2.084-4.862-4.862 4.862-4.862L6.251.389z" fillRule="nonzero" fill="#444444"></path></svg>

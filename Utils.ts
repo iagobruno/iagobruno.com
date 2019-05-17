@@ -92,12 +92,10 @@ export async function getAllPosts(limit: number = Infinity, fromCache: boolean =
  * Enviar evento ao Google Analitycs sobre click em um link
  */
 export function sendLinkClickToGA(url: string) {
-  const urlWithoutProtocol = url.replace(/http(s)?\:\/\//g, '')
-
   ReactGA.event({
     category: 'links',
     action: 'click',
-    label: `Cliques em "${urlWithoutProtocol}"`
+    label: `Cliques em "${url}"`
   })
 }
 
