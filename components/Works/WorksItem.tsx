@@ -22,6 +22,7 @@ class WorksItem extends Component<WorkItemType, WorksItemState> {
     }
   }
 
+  private modalName = Symbol(`work-modal-${this.props.title}`)
   private modalRef = React.createRef<HTMLDivElement>()
   private miniItenRef = React.createRef<HTMLAnchorElement>()
   private initialModalPosition: any = {};
@@ -82,13 +83,18 @@ class WorksItem extends Component<WorkItemType, WorksItemState> {
 
     this.modalRef.current!.focus() // Dar foco no modal
 
-    // Eventos que podem fechar o modal, como por exemplo presionar a tecla ESC.
-    window.addEventListener('scroll', this.handleScroll)
-    window.addEventListener('keyup', this.handleKeypress)
     this.initialScrollPosistion = {
       y: window.scrollY,
       x: window.scrollX
     }
+    window.history.pushState({
+      ...window.history.state,
+      [this.modalName]: true
+    }, '')
+    // Eventos que podem fechar o modal, como por exemplo presionar a tecla ESC.
+    window.addEventListener('scroll', this.handleScroll)
+    window.addEventListener('keyup', this.handleKeypress)
+    window.addEventListener('popstate', this.handlePopState)
   }
 
   /**
@@ -98,6 +104,7 @@ class WorksItem extends Component<WorkItemType, WorksItemState> {
     // Remover ouvintes criados em this.expandModal
     window.removeEventListener('scroll', this.handleScroll)
     window.removeEventListener('keyup', this.handleKeypress)
+    window.removeEventListener('popstate', this.handlePopState)
 
     try {
       const { height: modalHeight } = this.modalRef.current!.getBoundingClientRect()
@@ -142,8 +149,15 @@ class WorksItem extends Component<WorkItemType, WorksItemState> {
    * Função que checa se a tecla precionada foi o ESC para fechar o modal.
    * @see http://keycode.info/
    */
-  handleKeypress = (e: KeyboardEvent) => {
-    if (e.keyCode === 27) this.closeModal()
+  handleKeypress = (event: KeyboardEvent) => {
+    if (event.keyCode === 27) this.closeModal()
+  }
+
+  /**
+   * Fechar o modal se o usuário clicar no botão voltar do navegador.
+   */
+  handlePopState = (event: PopStateEvent) => {
+    if (!event.state || !event.state[this.modalName]) this.closeModal()
   }
 
   /**
