@@ -28,9 +28,46 @@ export function promisify(func: Function, args: any[], context: any = null): Pro
 }
 
 /**
+ * Chamar uma função para cada item de um array com um pequeno intervalo entre cada chamada.
+ * 
+ * @param items - Array de itens ou elementos html.
+ * @param delayInMs - Intervalo entre cada camada em milisegundos.
+ * @param callback - Função que recebe 2 argumentos: o item atual no loop e o índice dele.
+ * @returns Retorna uma promise que se resolve ao final da interação.
+ * @template TItem Type of items inside the array.
+ */
+export function forEachWithInterval<TItem>(
+  items: TItem extends Node ? NodeListOf<TItem> : TItem[],
+  delayInMs: number,
+  callback: (currentItem: TItem, index: number) => void
+) {
+  return new Promise((resolve, reject) => {
+    let index = 0
+    let timer = setInterval(() => {
+      try {
+        const currentItem = items[index]
+        callback(currentItem, index)
+      } catch (err) {
+        clearInterval(timer)
+        reject(err)
+      }
+
+      if (index >= items.length-1) {
+        clearInterval(timer)
+        setTimeout(resolve, delayInMs)
+      }
+      else index++
+    }, delayInMs)
+  })
+}
+
+/**
  * Buscar todas as postagens do blog ordenadas por data de publicação.
  */
-export async function getAllPosts(limit: number = Infinity, fromCache: boolean = true): Promise<object[]> {
+export async function getAllPosts(
+  limit: number = Infinity,
+  fromCache: boolean = true
+): Promise<object[]> {
   if (fromCache) {
     return require('./posts-data.js');
   }

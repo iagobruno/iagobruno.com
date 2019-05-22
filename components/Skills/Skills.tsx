@@ -1,6 +1,6 @@
-import React, { FunctionComponent, useEffect } from 'react'
+import React, { FunctionComponent, useEffect, useRef } from 'react'
 import useReveal from '../ScrollRevealHook'
-import { sendLinkClickToGA } from '../../Utils'
+import { sendLinkClickToGA, forEachWithInterval } from '../../Utils'
 import './Skills.less'
 
 const skills: Array<SkillItemType> = [
@@ -73,45 +73,35 @@ const others: Array<OthersSkillsItemType> = [
   { title: "BEM", description: 'Conceito de organização para CSS.' },
 ]
 
-var levelsCache: Array<string> = []
-
 const Skills: FunctionComponent = () => {
+  const levelBarsRef = useRef<NodeListOf<HTMLElement>>()
+  const levelsCache = useRef<string[]>()
+
+  // Ocultar as porcentagens assim que o documento for carregado completamente
+  useEffect(() => {
+    levelBarsRef.current = document.querySelectorAll<HTMLSpanElement>('.skills__level-bar span')
+
+    // Salvar a porcentagem dos níveis em um array e zerar a largura da barra
+    levelsCache.current = Array.from(levelBarsRef.current).map(element => {
+      const initialWidth = element.style.width!
+      element.style.width = '0%'
+      return initialWidth
+    })
+  }, [])
+
   const revealConfigs = {
     element: '#skills',
     viewFactor: 0.6
   }
 
-  // Ocultar as porcentagens assim que o documento for carregado completamente
-  useEffect(() => {
-    let itens: Array<HTMLElement> = [].slice.call(document.querySelectorAll('.skills__level-bar span'))
-
-    // Salvar a porcentagem dos níveis em um Array
-    // E remover o valor no elemento
-    itens.map(item => {
-      levelsCache.push(item.style.width!)
-
-      item.style.width = '0%'
-    })
-  }, [])
-
   // Animar as barras de porcentagens em #skills quando o componente aparecer na tela
   useReveal(revealConfigs, () => {
-    let levels: NodeListOf<HTMLElement> = document.querySelectorAll('.skills__level-bar span')
-    let i = 0
-
-    // Fazer um loop nos elementos com um delay de diferença entre cada um
-    let timer = setInterval(() => {
-
-      // Mostrar a porcentagem salva no Array anteriormente na função "hideSkillsLevels"
-      levels[i].style.width = levelsCache[i]
-
-      // Parar o timer quando chegar no último elemento
-      if (i >= levels.length - 1) clearInterval(timer)
-      i++
-
-    }, 40)
+    forEachWithInterval(levelBarsRef.current!, 40, (element, index) => {
+      // Voltar a mostrar a porcentagem da barra salva anteriormente
+      element.style.width = levelsCache.current![index]
+    })
   })
-  
+
   return (
     <section className="skills" id="skills">
       <center>

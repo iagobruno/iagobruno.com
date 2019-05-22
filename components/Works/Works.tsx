@@ -1,5 +1,6 @@
-import React, { FunctionComponent, useEffect } from 'react'
+import React, { FunctionComponent, useEffect, useRef } from 'react'
 import useReveal from '../ScrollRevealHook'
+import { forEachWithInterval } from '../../Utils'
 import './Works.less'
 
 import WorksItem from './WorksItem'
@@ -32,36 +33,29 @@ const workList: Array<WorkItemType> = [
 ]
 
 const Works: FunctionComponent = () => {
+  const worksRef = useRef<NodeListOf<HTMLElement>>()
+
+  // Ocultar os itens em #works quando a páina carregar
+  useEffect(() => {
+    worksRef.current = document.querySelectorAll<HTMLLIElement>('#works .list > li')
+
+    // Ocultar cada item da sessão
+    worksRef.current.forEach(element => {
+      element.style.transform = 'scale(0)'
+    })
+  }, [])
+
   const revealConfigs = {
     element: '#works',
     viewFactor: 0.4
   }
 
-  // Ocultar os itens em #works quando a páina carregar
-  useEffect(() => {
-    let works: Array<HTMLElement> = [].slice.call(document.querySelectorAll('#works .list > li'))
-
-    // Ocultar cada item da sessão
-    works.map(item => {
-      item.style.transform = 'scale(0)'
-    })
-  }, [])
-
   // Mostrar os trabalhos quando o componente aparecer na tela
   useReveal(revealConfigs, () => {
-    let works: NodeListOf<HTMLDivElement> = document.querySelectorAll('#works .list > li')
-    let i = 0
-
-    // Fazer um loop nos elementos com um delay de diferença entre cada um
-    let timer = setInterval(() => {
-      // Mostrar o elemento
-      works[i].style.transform = 'scale(1)'
-
-      // Parar o timer quando chegar no último elemento
-      if (i >= works.length - 1) clearInterval(timer)
-      i++
-
-    }, 100)
+    forEachWithInterval(worksRef.current!, 100, (element) => {
+      // Voltar a mostrar o elemento na tela
+      element.style.transform = 'scale(1)'
+    })
   })
 
   return (

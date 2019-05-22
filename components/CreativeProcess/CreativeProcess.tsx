@@ -1,57 +1,45 @@
-import React, { FunctionComponent, useEffect } from 'react'
+import React, { FunctionComponent, useEffect, useRef } from 'react'
 import useReveal from '../ScrollRevealHook'
+import { checkIsMobile, forEachWithInterval } from '../../Utils'
 import './CreativeProcess.less'
 
-let Cols: NodeListOf<HTMLElement>
-
 const CreativeProcess: FunctionComponent = () => {
+  const columnsRef = useRef<NodeListOf<HTMLElement>>()
+
+  useEffect(() => {
+    if (checkIsMobile() === true) return;
+
+    columnsRef.current = document.querySelectorAll<HTMLLIElement>('#creative-process .list > li')
+    columnsRef.current[1].style.boxShadow = 'none'
+  }, [])
+
   const revealConfigs = {
     element: '#creative-process',
     viewFactor: 0.6
   }
 
-  useEffect(() => {
-    const isMobile = window.innerWidth < 859
-    if (isMobile === true) return
-
-    Cols = document.querySelectorAll('#creative-process .list > li')
-    Cols[1].style.boxShadow = 'none'
-  }, [])
-
-  // Criar uma animação com as sombras dos elementos
+  // Criar uma animação com as sombras dos elementos quando o componente aparecer na tela
   useReveal(revealConfigs, () => {
-    const isMobile = window.innerWidth < 859
-    if (isMobile === true) return
-
-    let i = 0
+    if (checkIsMobile() === true) return;
 
     // Aplicar ou remover uma sombra no elemento
-    function applyShadow(element: HTMLElement, method: string = 'add') {    
-      let value = (method === 'remove') ? 'none' : '0 12px 30px rgba(0,0,0,.3)'
-
-      element.style.boxShadow = value
-      
+    function changeShadow(element: HTMLElement, whatToDo: 'add' | 'remove') {
+      element.style.boxShadow = (whatToDo === 'remove' ? 'none' : '0 12px 30px rgba(0,0,0,.3)')
     }
 
-    // Fazer um loop nos elementos com um delay de diferença entre cada um
-    let timer = setInterval(() => {
-      // Aplicar simmbra no elemento
-      applyShadow(Cols[i])
-      
-      // Remover a sombra do elemento após a transição terminar (300 milissegundos)
-      setTimeout(applyShadow.bind(null, Cols[i], 'remove'), 500 )
+    (async () => {
+      await forEachWithInterval(columnsRef.current!, 500, (column) => {
+        // Aplicar simmbra no elemento
+        changeShadow(column, 'add')
 
-      // Parar o timer quando chegar no último elemento
-      if (i >= Cols.length - 1) clearInterval(timer)
-      i++
+        // Remover sombra do mesmo elemento após a transição terminar
+        setTimeout(() => changeShadow(column, 'remove'), 500)
+      })
 
-    }, 500)
-
-    // Após a animação, aplicar uma sombra no elemento do meio
-    setTimeout(() => {
-      Cols[1].style.transitionDuration = '1200ms'
-      applyShadow(Cols[1])
-    }, ((500) * 4))
+      // Após a animação, aplicar uma sombra no elemento do meio
+      columnsRef.current![1].style.transitionDuration = '1200ms'
+      changeShadow(columnsRef.current![1], 'add')
+    })()
   })
 
   return (
