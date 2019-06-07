@@ -9,6 +9,17 @@ Meu portifólio para apresentação do meu trabalho, habilidades e projetos real
 
 > Proibido modificar, distribuir ou fazer uso pessoal sem a prévia autorização, porém, sinta-se livre para estudar os códigos e fazer seu próprio portifólio.
 
+## Bibliotecas e ferramentas usadas
+
+- [React](http://reactjs.org): Para componentizar o site.
+- [NextJS](https://github.com/zeit/next.js): Cria um website estático com _server side rendering_ usando componentes do React.
+- [TypeScript](https://typescriptlang.org): Para fazer a tipagem dos códigos e dos componentes.
+- [MDX](https://mdxjs.com/): É um formato de arquivo que permite escrever JSX junto com markdown e usei ele para escrever os artigos do blog.
+- [Less](http://lesscss.org): Foi o escolhido para pré-processar o css.
+- [ScrollReveal](https://github.com/scrollreveal/scrollreveal): Animar os blocos (header, about, ...) do site a medida em que eles vão aparecendo.
+- [next-css](https://github.com/zeit/next-plugins/tree/master/packages/next-css) e [next-less](https://github.com/zeit/next-plugins/tree/master/packages/next-less): Para permitir a importação de arquivos .css e .less dentro dos arquivos .js.
+- [Netlify](https://www.netlify.com/): Foi o serviço escolhido para hospedar o website. [Ver mais aqui](/#Hospedagem).
+
 ## Comandos
 
 **`yarn run dev`**: Iniciar o servidor em modo de desenvolvimento com hot-reload.
@@ -17,7 +28,7 @@ Meu portifólio para apresentação do meu trabalho, habilidades e projetos real
 
 **`yarn run start`**: Iniciar a versão de produção na máquina local (requer que o comando "build" seja chamado antes).
 
-**`yarn run generate-rss-feed`**: Exatamente, gera o feed rss e um cache de postagens do blog. (Ele é executado automaticamente antes dos comandos "dev" e "build")
+**`yarn run generate-rss-feed`**: Exatamente, gera o feed rss e um cache de postagens do blog. (Ele é executado automaticamente antes dos comandos "dev" e "build".)
 
 
 ## Estrutura do projeto
@@ -36,7 +47,7 @@ Meu portifólio para apresentação do meu trabalho, habilidades e projetos real
 │   ├── index.js
 │   ├── posts.js
 │   └── ...
-├── static          // Arquivos (imagens, svgs) para serem hospedados no site pelo Next
+├── static          // Arquivos estáticos (imagens, svgs) para serem hospedados no site
 │   ├── images
 │   │   └── ...
 │   └── favicon.ico 
@@ -48,16 +59,6 @@ Meu portifólio para apresentação do meu trabalho, habilidades e projetos real
 ├── README.md
 └── Utils.ts        // Contém funções e variáveis que podem ser usadas mais de uma vez dentro do projeto.
 ```
-
-## Bibliotecas e ferramentas usadas
-
-- [React](http://reactjs.org): Para componentizar o site.
-- [Next](https://github.com/zeit/next.js): Para criar um site estático com server side rendering usando os componentes do React.
-- [TypeScript](https://typescriptlang.org): Para fazer a tipagem dos códigos e dos componentes.
-- [MDX](https://mdxjs.com/): Para escrever as postagens do blog usando markdown e JSX.
-- [Less](http://lesscss.org): Foi o escolhido para pré-processar o css.
-- [ScrollReveal](https://github.com/scrollreveal/scrollreveal): Animar os blocos (header, about, ...) do site a medida em que eles vão aparecendo.
-- [next-css](https://github.com/zeit/next-plugins/tree/master/packages/next-css) e [next-less](https://github.com/zeit/next-plugins/tree/master/packages/next-less): Para permitir a importação de arquivos css e less dentro dos arquivos js.
 
 ## Páginas e postagens
 
