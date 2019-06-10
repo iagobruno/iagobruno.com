@@ -18,6 +18,7 @@ export default class MyDocument extends Document {
           <meta name="keywords" content="Full-stack developer,Front end developer,Desenvolvedor javascript,Desenvolvedor de sites,Website developer,NodeJS,javascript,programador,Ceará,Brasil,designer,designer de sites,designer de aplicativos," />
           <link rel="alternate" type="application/rss+xml" title="Blog RSS Feed" href="/static/rss-feed.xml" />
           <meta name="robots" content="index,follow" />
+          <meta name="p:domain_verify" content="4e1bff03c219dba8c4be82c29ba87e68" />
 
           {/* Assets da página */}
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&ver=4.8.6" type="text/css" media="all" />
