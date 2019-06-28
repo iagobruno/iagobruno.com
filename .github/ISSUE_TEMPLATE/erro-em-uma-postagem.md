@@ -1,6 +1,6 @@
 ---
 name: Erro em uma postagem
-about: "Eu juro que eu tento fazer tudo perfeito mas es vezes uns errinhos escapam.
+about: "Eu juro que tento fazer tudo perfeito mas es vezes uns errinhos escapam.
   \U0001F614"
 title: ''
 labels: "Melhoria \U0001F6E0"

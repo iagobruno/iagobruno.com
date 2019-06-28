@@ -30,12 +30,14 @@ Meu portifólio para apresentação do meu trabalho, habilidades e projetos real
 
 **`yarn run generate-rss-feed`**: Exatamente, gera o feed rss e um cache de postagens do blog. (Ele é executado automaticamente antes dos comandos "dev" e "build".)
 
-
-## Estrutura do projeto
+## Estrutura de pastas
 
 ```
 .
-├── components      // Pastas de componentes do projeto
+├── common
+│   ├── functions.ts  // Contém funções e variáveis que são usadas mais de uma vez dentro do projeto
+│   └── types.ts    // Tipos e interfaces comuns
+├── components      // Pastas de componentes
 │   ├── Header
 │   │   └── Header.jsx
 │   ├── Footer
@@ -50,19 +52,18 @@ Meu portifólio para apresentação do meu trabalho, habilidades e projetos real
 ├── static          // Arquivos estáticos (imagens, svgs) para serem hospedados no site
 │   ├── images
 │   │   └── ...
-│   └── favicon.ico 
+│   └── favicon.ico
 ├── styles          // Pasta com arquivos de estilo
 │   └── main.less
 ├── .gitignore
 ├── next.config.js  // Configurações do Next
 ├── package.json
-├── README.md
-└── Utils.ts        // Contém funções e variáveis que podem ser usadas mais de uma vez dentro do projeto.
+└── README.md
 ```
 
 ## Páginas e postagens
 
-Para criar uma nova página basta criar um novo componente React dentro da pasta "pages" e o nome do arquivo será mapeado para o endereço do site, por exemplo: 
+Para criar uma nova página basta criar um novo componente React dentro da pasta "pages" e o nome do arquivo será mapeado para o endereço do site, por exemplo:
 "pages/about.js" será acessado em "www.iagobruno.com/about"
 
 [Ver mais na documentação do Next](https://github.com/zeit/next.js).
