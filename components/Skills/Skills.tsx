@@ -12,54 +12,44 @@ const skills: Array<SkillItem> = [
   },
   {
     title: "React",
-    percentage: 76,
+    percentage: 80,
     color: "#2dd2ff",
     description: "Framework para criação de interfaces de usuário.",
     studying: true
   },
   {
-    title: "Photoshop",
-    percentage: 50,
-    color: "#2196f3"
+    title: "TypeScript",
+    percentage: 65,
+    color: '#007ACC',
+    description: "Linguagem que adiciona tipagem em códigos JavaScript.",
+    studying: true
   },
   {
     title: "CSS",
-    percentage: 92,
+    percentage: 90,
     color: "#7e57c2"
   },
   {
+    title: "Photoshop",
+    percentage: 36,
+    color: "#2196f3"
+  },
+  {
     title: "Adobe XD",
-    percentage: 60,
+    percentage: 50,
     color: "#FF26BE",
     description: "Ferramenta para criação de protótipos de experiência do usuário para aplicativos da Web e móveis."
   },
   {
-    title: "WordPress",
-    percentage: 60,
-    color: "#555555"
-  },
-  {
     title: "Inglês",
-    percentage: 42,
+    percentage: 32,
     color: "#607d8b",
     studying: true
-  },
-  {
-    title: "PHP",
-    percentage: 40,
-    color: "#9e9e9e"
   },
   {
     title: "SQL",
     percentage: 50,
     color: "#fdd835"
-  },
-  {
-    title: "TypeScript",
-    percentage: 60,
-    color: '#007ACC',
-    description: "Linguagem para fazer tipagem de código JavaScript.",
-    studying: true
   }
 ]
 
@@ -68,7 +58,7 @@ const others: Array<OthersSkillsItem> = [
   { title: 'Gulp', description: 'Automatização de tarefas.' },
   { title: 'Git', description: 'Versionamento de código.' },
   { title: 'Bootstrap' },
-  { title: 'Layout responsivo' },
+  { title: 'Layout responsivo', description: 'Construção de interfaces que se adaptam a tela do usuário.' },
   { title: 'Mobile first', description: 'Desenvolvimento com dispositivos móveis em mente.' },
   { title: "PWA's", description: 'Progressive Web Apps.' },
   { title: "BEM", description: 'Conceito de organização para CSS.' },

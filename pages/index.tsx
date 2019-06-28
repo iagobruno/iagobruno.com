@@ -15,7 +15,7 @@ const HomePage: NextFunctionComponent = () => {
     <Fragment>
       <SocialTags
         page_title="Iago Bruno &#8212; Full Stack Developer"
-        description="Programador de websites com experiência vasta em JavaScript, Node, React, CSS, PHP, entre outros."
+        description="Programador de websites com experiência vasta em JavaScript, Node, React, CSS, entre outros."
         url="https://www.iagobruno.com/"
         image="https://www.iagobruno.com/static/images/website-print.jpg"
       />
