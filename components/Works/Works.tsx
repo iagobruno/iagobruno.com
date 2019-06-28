@@ -1,11 +1,12 @@
 import React, { FunctionComponent, useEffect, useRef } from 'react'
 import useReveal from '../ScrollRevealHook'
-import { forEachWithInterval } from '../../Utils'
+import { forEachWithInterval } from '../../common/functions'
+import { WorkItem } from '../../common/types'
 import './Works.less'
 
 import WorksItem from './WorksItem'
 
-const workList: Array<WorkItemType> = [
+const workList: Array<WorkItem> = [
   {
     title: 'Descontaí',
     subTitle: '2019',

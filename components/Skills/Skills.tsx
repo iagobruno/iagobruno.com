@@ -1,9 +1,10 @@
 import React, { FunctionComponent, useEffect, useRef } from 'react'
 import useReveal from '../ScrollRevealHook'
-import { sendLinkClickToGA, forEachWithInterval } from '../../Utils'
+import { sendLinkClickToGA, forEachWithInterval } from '../../common/functions'
+import { SkillItem, OthersSkillsItem } from '../../common/types'
 import './Skills.less'
 
-const skills: Array<SkillItemType> = [
+const skills: Array<SkillItem> = [
   {
     title: "JavaScript/Node",
     percentage: 82,
@@ -62,7 +63,7 @@ const skills: Array<SkillItemType> = [
   }
 ]
 
-const others: Array<OthersSkillsItemType> = [
+const others: Array<OthersSkillsItem> = [
   { title: 'Jest / Mocha', description: 'Ferramentas de testes automatizados.' },
   { title: 'Gulp', description: 'Automatização de tarefas.' },
   { title: 'Git', description: 'Versionamento de código.' },

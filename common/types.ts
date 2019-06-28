@@ -1,12 +1,4 @@
-declare namespace JSX {
-  interface IntrinsicElements {
-    [elemName: string]: any;
-  }
-}
-declare module 'react-portal';
-declare module 'next-ga';
-
-interface WorkItemType {
+export interface WorkItem {
   /** Título do projeto */
   title: string;
   /** Tempo trabalhando no projeto, exemplo: 2012 - 2015 */
@@ -23,7 +15,7 @@ interface WorkItemType {
   technologies?: Array<string>;
 }
 
-interface PostMetaType {
+export interface PostMeta {
   /** Título da postagem */
   title: string;
   /** Breve descrição para ser mostrado no Google e nas redes sociais. */
@@ -38,7 +30,7 @@ interface PostMetaType {
   path: string;
 }
 
-interface SkillItemType {
+export interface SkillItem {
   title: string;
   percentage: number;
   color: string;
@@ -46,17 +38,17 @@ interface SkillItemType {
   studying?: boolean;
 }
 
-interface OthersSkillsItemType {
+export interface OthersSkillsItem {
   title: string;
   description?: string;
 }
 
-interface SlideItemType {
+export interface SlideItem {
   src: string;
   alt: string;
 }
 
-interface LinkItemType {
+export interface LinkItem {
   text: string;
   url: string;
 }

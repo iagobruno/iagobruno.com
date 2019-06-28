@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { Portal } from 'react-portal'
-import { promisify, getTransitionDuration, sleep, sendLinkClickToGA } from '../../Utils'
+import { promisify, getTransitionDuration, sleep, sendLinkClickToGA } from '../../common/functions'
+import { WorkItem } from '../../common/types'
 
 type WorksItemState = {
   opened: boolean;
@@ -14,7 +15,7 @@ type WorksItemState = {
  * legal de expanção para mostrar mais detalhes ao usuário.
  * @see https://reactfordesigners.com/
  */
-class WorksItem extends Component<WorkItemType, WorksItemState> {
+class WorksItem extends Component<WorkItem, WorksItemState> {
   public state: WorksItemState = {
     opened: false,
     modalPosition: {
@@ -58,7 +59,7 @@ class WorksItem extends Component<WorkItemType, WorksItemState> {
     await sleep(100)
 
     this.modalRef.current!.classList.add('with-animation', 'opened')
-    
+
     // Expandir o modal até o centro da tela
     this.setState({
       modalPosition: {
@@ -72,7 +73,7 @@ class WorksItem extends Component<WorkItemType, WorksItemState> {
     })
 
     await sleep( getTransitionDuration(this.modalRef.current!) )
-    
+
     // Permitir que a altura do modal mude quando ele estiver aberto
     this.setState(prevState => ({
       modalPosition: {
@@ -132,7 +133,7 @@ class WorksItem extends Component<WorkItemType, WorksItemState> {
     this.modalRef.current!.classList.remove('opened')
 
     await sleep( getTransitionDuration(this.modalRef.current!) + 50 )
-    
+
     // Esconder o modal após a animação
     this.setState({
       opened: false,
@@ -173,13 +174,13 @@ class WorksItem extends Component<WorkItemType, WorksItemState> {
   render() {
     const { title, subTitle, image, url, description, technologies, totalDevelopmentTime } = this.props
     const { opened, modalPosition } = this.state
-    
+
     const id = 'work-' + title.toLowerCase().replace(/(\s)/g, '')
     const alt = (title === 'Lembretes')
       ? 'Captura de tela da página do Lembretes na Chrome Web Store'
       : 'Captura de tela do site ' + title
     const PortalContainer = typeof document !== 'undefined' && document.getElementById('works')
-    
+
     return (
       <Fragment>
         <a

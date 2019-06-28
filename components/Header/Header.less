@@ -51,7 +51,7 @@
   @media @tablets {
     max-width: 320px;
   }
-  
+
   @media @phones {
     text-align: center;
     margin-top: 10px;
@@ -146,7 +146,6 @@
 }
 
 .signature {
-  margin-right: 24px;
   display: block;
   height: 50px;
 
@@ -154,6 +153,17 @@
     margin: 0 auto;
     height: 44px;
     width: 150px;
+  }
+}
+
+.signature__link {
+  margin-right: 24px;
+  display: inline-block;
+
+  @media @phones {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
   }
 }
 

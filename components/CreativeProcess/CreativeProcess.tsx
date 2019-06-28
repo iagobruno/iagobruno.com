@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useEffect, useRef } from 'react'
 import useReveal from '../ScrollRevealHook'
-import { checkIsMobile, forEachWithInterval } from '../../Utils'
+import { checkIsMobile, forEachWithInterval } from '../../common/functions'
 import './CreativeProcess.less'
 
 const CreativeProcess: FunctionComponent = () => {
@@ -62,7 +62,7 @@ const CreativeProcess: FunctionComponent = () => {
             <div className="list__icon" style={{backgroundPosition: '-50px 0'}}></div>
             <div className="list__title">Desenvolvimento</div>
             <p className="list__description">Após esses passos anteriores vem a parte mais legal, CODAR! <br/>Minhas ferramentas favoritas para trabalhar são o Visual Studio Code, o Chrome Dev Tools, o Git para o controle de versão e o bom e velho amigo do programador: a linha de comando.</p>
-          </li>  
+          </li>
         </ul>
       </center>
     </section>

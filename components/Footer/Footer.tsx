@@ -1,8 +1,9 @@
 import React, { FunctionComponent } from 'react'
-import { sendLinkClickToGA } from '../../Utils';
+import { sendLinkClickToGA } from '../../common/functions'
+import { LinkItem } from '../../common/types'
 import './Footer.less'
 
-const links: Array<LinkItemType> = [
+const links: Array<LinkItem> = [
   { text: 'Email', url: 'mailto:httpiago@gmail.com' },
   { text: 'Telefone', url: 'tel:+5588999892495' },
   { text: 'Facebook', url: 'https://www.facebook.com/httpiago' },
@@ -19,7 +20,7 @@ const Footer: FunctionComponent = () => {
     <footer className="footer" id="contact" role="contentinfo">
       <center>
         <h2 className="footer__title">Contato</h2>
-        
+
         <ul className="links footer__links" aria-label="Lista de links para contato">
           {links.map((link, index) => (
             <li key={index}>

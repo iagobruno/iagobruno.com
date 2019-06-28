@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Link from 'next/link'
-import { getAllPosts } from '../../Utils'
+import { getAllPosts } from '../../common/functions'
 import './Notification.less'
 
 type NotificationState = Partial<{

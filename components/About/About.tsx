@@ -1,8 +1,10 @@
 import React, { FunctionComponent } from 'react'
-import SlideShow from './SlideShow'
+import { SlideItem } from '../../common/types'
 import './About.less'
 
-const slides: Array<SlideItemType> = [
+import SlideShow from './SlideShow'
+
+const slides: Array<SlideItem> = [
   {
     src: '/static/images/code_react.jpg',
     alt: 'Exemplo de um componente do React'
@@ -23,7 +25,7 @@ const About: FunctionComponent = () => {
 
     // Mover o scroll até a sessão #works
     window.location.hash = '#works'
-  
+
     // Dar foco ao link do tecbolt
     document.getElementById('work-tecbolt')!.focus()
   }

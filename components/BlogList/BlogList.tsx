@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState, useEffect } from 'react'
 import Link from 'next/link'
-import { getAllPosts } from '../../Utils'
+import { getAllPosts } from '../../common/functions'
 import './BlogList.less'
 
 type BlogListProps = {
@@ -9,7 +9,7 @@ type BlogListProps = {
 
 /**
  * Mostrar últimas postagens ao usuário
- * 
+ *
  * @todo Fazer um sistema de paginação caso necessário futuramente
  */
 const BlogList: FunctionComponent<BlogListProps> = ({ length = 3 }) => {

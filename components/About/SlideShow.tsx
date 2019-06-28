@@ -1,10 +1,11 @@
 import * as React from 'react'
-import { getTransitionDuration } from '../../Utils'
+import { getTransitionDuration } from '../../common/functions'
+import { SlideItem } from '../../common/types'
 import './SlideShow.less'
 
 type PropTypes = {
   duration: number;
-  slides: Array<SlideItemType>;
+  slides: Array<SlideItem>;
 }
 
 type StateTypes = {
@@ -19,7 +20,7 @@ class AboutSlideShow extends React.Component<PropTypes, StateTypes> {
   public state = {
     current_slide: 0
   }
-  
+
   private imgRef = React.createRef<HTMLImageElement>()
   private imgFadeTransitionDuration: any
   private timer: any
@@ -31,36 +32,36 @@ class AboutSlideShow extends React.Component<PropTypes, StateTypes> {
     Promise.all(
       this.props.slides.slice(1).map(item => this.loadImg(item.src))
     )
-    
+
     // Parar o slide quando a página não estiver visível para o usuário e iniciar quando voltar a ficar visível
     /*document.addEventListener('visibilitychange', this.visibilityChangeFn = () => {
       if (document.hidden === false) this.initSlide()
       else this.stopSlide()
     })*/
-    
+
     this.imgFadeTransitionDuration = getTransitionDuration(this.imgRef.current!)
   }
 
   componentWillUnmount() {
     this.stopSlide()
-    
+
     //document.removeEventListener('visibilitychange', this.visibilityChangeFn)
   }
-  
+
   /**
    * Iniciar slideshow
    */
   initSlide = () => {
     this.timer = setInterval(() => this.nextSlide(), this.props.duration)
   }
-  
+
   /**
    * Parar slide
    */
   stopSlide = () => {
     clearInterval(this.timer)
   }
-  
+
   /**
    * Avançar para o próximo slide.
    */

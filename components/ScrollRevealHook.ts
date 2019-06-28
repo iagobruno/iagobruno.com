@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { sleep } from '../Utils'
+import { sleep } from '../common/functions'
 const scrollReveal = (typeof window !== 'undefined') ? require('scrollreveal').default : () => {}
 
 type ConfigsType = {

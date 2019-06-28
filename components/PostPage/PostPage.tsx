@@ -1,16 +1,17 @@
 import React, { FunctionComponent, Fragment, ReactNode } from 'react'
 import PropTypes from 'prop-types'
+import { PostMeta } from '../../common/types'
 
 import SocialTags from '../SocialTags'
 import PostHeader from './PostHeader'
 import Header from '../Header/Header'
 import PostFooter from './PostFooter'
+import BlogList from '../BlogList/BlogList'
 import Footer from '../Footer/Footer'
 import './PostPage.less'
 
-import BlogList from '../BlogList/BlogList'
 
-interface PostPageProps extends PostMetaType {
+interface PostPageProps extends PostMeta {
   children: ReactNode;
 }
 
@@ -29,7 +30,7 @@ const PostPage: FunctionComponent<PostPageProps> = ({ children, ...props }) => {
 
       <div className="page post-page">
         <Header mode="compact" />
-        
+
         <article role="main">
           <PostHeader
             layout="default"

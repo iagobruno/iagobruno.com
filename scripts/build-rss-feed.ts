@@ -1,7 +1,7 @@
 /**
  * Arquivo responsável por gerar o feed rss do blog.
  */
-import { getAllPosts, promisify } from '../Utils'
+import { getAllPosts, promisify } from '../common/functions'
 const RSS = require('rss')
 const fs = require('fs')
 

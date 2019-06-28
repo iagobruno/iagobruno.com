@@ -1,14 +1,14 @@
 import React, { FunctionComponent, useState, useEffect } from 'react'
 import Link from 'next/link'
 import readingTime from 'reading-time'
-import { formateDate } from '../../Utils'
+import { formateDate } from '../../common/functions'
 
 import SharePost from './SharePost'
 
 type PostHeaderProps = {
   title: string;
   cover?: string;
-  publishDate: Date | string;
+  publishDate: string;
   layout: 'default';
 }
 
@@ -56,7 +56,7 @@ function useReadingTime() {
   const [val, setVal] = useState<string>('')
 
   useEffect(() => {
-    const content = document.getElementsByClassName('post__content')[0].innerText
+    const content = document.querySelector<HTMLElement>('.post__content')!.innerText
     const time = readingTime(content).text.replace('read', 'de leitura')
 
     setVal(time)

@@ -29,7 +29,7 @@ export function promisify(func: Function, args: any[], context: any = null): Pro
 
 /**
  * Chamar uma função para cada item de um array com um pequeno intervalo entre cada chamada.
- * 
+ *
  * @param items - Array de itens ou elementos html.
  * @param delayInMs - Intervalo entre cada camada em milisegundos.
  * @param callback - Função que recebe 2 argumentos: o item atual no loop e o índice dele.
@@ -69,7 +69,7 @@ export async function getAllPosts(
   fromCache: boolean = true
 ): Promise<object[]> {
   if (fromCache) {
-    return require('./posts-data.js');
+    return require('../posts-data.js');
   }
 
   const files: string[] = await promisify(glob, [`./pages/posts/**/*.mdx`])
@@ -130,9 +130,9 @@ type ValidCategoriesName = 'links' | 'contact links'
 
 /**
  * Enviar evento ao Google Analitycs sobre click em um link.
- * 
+ *
  * @param category - Categoria do link. Se não for especificado a categoria genérica "links" vai ser usada.
- * 
+ *
  * @example
  *   <a href="..." onClick={sendLinkClickToGA()}>...</a>
  */
