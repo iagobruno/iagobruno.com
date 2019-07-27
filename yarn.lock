@@ -2084,6 +2084,11 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
+date-fns@^1.30.1:
+  version "1.30.1"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.30.1.tgz#2e71bf0b119153dbb4cc4e88d9ea5acfb50dc05c"
+  integrity sha512-hBSVCvSmWC+QypYObzwGOd9wqdDpOt+0wl0KbU+R+uuZBS1jN8VsD1ss3irQDknRj5NvxiTF6oj/nDRnN/UQNw==
+
 date-now@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
@@ -3899,7 +3904,7 @@ next-server@9.0.2:
     styled-jsx "3.2.1"
     url "0.11.0"
 
-next@9.0.2:
+next@^9.0.2:
   version "9.0.2"
   resolved "https://registry.yarnpkg.com/next/-/next-9.0.2.tgz#4de9da7ca64d89dd1759ad2b5d9d23a9dc3ca63b"
   integrity sha512-ICZWI4a7oqjGIf3qoq8amCSeF+mP00azqODqFWSwFGCxm3SnBZu4xqNr5QmeOMFCML8J/eRlI6o8vE7aE0yTTw==
