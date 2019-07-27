@@ -1,5 +1,5 @@
 import * as React from 'react'
-import App, { Container, NextAppContext } from 'next/app'
+import App, { Container, AppContext } from 'next/app'
 import NProgress from 'nprogress'
 import Router from 'next/router'
 import withGA from 'next-ga'
@@ -10,7 +10,7 @@ import '../styles/nprogress.css'
 import Notification from '../components/Notification/Notification'
 
 class MyApp extends App {
-  static async getInitialProps({ Component, ctx }: NextAppContext) {
+  static async getInitialProps({ Component, ctx }: AppContext) {
     let pageProps = {}
 
     if (Component.getInitialProps) {

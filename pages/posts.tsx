@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react'
-import { NextFunctionComponent } from 'next'
+import { NextPage } from 'next'
 
 import SocialTags from '../components/SocialTags'
 import Header from '../components/Header/Header'
 import BlogList from '../components/BlogList/BlogList'
 import Footer from '../components/Footer/Footer'
 
-const PostPage: NextFunctionComponent = () => {
+const PostPage: NextPage = () => {
   return (
     <Fragment>
       <SocialTags
