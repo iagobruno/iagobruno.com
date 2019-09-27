@@ -12,7 +12,7 @@ const links: Array<LinkItem> = [
   // { text: 'Last.fm', url: 'https://www.last.fm/user/httpiago' },
   { text: 'Messenger', url: 'https://m.me/httpiago' },
   { text: 'LinkedIn', url: 'https://www.linkedin.com/in/iagobruno/' },
-  { text: 'Github', url: 'https://github.com/httpiago/' },
+  { text: 'Github', url: 'https://github.com/iagobruno/' },
 ]
 
 const Footer: FunctionComponent = () => {
@@ -31,7 +31,7 @@ const Footer: FunctionComponent = () => {
 
         <a
           className="footer__code-note"
-          href="https://github.com/httpiago/iagobruno.com"
+          href="https://github.com/iagobruno/iagobruno.com"
           onClick={sendLinkClickToGA()}
           aria-label="Considerações finais: Feito com reaquite e amor por mim mesmo"
         >

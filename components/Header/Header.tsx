@@ -31,7 +31,7 @@ const Header: FunctionComponent<HeaderProps> = ({ mode }) => {
                 <Link href="/posts"><a aria-label="Lista de postagens">Blog</a></Link>
               </li>*/}
               <li>
-                <a href="https://github.com/httpiago/" onClick={sendLinkClickToGA('contact links')} aria-label="Perfil no Github">GitHub</a>
+                <a href="https://github.com/iagobruno/" onClick={sendLinkClickToGA('contact links')} aria-label="Perfil no Github">GitHub</a>
               </li>
             </ul>
           </nav>

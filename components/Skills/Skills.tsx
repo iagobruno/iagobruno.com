@@ -128,7 +128,7 @@ const Skills: FunctionComponent = () => {
         </div>
 
         <div className="skills__footer">
-          Ver <a href="https://github.com/httpiago?tab=stars" onClick={sendLinkClickToGA()}>meus favoritos no Github</a> é uma outra ótima forma de descobrir minhas habilidades.
+          Ver <a href="https://github.com/iagobruno?tab=stars" onClick={sendLinkClickToGA()}>meus favoritos no Github</a> é uma outra ótima forma de descobrir minhas habilidades.
         </div>
       </center>
     </section>
