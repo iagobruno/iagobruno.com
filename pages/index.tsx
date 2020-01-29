@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { NextFunctionComponent } from 'next'
+import { NextPage } from 'next'
 
 import Header from '../components/Header/Header'
 import About from '../components/About/About'
@@ -8,14 +8,14 @@ import Skills from '../components/Skills/Skills'
 import Works from '../components/Works/Works'
 import Footer from '../components/Footer/Footer'
 import SocialTags from '../components/SocialTags'
-import BlogList from '../components/BlogList/BlogList'
+// import BlogList from '../components/BlogList/BlogList'
 
-const HomePage: NextFunctionComponent = () => {
+const HomePage: NextPage = () => {
   return (
     <Fragment>
       <SocialTags
         page_title="Iago Bruno &#8212; Full Stack Developer"
-        description="Programador de websites com experiência vasta em JavaScript, Node, React, CSS, entre outros."
+        description="Programador web com experiência vasta em JavaScript, Node, React, CSS, entre outras tecnologias."
         url="https://www.iagobruno.com/"
         image="https://www.iagobruno.com/static/images/website-print.jpg"
       />

@@ -1,8 +1,7 @@
-import Document, { Head, Main, NextScript } from 'next/document'
-import { NextDocumentContext } from 'next'
+import Document, { Head, Main, NextScript, DocumentContext } from 'next/document'
 
 export default class MyDocument extends Document {
-  static async getInitialProps(ctx: NextDocumentContext) {
+  static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx)
     return { ...initialProps }
   }
