@@ -1,4 +1,3 @@
-const withTypescript = require('@zeit/next-typescript')
 const withCSS = require('@zeit/next-css')
 const withLESS = require('@zeit/next-less')
 const withMDX = require('@zeit/next-mdx')()
@@ -6,8 +5,8 @@ const withMDX = require('@zeit/next-mdx')()
 /**
  * @see https://github.com/zeit/next.js#static-html-export
  */
-module.exports = withTypescript(withMDX(withCSS(withLESS({
-  pageExtensions: ['jsx', 'js', 'tsx', 'mdx'],
+module.exports = withMDX(withCSS(withLESS({
+  pageExtensions: ['jsx', 'js', 'ts', 'tsx', 'mdx'],
   webpack(config) {
     config.resolve.plugins = [
       ...(config.resolve.plugins || []),
@@ -21,4 +20,4 @@ module.exports = withTypescript(withMDX(withCSS(withLESS({
   async exportPathMap(defaultPathMap) {
     return defaultPathMap
   }
-}))))
+})))

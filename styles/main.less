@@ -94,42 +94,42 @@ ul.list {
   }
 }
 
-.list a {
+#works .list a {
   position: relative;
   outline: none;
   display: block;
   color: #333;
-}
 
-.list a:focus,
-.list a:hover {
-  color: #005aff;
-  text-decoration: none;
-}
+  &:focus,
+  &:hover {
+    color: #005aff;
+    text-decoration: none;
+  }
 
-.list a::after {
-  background: transparent;
-  border-radius: 5px;
-  transform: scale(1);
-  transition: transform 180ms ease;
-  position: absolute;
-  content: '';
-  z-index: -1;
-  top: 0px;
-  left: 0px;
-  bottom: 0px;
-  right: 0px;
-}
+  &::after {
+    background: transparent;
+    border-radius: 5px;
+    transform: scale(1);
+    transition: transform 180ms ease;
+    position: absolute;
+    content: '';
+    z-index: -1;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+  }
 
-.list a:focus::after,
-.list a:hover::after,
-.list a.with-background::after {
-  background: rgba(0, 0, 0, .06);
-  transform: scale(1.07);
-}
+  &:focus::after,
+  &:hover::after,
+  &.with-background::after {
+    background: rgba(0, 0, 0, .06);
+    transform: scale(1.07);
+  }
 
-.list a:focus::after {
-  // border: 1px solid #005aff;
+  &:focus::after {
+    // border: 1px solid #005aff;
+  }
 }
 
 img.list__thumb {
@@ -155,7 +155,7 @@ img.list__thumb {
   margin-top: 6px;
   /* margin-bottom: 0; */
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.6;
   color: #777;
 }
 
